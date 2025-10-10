@@ -1,0 +1,13 @@
+2025-10-08 10:37:49 - ADD - FQDN: autom-residus.santpau.es, IP: 172.31.222.86 - Usuario: jestebanl
+2025-10-08 11:06:01 - ADD - FQDN: tactil-gest-residus.santpau.es, IP: 172.31.222.84 - Usuario: jestebanl
+2025-10-08 12:47:20 - ADD/REASSIGN_PTR - FQDN: det-rad-hab101.santpau.es, IP: 172.31.118.108 - Usuario: jestebanl
+2025-10-08 12:59:54 - ADD/REASSIGN_PTR - FQDN: det-rad-hab102.santpau.es, IP: 172.31.118.109, Old IP:  - Usuario: jestebanl
+2025-10-08 15:30:07 - ADD_CNAME - ALIAS: appsweb.santpau.cat -> TARGET: webpub04.santpau.es - Usuario: jestebanl
+2025-10-09 12:29:24 - REASSIGN_PTR - FQDN: a1hemostasiad2.santpau.es, IP: 172.31.104.65 - By: jestebanl
+2025-10-09 12:52:11 - REASSIGN_PTR - FQDN: a1hemostasiad2.santpau.es, IP: 172.31.104.65 - By: jestebanl
+2025-10-09 13:04:28 - REASSIGN_PTR - FQDN: a1hemostasiad2.santpau.es, IP: 172.31.104.65 - By: jestebanl
+2025-10-09 15:26:17 - REASSIGN_PTR - FQDN: a1hemostasiad2, IP: 172.31.104.65 - By: jestebanl
+2025-10-09 16:08:45 - REASSIGN_PTR - FQDN: a1hemostasiad2.santpau.es, IP: 172.31.104.65 - By: jestebanl
+2025-10-09 16:35:51 - REASSIGN_PTR - FQDN: a1hemostasiad2.santpau.es, IP: 172.31.104.65 - By: jestebanl
+2025-10-09 16:45:55 - REASSIGN_PTR - FQDN: a1hemostasiad3.santpau.es, IP: 172.31.104.66 - By: jestebanl
+2025-10-09 16:55:40 - ADD - FQDN: sles15sp6.santpau.es, IP: 172.31.99.99 - By: jestebanl
