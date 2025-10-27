@@ -1,0 +1,25 @@
+- name: Distribuir clave SSH autorizada
+  hosts: fallaron
+  become: no
+  gather_facts: false
+
+  # Pide la contraseña de forma segura al inicio del playbook
+  vars_prompt:
+    - name: "ssh_password"
+      prompt: "Introduce la contraseña SSH para el usuario remoto"
+      private: yes # No muestra la contraseña mientras escribes
+
+  # Variables para la ejecución de este play
+  vars:
+    # Deshabilita la comprobación de la clave del host (autoacepta fingerprint)
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
+  tasks:
+    - name: Copiar clave SSH para el usuario root
+      authorized_key:
+        user: root
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_ed25519.pub') }}"
+      vars:
+        # Pasa la contraseña pedida para la conexión
+        ansible_ssh_pass: "{{ ssh_password }}"

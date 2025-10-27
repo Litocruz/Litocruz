@@ -1,0 +1,12 @@
+---
+- name: Probar la escritura local
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Escribir una línea en un fichero de prueba
+      lineinfile:
+        path: "./test_escritura.txt"
+        line: "Esto es una prueba de escritura."
+        create: yes

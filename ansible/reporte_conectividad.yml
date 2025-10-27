@@ -1,0 +1,57 @@
+---
+- name: Instalar clave SSH pública en servidores
+  hosts: all
+  gather_facts: false
+
+  # 1. Pide la contraseña principal de 'root' de forma segura al inicio.
+  vars_prompt:
+    - name: "root_password_principal"
+      prompt: "Introduce la contraseña principal de root (ej: 2l$O-gvM)"
+      private: yes # No muestra la contraseña al escribir
+
+  tasks:
+    - name: Intentar instalar la clave SSH con la contraseña principal
+      block:
+        # Intenta copiar la clave pública de tu usuario local (jestebanl) al 'root' remoto.
+        - name: Copiar clave SSH con contraseña principal
+          authorized_key:
+            user: root
+            state: present
+            key: "{{ lookup('file', '~/.ssh/id_ed25519.pub') }}"
+          vars:
+            # Usa la contraseña principal para este intento
+            ansible_user: root
+            ansible_ssh_pass: "{{ root_password_principal }}"
+
+      rescue:
+        # 3. Si el bloque anterior falla por autenticación, se activa el modo interactivo.
+        - name: Fallo de autenticación, iniciar modo de reintento manual
+          when: "'Permission denied' in ansible_failed_result.msg or 'Invalid/incorrect password' in ansible_failed_result.msg"
+          block:
+            # Pregunta si quieres reintentar
+            - name: Preguntar para reintentar la conexión
+              ansible.builtin.pause:
+                prompt: "ATENCIÓN: La contraseña principal falló en [{{ inventory_hostname }}]. ¿Quieres introducir una manualmente? (sí/no)"
+              register: quiera_reintentar
+              delegate_to: localhost
+            
+            # Si dices que 'sí', pide la nueva contraseña
+            - name: Pedir contraseña específica para el host
+              when: quiera_reintentar.user_input | lower in ['sí', 'si']
+              block:
+                - name: Pedir nueva contraseña para el host
+                  ansible.builtin.pause:
+                    prompt: "  -> Introduce la CONTRASEÑA de root para [{{ inventory_hostname }}]"
+                    echo: false
+                  register: nueva_password
+                  delegate_to: localhost
+                
+                # Reintenta la copia de la clave con la nueva contraseña
+                - name: Reintentar copia de clave SSH con nueva contraseña
+                  authorized_key:
+                    user: root
+                    state: present
+                    key: "{{ lookup('file', '~/.ssh/id_ed25519.pub') }}"
+                  vars:
+                    ansible_user: root
+                    ansible_ssh_pass: "{{ nueva_password.user_input }}"

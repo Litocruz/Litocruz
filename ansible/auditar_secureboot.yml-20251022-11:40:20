@@ -1,0 +1,33 @@
+---
+- name: Auditar el estado de Secure Boot (Método Universal)
+  hosts: all
+  gather_facts: yes # Recolecta 'facts' del kernel, *no* usa mokutil
+
+  tasks:
+    - name: Crear el fichero de reporte (solo una vez)
+      delegate_to: localhost
+      run_once: true
+      copy:
+        content: "Servidor,Estado_SecureBoot\n" # Cabecera del CSV
+        dest: "./reporte_secureboot_ansible.csv"
+      
+    # Tarea para calcular el estado de forma más clara
+    - name: Determinar el estado de Secure Boot
+      set_fact:
+        # Esta lógica (en Jinja2) determina el estado exacto
+        secureboot_status: >-
+          {% if ansible_facts.efi is defined and ansible_facts.efi.secureboot is defined %}
+          {{ ansible_facts.efi.secureboot }}
+          {% elif ansible_facts.efi is defined %}
+          NO_SE_PUDO_VERIFICAR (VM es EFI, pero estado desconocido)
+          {% else %}
+          NO_EFI (Modo BIOS/Legacy)
+          {% endif %}
+
+    - name: Registrar el estado de Secure Boot de cada host
+      delegate_to: localhost
+      lineinfile:
+        path: "./reporte_secureboot_ansible.csv"
+        # Usamos la variable limpia que acabamos de calcular
+        line: "{{ inventory_hostname }},{{ secureboot_status }}"
+        create: no

@@ -11,3 +11,11 @@
 2025-10-09 16:35:51 - REASSIGN_PTR - FQDN: a1hemostasiad2.santpau.es, IP: 172.31.104.65 - By: jestebanl
 2025-10-09 16:45:55 - REASSIGN_PTR - FQDN: a1hemostasiad3.santpau.es, IP: 172.31.104.66 - By: jestebanl
 2025-10-09 16:55:40 - ADD - FQDN: sles15sp6.santpau.es, IP: 172.31.99.99 - By: jestebanl
+2025-10-13 08:29:43 - ADD - FQDN: QUENDAANBLICK02.santpau.es, IP: 172.31.55.90 - By: jestebanl
+2025-10-14 10:15:09 - ADD - FQDN: proxy-pass-ha.santpau.es, IP: 172.31.99.249 - By: jestebanl
+2025-10-14 11:04:38 - ADD - FQDN: RDSCAL03.santpau.es, IP: 172.31.55.95 - By: jestebanl
+2025-10-20 11:57:29 - ADD - FQDN: Pyxis_QR19.santpau.es, IP: 172.31.252.120 - By: jestebanl
+2025-10-21 09:20:34 - ADD - FQDN: INTRANETHSP03DES.santpau.es, IP: 172.31.99.135 - By: jestebanl
+2025-10-21 09:22:08 - ADD - FQDN: INTRANETHSP03.santpau.es, IP: 172.31.99.136 - By: jestebanl
+2025-10-21 09:27:40 - ADD - FQDN: Pyxis-QR20.santpau.es, IP: 172.31.252.121 - By: jestebanl
+2025-10-21 09:28:10 - ADD - FQDN: Pyxis-QR21.santpau.es, IP: 172.31.252.122 - By: jestebanl

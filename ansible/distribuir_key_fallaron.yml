@@ -1,0 +1,58 @@
+---
+- name: Instalar Clave SSH Manualmente (Host por Host)
+  hosts: fallaron
+  gather_facts: false
+  serial: 1
+  ignore_unreachable: true
+
+  # Tarea inicial que se ejecuta una sola vez para crear el fichero de reporte
+  pre_tasks:
+    - name: Crear o limpiar el fichero de registro de éxitos
+      ansible.builtin.copy:
+        content: "HOSTNAME,USUARIO_EXITOSO"
+        dest: "./accesos_exitosos.csv"
+      delegate_to: localhost
+      run_once: true # Asegura que esto se ejecute solo una vez
+
+  tasks:
+    - name: "Procesando host: {{ inventory_hostname }}"
+      ansible.builtin.pause:
+        prompt: |
+          A continuación se pedirán las credenciales para [{{ inventory_hostname }}].
+          Presiona Enter para continuar...
+      delegate_to: localhost
+
+    - name: Pedir credenciales para el host
+      block:
+        - name: Pedir nombre de usuario
+          ansible.builtin.pause:
+            prompt: "  -> Introduce el USUARIO para [{{ inventory_hostname }}]"
+          register: target_user
+          delegate_to: localhost
+
+        - name: Pedir contraseña
+          ansible.builtin.pause:
+            prompt: "  -> Introduce la CONTRASEÑA para [{{ target_user.user_input }}@{{ inventory_hostname }}]"
+            echo: false
+          register: target_pass
+          delegate_to: localhost
+
+    - name: Copiar tu clave SSH al servidor remoto
+      authorized_key:
+        user: "{{ target_user.user_input }}"
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_ed25519.pub') }}"
+      vars:
+        ansible_user: "{{ target_user.user_input }}"
+        ansible_ssh_pass: "{{ target_pass.user_input }}"
+      ignore_errors: true
+      register: copy_key_result # Guardamos el resultado de esta tarea en una variable
+
+    # -- NUEVA TAREA PARA REGISTRAR EL ÉXITO --
+    - name: Registrar éxito en el fichero
+      # Esta tarea solo se ejecuta si la tarea anterior tuvo éxito
+      when: copy_key_result is succeeded
+      ansible.builtin.lineinfile:
+        path: "./accesos_exitosos.csv"
+        line: "{{ inventory_hostname }},{{ target_user.user_input }}"
+      delegate_to: localhost # Escribe el fichero en tu máquina local

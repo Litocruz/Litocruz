@@ -1,0 +1,51 @@
+HOSTNAME;IP;ESTADO;MENSAJE_ERROR
+APPWMP01;IP no encontrada;EXITO;-
+ENIGMA01DES;IP no encontrada;EXITO;-
+JIRAHSP;IP no encontrada;EXITO;-
+JENKINS01;IP no encontrada;EXITO;-
+JIRAHSP-TEST;IP no encontrada;EXITO;-
+NFSSERVER01;IP no encontrada;EXITO;-
+MOODLE;IP no encontrada;EXITO;-
+NFSSERVER02;IP no encontrada;EXITO;-
+REDIS01;IP no encontrada;EXITO;-
+SAPSPF01;IP no encontrada;EXITO;-
+SONARQUBE01;IP no encontrada;EXITO;-
+SRV-WEB-API-PIFS;IP no encontrada;EXITO;-
+WEBAPPS01;IP no encontrada;EXITO;-
+XICVAR01;IP no encontrada;EXITO;-
+BBDDSPAUA01;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+CRD02;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+DNS01;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+DNS04;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+DNS02;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+DWH02DES;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+ETCCONS01;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+EXHSP-PROXY-PASS;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+FAMAAFM02;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+JIRAHSPBD-TEST;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+MONGODB03;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+MONGODB02DES;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+OPSMANAGER01;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+PID01;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+PIDDB;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+PUIGMAL;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SAPSPA01;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SAPSPB01;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SAPSPP01;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SESCLI01;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SESCLI01DES;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SPADB;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SPEAS01;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SPEAS03;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SPEAS04;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SPEAS05;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SPEAS06;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SPEDB;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SPFDB;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SYCAI01;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+SUSEMANAGER01;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+TARIF04;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+WEBIR01;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+WEBPUB02;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+WEBPUB03;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"
+WEBPUB04;N/A;FALLO;"MODULE FAILURE: No start of json char found\nSee stdout/stderr for the exact error"

@@ -1,0 +1,19 @@
+---
+- name: Auditar el estado de Secure Boot en la infraestructura Linux
+  hosts: all # O el grupo específico, ej: linux_servers
+  gather_facts: yes # Es fundamental para que Ansible recoja la información del sistema
+
+  tasks:
+    - name: Crear el fichero de reporte (solo se ejecuta una vez)
+      delegate_to: localhost # Esta tarea se ejecuta en tu máquina, no en los servidores remotos
+      run_once: true
+      copy:
+        content: "Servidor,Estado_SecureBoot\n" # Cabecera del CSV
+        dest: "./reporte_secureboot_ansible.csv"
+
+    - name: Registrar el estado de Secure Boot de cada host
+      delegate_to: localhost # También se ejecuta en tu máquina para escribir en el fichero
+      lineinfile:
+        path: "./reporte_secureboot_ansible.csv"
+        line: "{{ inventory_hostname }},{{ ansible_facts.efi.secureboot | default('DESCONOCIDO_NO_EFI') }}"
+        create: no # No crea el fichero, solo añade líneas

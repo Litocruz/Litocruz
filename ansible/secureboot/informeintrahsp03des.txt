@@ -1,0 +1,33 @@
+intrahsp03des:~ # dmesg | grep -i "secure boot"
+[    1.554917] Loaded X.509 cert 'SUSE Linux Enterprise Secure Boot Signkey: 0ac62b1f3f534271132586e29d3b1041591c824a'
+intrahsp03des:~ # journalctl -b | grep -i "secure boot"
+intrahsp03des:~ # ls /sys/firmware/efi
+ls: cannot access '/sys/firmware/efi': No such file or directory
+intrahsp03des:~ # ls /sys/firmware/
+acpi  dmi  memmap
+intrahsp03des:~ # 
+
+
+Observo que Secure Boot está 100% desactivado en ese servidor.
+
+Aquí tienes el análisis de por qué, basado en los comandos que ejecutaste:
+
+ls /sys/firmware/efi (La Prueba Definitiva):
+
+Resultado: No such file or directory
+
+Observación: Esta es la evidencia más importante. La ausencia de la carpeta /sys/firmware/efi significa que el servidor no arrancó en modo UEFI. Arrancó en modo Legacy BIOS.
+
+ls /sys/firmware/:
+
+Resultado: acpi dmi memmap
+
+Observación: Esto confirma lo anterior. El directorio existe, pero le falta la carpeta efi.
+
+journalctl y dmesg:
+
+Resultado: journalctl no devuelve nada. dmesg muestra que se cargó un certificado de SUSE (SUSE Linux Enterprise Secure Boot Signkey).
+
+Observación: Esto puede ser confuso. La línea de dmesg no significa que Secure Boot esté activo. Solo significa que el kernel de SUSE que está cargado está firmado digitalmente y es capaz de arrancar en un sistema con Secure Boot. Sin embargo, como el sistema arrancó en modo BIOS, esta firma no se utilizó.
+
+Conclusión: Dado que Secure Boot es una característica que solo existe en el modo UEFI, y este servidor arrancó en modo Legacy BIOS, Secure Boot no está (ni puede estar) activado.

@@ -1,0 +1,1 @@
+useradd -s /bin/bash -d /home/ansible -m --password '$6$NaLFK8ZwhWcf43jp$OJYkBoRHulJvyASaa.RD13BxVM39lswIkEONWcqT1xMy1KWCe3U2w1GvrOIQi6UJoLP8XFEsDEi8OPn3tonLi0' ansible && usermod -aG wheel ansible && sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers

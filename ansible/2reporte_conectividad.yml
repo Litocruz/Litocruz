@@ -1,0 +1,94 @@
+---
+# FASE 1: Recolectar Datos de Conectividad
+- name: 1. Recolectar Datos de Conectividad
+  hosts: all
+  gather_facts: false
+  
+  pre_tasks:
+    - name: Inicializar el estado de conectividad por defecto para todos los hosts
+      ansible.builtin.set_fact:
+        connectivity_result:
+          status: "FALLO"
+          ip: "N/A"
+          error_msg: "Host inalcanzable (unreachable)"
+
+  tasks:
+    - name: Verificar conexión y registrar resultado para cada host
+      block:
+        - name: Ping al host
+          ansible.builtin.ping:
+
+        - name: Recolectar IP del host
+          ansible.builtin.setup:
+            filter: "ansible_default_ipv4"
+
+        - name: Registrar resultado de éxito
+          ansible.builtin.set_fact:
+            connectivity_result:
+              status: "EXITO"
+              ip: "{{ ansible_default_ipv4.address | default('IP NO OBTENIDA') }}"
+              error_msg: ""
+      
+      rescue:
+        - name: Registrar resultado de fallo
+          ansible.builtin.set_fact:
+            connectivity_result:
+              status: "FALLO"
+              ip: "N/A"
+              error_msg: "{{ ansible_failed_result.msg | default(ansible_failed_result) }}"
+
+# FASE 2: Procesar los datos recolectados y generar un único reporte categorizado
+- name: 2. Generar Reporte Agrupado y Categorizado
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: Crear reporte agrupando los hosts por estado y tipo de error
+      ansible.builtin.copy:
+        dest: "./reporte_final_categorizado.txt"
+        content: |
+          REPORTE DE CONECTIVIDAD DE HOSTS ({{ ansible_date_time.iso8601 }})
+          ===============================================================
+
+          **HOSTS CON CONEXIÓN EXITOSA**
+          ---------------------------------------------------------------
+          {% for host in groups['all'] %}
+          {%   if hostvars[host].connectivity_result is defined and hostvars[host].connectivity_result.status == "EXITO" %}
+          - {{ '%-45s' | format(host) }} (IP: {{ hostvars[host].connectivity_result.ip }})
+          {%   endif %}
+          {% endfor %}
+
+
+          **HOSTS CON FALLO DE CONEXIÓN**
+          ---------------------------------------------------------------
+
+          **>>> ERRORES DE AUTENTICACIÓN (Permiso denegado o contraseña incorrecta)**
+          {% for host in groups['all'] %}
+          {%   set res = hostvars[host].connectivity_result %}
+          {%   if res is defined and res.status == "FALLO" and ('Permission denied' in res.error_msg or 'Invalid/incorrect password' in res.error_msg) %}
+          - {{ host }}
+          {%   endif %}
+          {% endfor %}
+
+          {# CORRECCIÓN: Título mejorado y condición ampliada para incluir ambos tipos de error de compatibilidad #}
+          **>>> ERRORES DE COMPATIBILIDAD SSH (Algoritmos o Claves Antiguas)**
+          {% for host in groups['all'] %}
+          {%   set res = hostvars[host].connectivity_result %}
+          {%   if res is defined and res.status == "FALLO" and ('no matching key exchange method' in res.error_msg or 'no matching host key type found' in res.error_msg) %}
+          - {{ host }}
+          {%   endif %}
+          {% endfor %}
+
+          **>>> OTROS ERRORES (Inalcanzables, DNS, Red, etc.)**
+          {% for host in groups['all'] %}
+          {%   set res = hostvars[host].connectivity_result %}
+          {# CORRECCIÓN: Se añade la nueva condición para excluirla también de esta categoría general #}
+          {%   if res is defined and res.status == "FALLO" and
+                ('Permission denied' not in res.error_msg) and
+                ('Invalid/incorrect password' not in res.error_msg) and
+                ('no matching key exchange method' not in res.error_msg) and
+                ('no matching host key type found' not in res.error_msg) %}
+          - {{ '%-45s' | format(host) }} (Error: {{ res.error_msg }})
+          {%   endif %}
+          {% endfor %}

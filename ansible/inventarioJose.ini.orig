@@ -1,0 +1,270 @@
+[all]
+activiti01   
+csgmsrchDSp
+ansible01
+appinfurG01
+appinfurG01des
+app-nnn
+appwmp01
+arum01
+atb01
+Auckland ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss'
+bacterieMIes01
+barcelones ansible_user=root ansible_password=2l$O-gvM ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss'
+bastion01
+bastion02
+bastion03
+bbddspauA01
+BONEVIEW01 ansible_user=client
+carescapE01 ansible_user=service
+CISCO-ISe01 ansible_user=admin	
+CISCO-ISe02 ansible_user=admin
+cisco-sySLog01
+codiasshSP01
+codiasshSP02
+commvaulT-frel.santpau.es
+cucmipccHSp.santpau.es ansible_user=administrator
+CUCMIPCChsPS ansible_user=administrator
+cucmpublISherhsp.santpau.es ansible_user=administrator
+cucmsubsCRiberhsp.santpau.es ansible_user=administrator
+cucmsubsCRiberhsp1.santpau.es ansible_user=administrator
+cucmunitYHsp ansible_user=administrator
+developmENt03 ansible_user=logicalis
+dev-oke-BKf7c-master-0
+dev-oke-BKf7c-master-1
+dev-oke-BKf7c-master-2
+dev-oke-BKf7c-worker-bktqf
+dev-oke-BKf7c-worker-fvgvw
+dlab01
+dna-backUPs
+dns01
+dns02
+dns03
+dns04
+dns05
+dokuflex01
+dokuflex01cons.santpau.es
+dokuflex01test
+dwh01
+dwh01des
+dwh02
+dwh02des
+ritmocorE.santpau.es
+enigma01DEs
+enigmaprN03
+estimtraCK01.santpau.es
+estimtraCK01des.santpau.es
+etccons01
+exhsp-prOXy-pass
+exhsp-prOXy-pass-int
+exhsp-prOXy-pass-int-clone
+famaafm02
+famaafm02Des
+famaapp01
+famaapp01Des
+foreman01
+#FortiAutHEnticator-VM01
+#FortiAutHEnticator-VM01
+FORTIWEB01 ansible_user=admin ansible_password=MnGlSaDrWQ
+FORTIWEB02 ansible_user=admin ansible_password=MnGlSaDrWQ
+ftp01
+gefact02
+gestioip ansible_user=logicalis
+gestionlOGs
+gestprj01
+gitlab01
+gota04
+gota04deS
+gwp01
+hspeibi01.dspau.santpau.es ansible_user=hsproot
+HSPEICONneCT01 ansible_user=Administrator ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss'
+HSPEICS.SAntpau.es ansible_user=Administrator
+HSPEIDB01.santpau.es  ansible_user=hsproot
+HSPEIDBSteST.dspau.santpau.es    ansible_user=hsproot
+HSPEIGIT01  ansible_user=hsproot
+hspeinas01.santpau.es ansible_user=hsproot ansible_password=HSP2023Ch4ngePleas3+
+HSPEINAS02.santpau.es ansible_user=hsproot ansible_password=HSP2023Ch4ngePleas3+
+HSPEINAS03.santpau.es ansible_user=hsproot ansible_password=HSP2023Ch4ngePleas3+
+HSPEINAS04 ansible_user=hsproot ansible_password=HSP2023Ch4ngePleas3+
+HSPEINAS05.santpau.es ansible_user=hsproot ansible_password=HSP2023Ch4ngePleas3+
+HSPEINAS06 ansible_user=hsproot ansible_password=HSP2023Ch4ngePleas3+
+HSPEINAS07.santpau.es ansible_user=hsproot ansible_password=HSP2023Ch4ngePleas3+
+HSPEINAS08.santpau.es ansible_user=hsproot ansible_password=HSP2023Ch4ngePleas3+
+HSPEIWSTesT.santpau.es ansible_user=hsproot ansible_password=HSP2023Ch4ngePleas3+
+HSPEIXERo01.santpau.es ansible_user=hsproot ansible_password=HSP2023Ch4ngePleas3+
+HSPEIXERo02.santpau.es ansible_user=hsproot ansible_password=HSP2023Ch4ngePleas3+
+informesDB01
+intrahsp01
+intrahsp01des
+intrahsp02
+intrahsp02des
+intrahsp03
+intrahsp03des
+intrahsp04
+intrahsp04des
+Intranet01 ansible_password=2l$O-gvM ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss' 
+Intranet02  ansible_password=2l$O-gvM ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss'
+intranetHSp04
+ipquorum03
+ipquorum04
+iptv01deS  ansible_user=iptv01desadm
+jartum
+jenkins01
+jirahsp
+jirahspbD
+jirahspbD-test
+jirahsp-TEst
+kairos02-Bqfh8-infra-lwbz7
+kairos02-Bqfh8-infra-qk2cl
+kairos02-Bqfh8-infra-qmkhq
+kairos02-Bqfh8-master-0
+kairos02-Bqfh8-master-1
+kairos02-Bqfh8-master-2
+kairos02-Bqfh8-worker-mdbll
+kairos02-Bqfh8-worker-mlnz5
+kairos02-Bqfh8-worker-rqsdw
+kairos02-Bqfh8-worker-zjvgt
+kairos03-Pqx27-infra-76pcv
+kairos03-Pqx27-infra-dzcfc
+kairos03-Pqx27-infra-m9sg7
+kairos03-Pqx27-master-0
+kairos03-Pqx27-master-1
+kairos03-Pqx27-master-2
+kairos03-Pqx27-worker-0-85hcr
+kairos03-Pqx27-worker-0-dk4tp
+kairos03-Pqx27-worker-0-gm7pn
+kairos03-Pqx27-worker-0-lv6fs
+MASIMODLms01  ansible_user=itsys ansible_password=vRYEqJL8AHZ@fXa! ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss'
+MASIMODMs01  ansible_user=itsys ansible_password=vRYEqJL8AHZ@fXa! ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss'
+MASIMOIG01  ansible_user=itsys ansible_password=vRYEqJL8AHZ@fXa! ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss'
+MASIMOIG01DES  ansible_user=itsys ansible_password=vRYEqJL8AHZ@fXa! ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss'
+MASIMOPSn01  ansible_user=itsys ansible_password=vRYEqJL8AHZ@fXa! ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss'
+MASIMOPSn01DES  ansible_user=itsys ansible_password=vRYEqJL8AHZ@fXa! ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss'
+MASIMOMCONT                        ansible_user=itsys ansible_password=vRYEqJL8AHZ@fXa! ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss'         
+MASIMOMCONTDES                     ansible_user=itsys ansible_password=vRYEqJL8AHZ@fXa! ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss'         
+#medipvitALs
+MEDIPVITALS01                      ansible_user=santpau ansible_password=DoihEa4Z         
+mirth02
+mirth02dES
+mongodb
+mongodb01
+mongodb01Des
+mongodb02
+mongodb02Des
+mongodb03
+mongodb03Des
+mongodb04
+mongodb04Des
+mongodbdES
+moodle
+MYSQL01
+nagios.sANtpau.es
+nexus01
+omaweb01.Santpau.es
+openlab01
+openlab01Des
+openlab05
+openlab08
+opsmanagER01
+Panoramahsp01 ansible_password=Axians01.
+patrim1.SAntpau.es
+patwindb02
+patwindb02des
+PETITSACASA01    ansible_password=2l$O-gvM ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss'
+PETITSACASA01DES 
+petitsacASa01des
+petitsacASa02
+petitsacASa02des
+pid01
+piddb
+pip01
+pipdb
+piq01
+piqdb
+plantillASuse15SP5oracle19c
+sles15sp6
+proxy-paSS
+proxypasS01
+proxy-paSS-ir
+puigmal
+puigsacaLM
+localhosT
+pyxisgr01.santpau.es ansible_user=installer
+QUENDAANblICK
+recerca02 ansible_user=recerca
+redcapapP01
+redcapdb01
+redis01
+rman01
+rman19
+sapcconnECt01
+sapsolmaN01
+sapspa01
+sapspb01
+sapspe
+sapspf01
+sapspp01
+sapspu01
+sau01 ansible_user=atos
+sau01des ansible_user=atos
+SC4SSANTacREU ansible_host=172.31.99.111,ansible_user=mmtt,ansible_password=Creu.01
+scannessUS01 ansible_user=admsechsp
+sentry01
+sescli01
+sescli01DEs
+setapp01
+setapp01DEs
+setdb01
+setdb01dES
+SHD-SKYLinE
+SHUKUN                             ansible_user=logicalis_adm,ansible_password=2l$O-gvM         
+smovil03
+sonarqubE01
+spadb
+spbdb
+speas01
+speas02
+speas03
+speas04
+speas05
+speas06
+spedb
+spfdb
+sppdb
+spudb
+srv-db-sTOrage-pifs
+srv-web-APi-pifs
+SSM01.saNTpau.es
+stor2rrd01
+susemanaGEr01
+sw-backuPS
+sycai01
+SYCONNECT01                        ansible_user=syconnect
+SYCONNECT02                        ansible_user=syconnect
+taonet02
+tarif04
+#teampass01
+trak03
+trak03deS
+trak06deS
+UBUNTU01                           ansible_user=atos
+vcsa01.dSPau.santpau.es
+wdisp01dES
+wdisp01pRO
+webapps01 
+webapps01Des 
+webir01
+webir02
+webpub01
+webpub01DEs
+webpub02
+webpub02DEs
+webpub03
+webpub04
+xicvar01
+zabbix01
+
+[all:vars]
+;ansible_python_interpreter=/usr/bin/python3
+ansible_user=root
+;ansible_ssh_private_key_file=/ruta/a/tu/clave.pem

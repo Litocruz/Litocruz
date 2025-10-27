@@ -1,0 +1,34 @@
+---
+- name: Auditar Secure Boot (Modo Serial: Uno por Uno)
+  hosts: all
+  gather_facts: yes
+
+  serial: 1  # Fuerza a Ansible a procesar 1 solo host a la vez.
+
+  ignore_unreachable: true # Ignora hosts que no se pueden conectar
+  ignore_errors: true      # Ignora fallos en tareas
+
+  tasks:
+    # Tarea 1: Crear el fichero, solo la primera vez.
+    - name: Crear el fichero de reporte (solo una vez)
+      delegate_to: localhost
+      run_once: true # Esto se ejecuta en el primer host del lote
+      copy:
+        content: "Servidor,Estado_SecureBoot\n"
+        dest: "./reporte_secureboot_ansible.csv"
+
+    # Tarea 2: Determinar y registrar el estado del host actual.
+    - name: Determinar y registrar el estado
+      delegate_to: localhost
+      lineinfile:
+        path: "./reporte_secureboot_ansible.csv"
+        line: >-
+          {{ inventory_hostname }},
+          {%- if ansible_facts.efi is defined and ansible_facts.efi.secureboot is defined -%}
+          {{ ansible_facts.efi.secureboot }}
+          {%- elif ansible_facts.efi is defined -%}
+          NO_SE_PUDO_VERIFICAR
+          {%- else -%}
+          NO_EFI (Modo BIOS/Legacy)
+          {%- endif -%}
+        create: no

@@ -1,0 +1,40 @@
+---
+- name: 2. Descargar Ficheros de Reporte
+  hosts: all
+  gather_facts: no # No necesitamos facts aquí
+  ignore_unreachable: true 
+  ignore_errors: true
+
+  tasks:
+    - name: Crear directorio local para los reportes
+      delegate_to: localhost
+      run_once: true
+      file:
+        path: "./reportes_individuales" # Carpeta donde se guardarán los ficheros
+        state: directory
+        mode: '0755'
+    
+    - name: Descargar el fichero de resultado de cada host
+      fetch:
+        src: "/tmp/secureboot_status.txt" # El fichero que creamos en Playbook 1
+        dest: "./reportes_individuales/{{ inventory_hostname }}.txt" # Lo guarda como <hostname>.txt
+        flat: yes # Los deja todos en la carpeta, no en subcarpetas
+
+# Este segundo 'play' se ejecuta al final, solo en tu máquina local
+- name: 3. Construir el Reporte CSV Final
+  hosts: localhost
+  connection: local # Le dice que es en tu propia máquina
+  gather_facts: no
+  tasks:
+    - name: Unir todos los ficheros en el reporte CSV final
+      run_once: true
+      shell: |
+        echo "Servidor,Estado_SecureBoot" > ./reporte_secureboot_final.csv
+        for f in ./reportes_individuales/*.txt; do
+          host=$(basename $f .txt)
+          estado=$(cat $f)
+          echo "$host,$estado" >> ./reporte_secureboot_final.csv
+        done
+      args:
+        # Esta línea mágica hace que el comando se ejecute en el 'bash' de tu máquina
+        executable: /bin/bash

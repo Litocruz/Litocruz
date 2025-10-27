@@ -1,0 +1,301 @@
+REPORTE DE CONECTIVIDAD DE HOSTS (2025-10-13T09:16:20Z)
+===============================================================
+
+HOSTS CON CONEXIÓN EXITOSA
+---------------------------------------------------------------
+- ANSIBLE01                                     (IP: 172.31.88.232)
+- APPWMP01                                      (IP: 172.31.55.11)
+- CODIASSHSP                                    (IP: 172.31.200.12)
+- CODIASSHSP02                                  (IP: 172.31.200.13)
+- ENIGMA01                                      (IP: 172.31.50.207)
+- ENIGMA01DES                                   (IP: 172.31.99.207)
+- FOREMAN01                                     (IP: 172.31.99.71)
+- GITLAB01                                      (IP: 172.31.50.251)
+- JENKINS01                                     (IP: 172.31.88.205)
+- JIRAHSP                                       (IP: 172.31.55.14)
+- JIRAHSP-TEST                                  (IP: 172.31.99.133)
+- MOODLE                                        (IP: 172.31.55.27)
+- NEXUS01                                       (IP: 172.33.106.13)
+- NFSSERVER01                                   (IP: 172.33.107.120)
+- NFSSERVER02                                   (IP: 172.33.107.130)
+- REDIS01                                       (IP: 172.33.106.15)
+- SAPSPF01                                      (IP: 172.31.99.214)
+- SONARQUBE01                                   (IP: 172.33.106.14)
+- SRV-WEB-API-PIFS                              (IP: 172.31.55.76)
+- WEBAPPS01                                     (IP: 172.31.88.158)
+- XICVAR01                                      (IP: 172.31.55.31)
+
+
+HOSTS CON FALLO DE CONEXIÓN
+---------------------------------------------------------------
+
+>>> Error: Host inalcanzable (unreachable)
+- ACTIVITI01
+- ACUNTIA03
+- ALINITY02
+- APPINFURG01
+- APPINFURG01DES
+- APP-NNN
+- ARUM01
+- ATB01
+- Auckland
+- AWSGATEWAY
+- BACKBOX01
+- BACTERIEMIES01
+- Barcelones
+- bastion01
+- bastion02
+- bastion03
+- BONEVIEW01
+- CARESCAPE01
+- COMMVAULT-FREL
+- CUCMIPCCHSP
+- CUCMIPCCHSPS
+- CUCMPUBLISHERHSP
+- CUCMSUBSCRIBERHSP
+- CUCMSUBSCRIBERHSP1
+- CUCMUNITYHSP
+- DEVELOPMENT03
+- dev-oke-bkf7c-master-0
+- dev-oke-bkf7c-master-1
+- dev-oke-bkf7c-master-2
+- dev-oke-bkf7c-rhcos
+- dev-oke-bkf7c-worker-bktqf
+- dev-oke-bkf7c-worker-fvgvw
+- DLAB01
+- DNA-BACKUPS
+- DNS03
+- DNS05
+- DOKUFLEX01
+- DOKUFLEX01CONS
+- DOKUFLEX01TEST
+- DWH01
+- DWH01DES
+- DWH02
+- ENIGMAPRN03
+- Enquesta01
+- ESTIMTRACK01
+- ESTIMTRACK01DES
+- EXHSP-PROXY-PASS-INT
+- EXHSP-PROXY-PASS-INT_CLONE
+- FAMAAFM02DES
+- FAMAAFM02-NEW
+- FAMAAPP01
+- FAMAAPP01DES
+- FORTIAUTH01
+- FORTIAUTH02
+- FORTIWEB01
+- FORTIWEB02
+- FTP01
+- GAMBELA
+- GEFACT02
+- GESTIOIP
+- GestionLogs
+- GESTPRJ01
+- GOTA04
+- GOTA04DES
+- GWP01
+- HSPEIBI01
+- HSPEICONNECT01
+- HSPEICS.82
+- HSPEIDB01.82
+- HSPEIDBTEST.82
+- HSPEIGIT01
+- HSPEIGP01
+- HSPEINAS01
+- HSPEINAS02
+- HSPEINAS03
+- HSPEINAS04
+- HSPEINAS05
+- HSPEINAS06
+- HSPEINAS07
+- HSPEINAS08
+- HSPEIWSTEST.82
+- HSPEIXERO01.82
+- HSPEIXERO02.82
+- INFORMESDB01
+- INTRAHSP01
+- INTRAHSP01DES
+- INTRAHSP02
+- INTRAHSP02DES
+- INTRAHSP03
+- INTRAHSP03DES
+- INTRAHSP04
+- INTRAHSP04DES
+- Intranet01
+- Intranet02
+- INTRANETHSP04
+- IPQUORUM03
+- IPQUORUM03_CONTINGENCIA_DATASTORELOCAL
+- IPQUORUM04
+- IPQUORUM04_CONTINGENCIA_DATASTORELOCAL
+- IPTV01DES
+- Ironport_CLON_20062024
+- IRONPORT01
+- ISE01
+- ISE02
+- JARTUM
+- JIRAHSPBD
+- JUMPBOXEDR01
+- kairos02-bqfh8-infra-lwbz7
+- kairos02-bqfh8-infra-qk2cl
+- kairos02-bqfh8-infra-qmkhq
+- kairos02-bqfh8-master-0
+- kairos02-bqfh8-master-1
+- kairos02-bqfh8-master-2
+- kairos02-bqfh8-rhcos
+- kairos02-bqfh8-worker-mdbll
+- kairos02-bqfh8-worker-mlnz5
+- kairos02-bqfh8-worker-rqsdw
+- kairos02-bqfh8-worker-zjvgt
+- kairos03-pqx27-infra-76pcv
+- kairos03-pqx27-infra-dzcfc
+- kairos03-pqx27-infra-m9sg7
+- kairos03-pqx27-master-0
+- kairos03-pqx27-master-1
+- kairos03-pqx27-master-2
+- kairos03-pqx27-rhcos-generated-region-generated-zone
+- kairos03-pqx27-worker-0-85hcr
+- kairos03-pqx27-worker-0-dk4tp
+- kairos03-pqx27-worker-0-gm7pn
+- kairos03-pqx27-worker-0-lv6fs
+- MASIMODLMS01
+- MASIMODMS01
+- MASIMOIG01
+- MASIMOIG01DES
+- MASIMOMCONT
+- MASIMOMCONTDES
+- MASIMOPSN01
+- MASIMOPSN01DES
+- MEDIPVITALS01
+- MIRTH02
+- MIRTH02DES
+- MONGODB
+- MONGODB01
+- MONGODB01DES
+- MONGODB02
+- MONGODB03DES
+- MONGODB04
+- MONGODB04DES
+- MONGODBDES
+- MYSQL01
+- NAGIOS01
+- OMAWEB01
+- OPENLAB01
+- OPENLAB01DES
+- OPENLAB05
+- OPENLAB08
+- PANORAMAHSP01
+- PATRIMONI
+- PATWINDB02
+- PATWINDB02DES
+- PETITSACASA01
+- PETITSACASA01DES
+- PETITSACASA02
+- PETITSACASA02DES
+- PIP01
+- PIPDB
+- PIQ01
+- PIQDB
+- PROXY-PASS
+- PROXYPASS01
+- PROXY-PASS-IR
+- PUIGSACALM
+- PYXIS01
+- PYXISGR01
+- QUENDAANBLICK
+- RECERCA02
+- REDCAPAPP01
+- REDCAPDB01
+- RMAN01
+- RMAN19
+- sapcconnect01
+- SAPBO05PRE
+- SAPCCONNECT01
+- SAPSOLMAN01
+- SAPSPE
+- SAPSPU01
+- SAU01
+- SAU01DES
+- SC4SCREU
+- SCANNESSUS01
+- SENTRY01
+- SETAPP01
+- SETAPP01DES
+- SETDB01
+- SETDB01DES
+- SHD-SKYLINE
+- SHUKUN
+- SMARTKANBAN01
+- SMOVIL03
+- SPBDB
+- SPPDB
+- SPUDB
+- SRV-DB-STORAGE-PIFS
+- SSM01
+- STOR2RRD01
+- SUSE_SP4_Oracle_19c
+- SW-BACKUPS
+- SYCONNECT01
+- SYCONNECT02
+- TAONET02
+- TEAMPASS01
+- TRAK03
+- TRAK03DES
+- TRAK06DES
+- UBUNTU01
+- VCSA01
+- WDISP01DES
+- WDISP01PRO
+- WEBAPPS01DES
+- WEBHSP04
+- WEBIR02
+- WEBPUB01
+- WEBPUB01DES
+- WEBPUB02DES
+- WLCHA01A
+- WLCHA01A_CONTIGENCIA
+- WLCHA01B
+- WLCHA01B_CONTINGENCIA
+- zabbix01
+- zNAT
+
+>>> Error: MODULE FAILURE: No start of json char found
+See stdout/stderr for the exact error
+- BBDDSPAUA01
+- CRD02
+- DNS01
+- DNS02
+- DNS04
+- DWH02DES
+- ETCCONS01
+- EXHSP-PROXY-PASS
+- FAMAAFM02
+- JIRAHSPBD-TEST
+- MONGODB02DES
+- MONGODB03
+- OPSMANAGER01
+- PID01
+- PIDDB
+- PUIGMAL
+- SAPSPA01
+- SAPSPB01
+- SAPSPP01
+- SESCLI01
+- SESCLI01DES
+- SPADB
+- SPEAS01
+- SPEAS02
+- SPEAS03
+- SPEAS04
+- SPEAS05
+- SPEAS06
+- SPEDB
+- SPFDB
+- SUSEMANAGER01
+- SYCAI01
+- TARIF04
+- WEBIR01
+- WEBPUB02
+- WEBPUB03
+- WEBPUB04

@@ -1,0 +1,86 @@
+---
+- name: 1. Preparar el archivo de reporte local
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  
+  tasks:
+    - name: Crear cabecera del reporte CSV
+      ansible.builtin.lineinfile:
+        path: ./secure_boot_report_robust.csv
+        line: "hostname,secure_boot_status,check_method"
+        create: yes
+        mode: '0644'
+        state: present
+        regexp: '^hostname,secure_boot_status,check_method$'
+
+- name: 2. Auditar Secure Boot en todas las VMs (Método Robusto)
+  hosts: linux_servers
+  gather_facts: false
+  become: true # Necesario para mokutil y dmesg en algunos sistemas
+  serial: 10   # Ejecuta en lotes de 10
+
+  tasks:
+    # --- PASO 1: Verificar si es EFI o BIOS ---
+    - name: Verificar si el sistema arrancó en modo EFI
+      ansible.builtin.stat:
+        path: /sys/firmware/efi
+      register: efi_check
+      changed_when: false
+
+    # --- PASO 2: Intentar con mokutil (si es EFI) ---
+    - name: (Método 1) Intentar verificar con mokutil
+      ansible.builtin.command: mokutil --sb-state
+      register: mokutil_check
+      ignore_errors: true
+      changed_when: false
+      when: efi_check.stat.exists
+
+    # --- PASO 3: Intentar con dmesg (si mokutil falló y es EFI) ---
+    - name: (Método 2) Intentar verificar con dmesg
+      ansible.builtin.shell: "dmesg | grep -i 'Secure boot' | tail -n 1"
+      register: dmesg_check
+      ignore_errors: true
+      changed_when: false
+      when: 
+        - efi_check.stat.exists
+        - mokutil_check.failed or mokutil_check.rc != 0
+
+    # --- PASO 4: Determinar el estado final y el método ---
+    - name: Determinar el estado final de Secure Boot
+      ansible.builtin.set_fact:
+        secure_boot_status: >-
+          {% if not efi_check.stat.exists %}
+          bios_boot
+          {% elif mokutil_check.rc == 0 and 'SecureBoot enabled' in mokutil_check.stdout %}
+          enabled
+          {% elif mokutil_check.rc == 0 and 'SecureBoot disabled' in mokutil_check.stdout %}
+          disabled
+          {% elif dmesg_check.rc == 0 and 'enabled' in dmesg_check.stdout | lower %}
+          enabled
+          {% elif dmesg_check.rc == 0 and 'disabled' in dmesg_check.stdout | lower %}
+          disabled
+          {% else %}
+          unknown_efi
+          {% endif %}
+        check_method: >-
+          {% if not efi_check.stat.exists %}
+          stat_efi_dir
+          {% elif mokutil_check.rc == 0 %}
+          mokutil
+          {% elif dmesg_check.rc == 0 %}
+          dmesg
+          {% else %}
+          none
+          {% endif %}
+      changed_when: false
+
+    # --- PASO 5: Guardar el resultado en el CSV local ---
+    - name: Guardar resultado en el reporte CSV
+      ansible.builtin.lineinfile:
+        path: ./secure_boot_report_robust.csv
+        line: "{{ inventory_hostname }},{{ secure_boot_status }},{{ check_method }}"
+        insertafter: EOF
+        state: present
+      delegate_to: localhost
+      become: false

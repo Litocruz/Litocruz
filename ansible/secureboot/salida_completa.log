@@ -1,0 +1,1555 @@
+
+PLAY [1. Preparar el archivo de reporte local] **********************************************************************************************************************************************************************************************
+
+TASK [Crear cabecera del reporte CSV] *******************************************************************************************************************************************************************************************************
+/home/jestebanl/Litocruz/ansible/venv-ansible2.9/lib64/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.
+  from cryptography.exceptions import InvalidSignature
+changed: [localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+ok: [activiti01]
+[WARNING]: Platform linux on host app-nnn is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [app-nnn]
+[WARNING]: Platform linux on host ansible01 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [ansible01]
+fatal: [atb01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: root@172.31.88.204: Permission denied (publickey,password).", "unreachable": true}
+ok: [appinfurG01des]
+ok: [appinfurG01]
+ok: [appwmp01]
+[WARNING]: Platform linux on host bastion02 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [bastion02]
+ok: [arum01]
+fatal: [bastion01]: FAILED! => {"msg": "Incorrect sudo password"}
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+skipping: [activiti01]
+ok: [appwmp01]
+skipping: [arum01]
+ok: [appinfurG01des]
+ok: [appinfurG01]
+ok: [ansible01]
+ok: [app-nnn]
+ok: [bastion02]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [activiti01]
+skipping: [ansible01]
+skipping: [appinfurG01]
+skipping: [appinfurG01des]
+skipping: [app-nnn]
+skipping: [appwmp01]
+skipping: [arum01]
+skipping: [bastion02]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [activiti01]
+ok: [ansible01]
+ok: [appinfurG01des]
+ok: [appinfurG01]
+ok: [app-nnn]
+ok: [appwmp01]
+ok: [arum01]
+ok: [bastion02]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [activiti01 -> localhost]
+changed: [ansible01 -> localhost]
+changed: [app-nnn -> localhost]
+changed: [appinfurG01des -> localhost]
+changed: [appinfurG01 -> localhost]
+changed: [appwmp01 -> localhost]
+changed: [arum01 -> localhost]
+changed: [bastion02 -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host cisco-sySLog01 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [cisco-sySLog01]
+[WARNING]: Platform linux on host codiasshSP02 is using the discovered Python interpreter at /usr/bin/python3, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [codiasshSP02]
+[WARNING]: Platform linux on host codiasshSP01 is using the discovered Python interpreter at /usr/bin/python3, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [codiasshSP01]
+[WARNING]: Platform linux on host bbddspauA01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [bbddspauA01]
+[WARNING]: Platform linux on host bastion03 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [bastion03]
+[DEPRECATION WARNING]: Distribution Ubuntu 16.04 on host dna-backUPs should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release will default to using the 
+discovered platform python for this host. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information. This feature will be removed in version 2.12. Deprecation warnings can be disabled 
+by setting deprecation_warnings=False in ansible.cfg.
+ok: [dna-backUPs]
+[WARNING]: Platform linux on host dns01 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [dns01]
+[WARNING]: Platform linux on host dns02 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [dns02]
+ok: [commvaulT-frel.santpau.es]
+ok: [dlab01]
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+skipping: [cisco-sySLog01]
+skipping: [codiasshSP01]
+skipping: [codiasshSP02]
+skipping: [commvaulT-frel.santpau.es]
+skipping: [dlab01]
+skipping: [dna-backUPs]
+skipping: [dns01]
+skipping: [dns02]
+ok: [bbddspauA01]
+ok: [bastion03]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [bastion03]
+skipping: [bbddspauA01]
+skipping: [cisco-sySLog01]
+skipping: [codiasshSP01]
+skipping: [codiasshSP02]
+skipping: [commvaulT-frel.santpau.es]
+skipping: [dlab01]
+skipping: [dna-backUPs]
+skipping: [dns01]
+skipping: [dns02]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [bastion03]
+ok: [bbddspauA01]
+ok: [cisco-sySLog01]
+ok: [codiasshSP01]
+ok: [codiasshSP02]
+ok: [commvaulT-frel.santpau.es]
+ok: [dlab01]
+ok: [dna-backUPs]
+ok: [dns01]
+ok: [dns02]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [bastion03 -> localhost]
+changed: [codiasshSP01 -> localhost]
+changed: [bbddspauA01 -> localhost]
+changed: [codiasshSP02 -> localhost]
+changed: [cisco-sySLog01 -> localhost]
+changed: [commvaulT-frel.santpau.es -> localhost]
+changed: [dlab01 -> localhost]
+changed: [dna-backUPs -> localhost]
+changed: [dns01 -> localhost]
+changed: [dns02 -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[DEPRECATION WARNING]: Distribution Ubuntu 16.04 on host dokuflex01cons.santpau.es should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release will default 
+to using the discovered platform python for this host. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information. This feature will be removed in version 2.12. Deprecation warnings can
+ be disabled by setting deprecation_warnings=False in ansible.cfg.
+ok: [dokuflex01cons.santpau.es]
+[WARNING]: Platform linux on host dns05 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [dns05]
+[WARNING]: Platform linux on host dns03 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [dns03]
+[WARNING]: Platform linux on host dns04 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [dns04]
+[DEPRECATION WARNING]: Distribution Ubuntu 16.04 on host dokuflex01 should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release will default to using the 
+discovered platform python for this host. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information. This feature will be removed in version 2.12. Deprecation warnings can be disabled 
+by setting deprecation_warnings=False in ansible.cfg.
+ok: [dokuflex01]
+[DEPRECATION WARNING]: Distribution Ubuntu 16.04 on host dokuflex01test should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release will default to using the
+ discovered platform python for this host. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information. This feature will be removed in version 2.12. Deprecation warnings can be disabled
+ by setting deprecation_warnings=False in ansible.cfg.
+ok: [dokuflex01test]
+[WARNING]: Platform linux on host dwh01des is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [dwh01des]
+[WARNING]: Platform linux on host dwh02 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [dwh02]
+[WARNING]: Platform linux on host dwh01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [dwh01]
+[WARNING]: Platform linux on host dwh02des is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [dwh02des]
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+skipping: [dns03]
+skipping: [dns04]
+skipping: [dns05]
+skipping: [dokuflex01]
+skipping: [dokuflex01cons.santpau.es]
+skipping: [dokuflex01test]
+ok: [dwh02des]
+ok: [dwh01des]
+ok: [dwh02]
+ok: [dwh01]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [dns03]
+skipping: [dns04]
+skipping: [dns05]
+skipping: [dokuflex01]
+skipping: [dokuflex01cons.santpau.es]
+skipping: [dokuflex01test]
+skipping: [dwh01]
+skipping: [dwh01des]
+skipping: [dwh02]
+skipping: [dwh02des]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [dns03]
+ok: [dns05]
+ok: [dns04]
+ok: [dokuflex01]
+ok: [dokuflex01cons.santpau.es]
+ok: [dokuflex01test]
+ok: [dwh01]
+ok: [dwh01des]
+ok: [dwh02]
+ok: [dwh02des]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [dns03 -> localhost]
+changed: [dokuflex01 -> localhost]
+changed: [dns04 -> localhost]
+changed: [dns05 -> localhost]
+changed: [dokuflex01cons.santpau.es -> localhost]
+changed: [dwh01des -> localhost]
+changed: [dokuflex01test -> localhost]
+changed: [dwh02 -> localhost]
+changed: [dwh01 -> localhost]
+changed: [dwh02des -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host ritmocorE.santpau.es is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [ritmocorE.santpau.es]
+ok: [estimtraCK01des.santpau.es]
+ok: [estimtraCK01.santpau.es]
+[WARNING]: Platform linux on host enigma01DEs is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [enigma01DEs]
+fatal: [exhsp-prOXy-pass-int-clone]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: root@172.31.99.82: Permission denied (publickey,password,keyboard-interactive).", "unreachable": true}
+ok: [enigmaprN03]
+[WARNING]: Platform linux on host exhsp-prOXy-pass is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [exhsp-prOXy-pass]
+[WARNING]: Platform linux on host etccons01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [etccons01]
+[WARNING]: Platform linux on host exhsp-prOXy-pass-int is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [exhsp-prOXy-pass-int]
+[WARNING]: Platform linux on host famaafm02 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [famaafm02]
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+skipping: [ritmocorE.santpau.es]
+skipping: [enigma01DEs]
+skipping: [enigmaprN03]
+skipping: [estimtraCK01.santpau.es]
+skipping: [estimtraCK01des.santpau.es]
+fatal: [etccons01]: FAILED! => {"changed": false, "cmd": "mokutil --sb-state", "msg": "[Errno 2] No such file or directory: b'mokutil': b'mokutil'", "rc": 2}
+...ignoring
+ok: [exhsp-prOXy-pass]
+ok: [exhsp-prOXy-pass-int]
+ok: [famaafm02]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [ritmocorE.santpau.es]
+skipping: [enigma01DEs]
+skipping: [enigmaprN03]
+skipping: [estimtraCK01.santpau.es]
+skipping: [estimtraCK01des.santpau.es]
+skipping: [exhsp-prOXy-pass]
+skipping: [exhsp-prOXy-pass-int]
+skipping: [famaafm02]
+ok: [etccons01]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [ritmocorE.santpau.es]
+ok: [enigma01DEs]
+ok: [estimtraCK01.santpau.es]
+ok: [enigmaprN03]
+ok: [estimtraCK01des.santpau.es]
+ok: [etccons01]
+ok: [exhsp-prOXy-pass]
+ok: [exhsp-prOXy-pass-int]
+ok: [famaafm02]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [ritmocorE.santpau.es -> localhost]
+changed: [enigmaprN03 -> localhost]
+changed: [enigma01DEs -> localhost]
+changed: [estimtraCK01des.santpau.es -> localhost]
+changed: [estimtraCK01.santpau.es -> localhost]
+changed: [etccons01 -> localhost]
+changed: [exhsp-prOXy-pass -> localhost]
+changed: [exhsp-prOXy-pass-int -> localhost]
+changed: [famaafm02 -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host ftp01 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [ftp01]
+[WARNING]: Platform linux on host famaapp01 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [famaapp01]
+[WARNING]: Platform linux on host famaapp01Des is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [famaapp01Des]
+fatal: [gestionlOGs]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Unable to negotiate with 193.146.12.153 port 22: no matching host key type found. Their offer: ssh-rsa,ssh-dss", "unreachable": true}
+[WARNING]: Platform linux on host famaafm02Des is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [famaafm02Des]
+[WARNING]: Platform linux on host foreman01 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [foreman01]
+ok: [gestprj01]
+ok: [gestioip]
+[WARNING]: Platform linux on host gefact02 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [gefact02]
+ok: [gitlab01]
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+skipping: [famaapp01]
+skipping: [famaapp01Des]
+skipping: [ftp01]
+skipping: [gestioip]
+skipping: [gestprj01]
+skipping: [gitlab01]
+ok: [gefact02]
+ok: [foreman01]
+ok: [famaafm02Des]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [famaafm02Des]
+skipping: [famaapp01]
+skipping: [famaapp01Des]
+skipping: [foreman01]
+skipping: [ftp01]
+skipping: [gefact02]
+skipping: [gestioip]
+skipping: [gestprj01]
+skipping: [gitlab01]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [famaafm02Des]
+ok: [famaapp01]
+ok: [foreman01]
+ok: [famaapp01Des]
+ok: [ftp01]
+ok: [gefact02]
+ok: [gestioip]
+ok: [gestprj01]
+ok: [gitlab01]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [famaafm02Des -> localhost]
+changed: [foreman01 -> localhost]
+changed: [famaapp01 -> localhost]
+changed: [famaapp01Des -> localhost]
+changed: [ftp01 -> localhost]
+changed: [gefact02 -> localhost]
+changed: [gestioip -> localhost]
+changed: [gestprj01 -> localhost]
+changed: [gitlab01 -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+fatal: [hspeibi01.dspau.santpau.es]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname hspeibi01.dspau.santpau.es: Name or service not known", "unreachable": true}
+fatal: [HSPEIDBSteST.dspau.santpau.es]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname hspeidbstest.dspau.santpau.es: Name or service not known", "unreachable": true}
+fatal: [HSPEIGIT01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname hspeigit01: Name or service not known", "unreachable": true}
+fatal: [gwp01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: root@gwp01: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+[WARNING]: Platform linux on host gota04 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [gota04]
+fatal: [HSPEIXERo02.santpau.es]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname hspeixero02.santpau.es: Name or service not known", "unreachable": true}
+[WARNING]: Platform linux on host gota04deS is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [gota04deS]
+fatal: [HSPEIXERo01.santpau.es]: UNREACHABLE! => {"changed": false, "msg": "Invalid/incorrect password: \nWarning - This is a regulated Medical Device.\n\n\nYou are about to log into a Medical Device whose development is subject to specific regulations. \nAny tampering, alteration or service (including the loading of additional software packages and \npatches) without proper training, certification, and prior authorization from Agfa Corporation \ncould render this device unsafe and/or ineffective for its intended use.\n\nSuch activities will void the product's warranty and/or service agreement.\n\n\n\nPermission denied, please try again.", "unreachable": true}
+fatal: [HSPEIWSTesT.santpau.es]: FAILED! => {"msg": "Incorrect sudo password"}
+fatal: [HSPEIDB01.santpau.es]: FAILED! => {"msg": "Incorrect sudo password"}
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+ok: [gota04]
+ok: [gota04deS]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [gota04]
+skipping: [gota04deS]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [gota04]
+ok: [gota04deS]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [gota04 -> localhost]
+changed: [gota04deS -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host intrahsp01 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [intrahsp01]
+[WARNING]: Platform linux on host intrahsp01des is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [intrahsp01des]
+[WARNING]: Platform linux on host intrahsp02des is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [intrahsp02des]
+fatal: [intrahsp04]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname intrahsp04: Name or service not known", "unreachable": true}
+fatal: [intrahsp03des]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: root@intrahsp03des: Permission denied (publickey,keyboard-interactive).", "unreachable": true}
+[WARNING]: Platform linux on host intrahsp02 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [intrahsp02]
+[WARNING]: Platform linux on host informesDB01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [informesDB01]
+[WARNING]: Unhandled error in Python interpreter discovery for host Intranet01: Expecting value: line 1 column 1 (char 0)
+[WARNING]: Platform linux on host intrahsp03 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [intrahsp03]
+[WARNING]: Platform linux on host intrahsp04des is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [intrahsp04des]
+[WARNING]: Platform linux on host Intranet01 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+fatal: [Intranet01]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "module_stderr": "Shared connection to intranet01 closed.\r\n", "module_stdout": "  File \"/root/.ansible/tmp/ansible-tmp-1761141839.2222297-7729-270242929978577/AnsiballZ_stat.py\", line 72\r\n    with open(args_path, 'rb') as f:\r\n            ^\r\nSyntaxError: invalid syntax\r\n", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+skipping: [intrahsp01]
+skipping: [intrahsp01des]
+skipping: [intrahsp02]
+skipping: [intrahsp02des]
+skipping: [intrahsp03]
+skipping: [intrahsp04des]
+ok: [informesDB01]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [informesDB01]
+skipping: [intrahsp01]
+skipping: [intrahsp01des]
+skipping: [intrahsp02]
+skipping: [intrahsp02des]
+skipping: [intrahsp03]
+skipping: [intrahsp04des]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [informesDB01]
+ok: [intrahsp02]
+ok: [intrahsp01]
+ok: [intrahsp01des]
+ok: [intrahsp02des]
+ok: [intrahsp03]
+ok: [intrahsp04des]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [informesDB01 -> localhost]
+changed: [intrahsp01des -> localhost]
+changed: [intrahsp02des -> localhost]
+changed: [intrahsp02 -> localhost]
+changed: [intrahsp01 -> localhost]
+changed: [intrahsp03 -> localhost]
+changed: [intrahsp04des -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[WARNING]: Unhandled error in Python interpreter discovery for host Intranet02: Expecting value: line 1 column 1 (char 0)
+[WARNING]: Platform linux on host ipquorum04 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [ipquorum04]
+[WARNING]: Platform linux on host ipquorum03 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [ipquorum03]
+[WARNING]: Platform linux on host Intranet02 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+fatal: [Intranet02]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "module_stderr": "Shared connection to intranet02 closed.\r\n", "module_stdout": "  File \"/root/.ansible/tmp/ansible-tmp-1761141841.3185194-7944-250692196360959/AnsiballZ_stat.py\", line 72\r\n    with open(args_path, 'rb') as f:\r\n            ^\r\nSyntaxError: invalid syntax\r\n", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+[WARNING]: Platform linux on host intranetHSp04 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [intranetHSp04]
+ok: [jirahsp]
+ok: [jenkins01]
+[WARNING]: Platform linux on host jirahspbD is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [jirahspbD]
+[WARNING]: Platform linux on host jirahspbD-test is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [jirahspbD-test]
+ok: [jirahsp-TEst]
+fatal: [iptv01deS]: FAILED! => {"msg": "Incorrect sudo password"}
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+skipping: [ipquorum03]
+skipping: [ipquorum04]
+skipping: [jenkins01]
+skipping: [jirahsp]
+skipping: [jirahsp-TEst]
+ok: [intranetHSp04]
+ok: [jirahspbD-test]
+ok: [jirahspbD]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [ipquorum03]
+skipping: [intranetHSp04]
+skipping: [ipquorum04]
+skipping: [jenkins01]
+skipping: [jirahsp]
+skipping: [jirahspbD]
+skipping: [jirahspbD-test]
+skipping: [jirahsp-TEst]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [intranetHSp04]
+ok: [ipquorum03]
+ok: [ipquorum04]
+ok: [jirahsp]
+ok: [jenkins01]
+ok: [jirahspbD]
+ok: [jirahspbD-test]
+ok: [jirahsp-TEst]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [jenkins01 -> localhost]
+changed: [ipquorum03 -> localhost]
+changed: [intranetHSp04 -> localhost]
+changed: [ipquorum04 -> localhost]
+changed: [jirahsp -> localhost]
+changed: [jirahspbD -> localhost]
+changed: [jirahspbD-test -> localhost]
+changed: [jirahsp-TEst -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host mongodb is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [mongodb]
+[WARNING]: Platform linux on host mongodb01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [mongodb01]
+[WARNING]: Platform linux on host mongodb01Des is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [mongodb01Des]
+[WARNING]: Platform linux on host mirth02dES is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [mirth02dES]
+[WARNING]: Platform linux on host mirth02 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [mirth02]
+[WARNING]: Platform linux on host mongodb03 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [mongodb03]
+[WARNING]: Platform linux on host mongodb02 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [mongodb02]
+[WARNING]: Platform linux on host mongodb02Des is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [mongodb02Des]
+[WARNING]: Platform linux on host mongodb03Des is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [mongodb03Des]
+[WARNING]: Platform linux on host mongodb04 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [mongodb04]
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+fatal: [mongodb01Des]: FAILED! => {"changed": false, "cmd": "mokutil --sb-state", "msg": "[Errno 2] No such file or directory: b'mokutil': b'mokutil'", "rc": 2}
+...ignoring
+fatal: [mongodb]: FAILED! => {"changed": false, "cmd": "mokutil --sb-state", "msg": "[Errno 2] No such file or directory: b'mokutil': b'mokutil'", "rc": 2}
+...ignoring
+fatal: [mongodb01]: FAILED! => {"changed": false, "cmd": "mokutil --sb-state", "msg": "[Errno 2] No such file or directory: b'mokutil': b'mokutil'", "rc": 2}
+...ignoring
+ok: [mirth02dES]
+ok: [mirth02]
+fatal: [mongodb03]: FAILED! => {"changed": false, "cmd": "mokutil --sb-state", "msg": "[Errno 2] No such file or directory: b'mokutil': b'mokutil'", "rc": 2}
+...ignoring
+fatal: [mongodb02Des]: FAILED! => {"changed": false, "cmd": "mokutil --sb-state", "msg": "[Errno 2] No such file or directory: b'mokutil': b'mokutil'", "rc": 2}
+...ignoring
+fatal: [mongodb02]: FAILED! => {"changed": false, "cmd": "mokutil --sb-state", "msg": "[Errno 2] No such file or directory: b'mokutil': b'mokutil'", "rc": 2}
+...ignoring
+fatal: [mongodb03Des]: FAILED! => {"changed": false, "cmd": "mokutil --sb-state", "msg": "[Errno 2] No such file or directory: b'mokutil': b'mokutil'", "rc": 2}
+...ignoring
+fatal: [mongodb04]: FAILED! => {"changed": false, "cmd": "mokutil --sb-state", "msg": "[Errno 2] No such file or directory: b'mokutil': b'mokutil'", "rc": 2}
+...ignoring
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [mirth02]
+skipping: [mirth02dES]
+ok: [mongodb]
+ok: [mongodb01]
+ok: [mongodb01Des]
+ok: [mongodb02]
+ok: [mongodb03]
+ok: [mongodb04]
+ok: [mongodb02Des]
+ok: [mongodb03Des]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [mirth02]
+ok: [mirth02dES]
+ok: [mongodb]
+ok: [mongodb01]
+ok: [mongodb02]
+ok: [mongodb01Des]
+ok: [mongodb02Des]
+ok: [mongodb03]
+ok: [mongodb03Des]
+ok: [mongodb04]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [mirth02 -> localhost]
+changed: [mongodb01 -> localhost]
+changed: [mirth02dES -> localhost]
+changed: [mongodb -> localhost]
+changed: [mongodb01Des -> localhost]
+changed: [mongodb02Des -> localhost]
+changed: [mongodb02 -> localhost]
+changed: [mongodb03 -> localhost]
+changed: [mongodb04 -> localhost]
+changed: [mongodb03Des -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+fatal: [MYSQL01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Connection closed by 172.31.88.57 port 22", "unreachable": true}
+[WARNING]: Platform linux on host mongodbdES is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [mongodbdES]
+[WARNING]: Platform linux on host mongodb04Des is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [mongodb04Des]
+ok: [nagios.sANtpau.es]
+ok: [moodle]
+ok: [nexus01]
+[WARNING]: Platform linux on host openlab01Des is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [openlab01Des]
+[WARNING]: Platform linux on host openlab01 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [openlab01]
+ok: [omaweb01.Santpau.es]
+[WARNING]: Platform linux on host openlab05 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [openlab05]
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+skipping: [moodle]
+skipping: [nagios.sANtpau.es]
+skipping: [nexus01]
+skipping: [omaweb01.Santpau.es]
+skipping: [openlab01]
+skipping: [openlab01Des]
+skipping: [openlab05]
+fatal: [mongodb04Des]: FAILED! => {"changed": false, "cmd": "mokutil --sb-state", "msg": "[Errno 2] No such file or directory: b'mokutil': b'mokutil'", "rc": 2}
+...ignoring
+fatal: [mongodbdES]: FAILED! => {"changed": false, "cmd": "mokutil --sb-state", "msg": "[Errno 2] No such file or directory: b'mokutil': b'mokutil'", "rc": 2}
+...ignoring
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [moodle]
+skipping: [nagios.sANtpau.es]
+skipping: [nexus01]
+skipping: [omaweb01.Santpau.es]
+skipping: [openlab01]
+skipping: [openlab01Des]
+skipping: [openlab05]
+ok: [mongodbdES]
+ok: [mongodb04Des]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [mongodb04Des]
+ok: [mongodbdES]
+ok: [nagios.sANtpau.es]
+ok: [moodle]
+ok: [nexus01]
+ok: [omaweb01.Santpau.es]
+ok: [openlab01]
+ok: [openlab01Des]
+ok: [openlab05]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [mongodbdES -> localhost]
+changed: [moodle -> localhost]
+changed: [mongodb04Des -> localhost]
+changed: [nexus01 -> localhost]
+changed: [nagios.sANtpau.es -> localhost]
+changed: [openlab05 -> localhost]
+changed: [openlab01Des -> localhost]
+changed: [openlab01 -> localhost]
+changed: [omaweb01.Santpau.es -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[WARNING]: Unhandled error in Python interpreter discovery for host patrim1.SAntpau.es: Expecting value: line 1 column 1 (char 0)
+[WARNING]: Platform linux on host patrim1.SAntpau.es is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+fatal: [patrim1.SAntpau.es]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "module_stderr": "Shared connection to patrim1.santpau.es closed.\r\n", "module_stdout": "/root/.ansible/tmp/ansible-tmp-1761141853.1416247-9164-12330295858328/AnsiballZ_stat.py:72: Warning: 'with' will become a reserved keyword in Python 2.6\r\n  File \"/root/.ansible/tmp/ansible-tmp-1761141853.1416247-9164-12330295858328/AnsiballZ_stat.py\", line 72\r\n    with open(args_path, 'rb') as f:\r\n            ^\r\nSyntaxError: invalid syntax\r\n", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+[WARNING]: Platform linux on host opsmanagER01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [opsmanagER01]
+[WARNING]: Platform linux on host PETITSACASA01 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [PETITSACASA01]
+[WARNING]: Platform linux on host patwindb02 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [patwindb02]
+fatal: [petitsacASa02]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Unable to negotiate with 193.146.12.155 port 22: no matching host key type found. Their offer: ssh-rsa,ssh-dss", "unreachable": true}
+[WARNING]: Platform linux on host PETITSACASA01DES is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [PETITSACASA01DES]
+[WARNING]: Platform linux on host petitsacASa01des is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [petitsacASa01des]
+[WARNING]: Platform linux on host petitsacASa02des is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [petitsacASa02des]
+[WARNING]: Platform linux on host patwindb02des is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [patwindb02des]
+[WARNING]: Platform linux on host openlab08 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [openlab08]
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+skipping: [openlab08]
+skipping: [PETITSACASA01]
+skipping: [PETITSACASA01DES]
+skipping: [petitsacASa01des]
+skipping: [petitsacASa02des]
+ok: [opsmanagER01]
+ok: [patwindb02]
+ok: [patwindb02des]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [openlab08]
+skipping: [opsmanagER01]
+skipping: [patwindb02]
+skipping: [patwindb02des]
+skipping: [PETITSACASA01]
+skipping: [PETITSACASA01DES]
+skipping: [petitsacASa01des]
+skipping: [petitsacASa02des]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [openlab08]
+ok: [opsmanagER01]
+ok: [patwindb02]
+ok: [patwindb02des]
+ok: [PETITSACASA01]
+ok: [PETITSACASA01DES]
+ok: [petitsacASa01des]
+ok: [petitsacASa02des]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [openlab08 -> localhost]
+changed: [opsmanagER01 -> localhost]
+changed: [patwindb02 -> localhost]
+changed: [patwindb02des -> localhost]
+changed: [PETITSACASA01 -> localhost]
+changed: [PETITSACASA01DES -> localhost]
+changed: [petitsacASa01des -> localhost]
+changed: [petitsacASa02des -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host pipdb is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [pipdb]
+[WARNING]: Platform linux on host piddb is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [piddb]
+[WARNING]: Platform linux on host piq01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [piq01]
+[WARNING]: Platform linux on host pip01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [pip01]
+[WARNING]: Platform linux on host pid01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [pid01]
+[WARNING]: Platform linux on host piqdb is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [piqdb]
+[WARNING]: Platform linux on host proxy-paSS is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [proxy-paSS]
+[WARNING]: Platform linux on host puigmal is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [puigmal]
+[WARNING]: Platform linux on host proxypasS01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [proxypasS01]
+[WARNING]: Platform linux on host proxy-paSS-ir is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [proxy-paSS-ir]
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+ok: [piddb]
+ok: [pipdb]
+ok: [pid01]
+ok: [piq01]
+ok: [pip01]
+skipping: [puigmal]
+ok: [piqdb]
+ok: [proxy-paSS]
+ok: [proxypasS01]
+ok: [proxy-paSS-ir]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [pid01]
+skipping: [piddb]
+skipping: [pip01]
+skipping: [pipdb]
+skipping: [piq01]
+skipping: [piqdb]
+skipping: [proxy-paSS]
+skipping: [proxypasS01]
+skipping: [proxy-paSS-ir]
+skipping: [puigmal]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [pid01]
+ok: [piddb]
+ok: [pip01]
+ok: [piq01]
+ok: [pipdb]
+ok: [piqdb]
+ok: [proxy-paSS]
+ok: [proxypasS01]
+ok: [proxy-paSS-ir]
+ok: [puigmal]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [pid01 -> localhost]
+changed: [piq01 -> localhost]
+changed: [piddb -> localhost]
+changed: [pip01 -> localhost]
+changed: [pipdb -> localhost]
+changed: [proxy-paSS -> localhost]
+changed: [proxy-paSS-ir -> localhost]
+changed: [proxypasS01 -> localhost]
+changed: [piqdb -> localhost]
+changed: [puigmal -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+ok: [QUENDAANblICK]
+[WARNING]: Platform linux on host puigsacaLM is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [puigsacaLM]
+[WARNING]: Platform linux on host redcapapP01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [redcapapP01]
+[WARNING]: Platform linux on host redcapdb01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [redcapdb01]
+ok: [redis01]
+[WARNING]: Platform linux on host rman01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [rman01]
+[WARNING]: Platform linux on host rman19 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [rman19]
+[WARNING]: Platform linux on host sapcconnECt01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [sapcconnECt01]
+fatal: [pyxisgr01.santpau.es]: FAILED! => {"msg": "Incorrect sudo password"}
+fatal: [recerca02]: FAILED! => {"msg": "Incorrect sudo password"}
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+skipping: [puigsacaLM]
+skipping: [QUENDAANblICK]
+skipping: [redis01]
+ok: [rman01]
+ok: [rman19]
+fatal: [sapcconnECt01]: FAILED! => {"changed": false, "cmd": "mokutil --sb-state", "msg": "[Errno 2] No such file or directory: b'mokutil': b'mokutil'", "rc": 2}
+...ignoring
+ok: [redcapdb01]
+ok: [redcapapP01]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [puigsacaLM]
+skipping: [QUENDAANblICK]
+skipping: [redcapapP01]
+skipping: [redcapdb01]
+skipping: [redis01]
+skipping: [rman01]
+skipping: [rman19]
+ok: [sapcconnECt01]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [puigsacaLM]
+ok: [QUENDAANblICK]
+ok: [redcapapP01]
+ok: [redcapdb01]
+ok: [redis01]
+ok: [rman01]
+ok: [rman19]
+ok: [sapcconnECt01]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [puigsacaLM -> localhost]
+changed: [QUENDAANblICK -> localhost]
+changed: [redis01 -> localhost]
+changed: [redcapdb01 -> localhost]
+changed: [redcapapP01 -> localhost]
+changed: [rman01 -> localhost]
+changed: [sapcconnECt01 -> localhost]
+changed: [rman19 -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host sapsolmaN01 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [sapsolmaN01]
+[WARNING]: Platform linux on host sapspe is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [sapspe]
+[WARNING]: Platform linux on host sapspb01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [sapspb01]
+[WARNING]: Platform linux on host sapspa01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [sapspa01]
+[WARNING]: Platform linux on host sapspf01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [sapspf01]
+[WARNING]: Platform linux on host sapspp01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [sapspp01]
+[WARNING]: Platform linux on host sapspu01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [sapspu01]
+fatal: [scannessUS01]: FAILED! => {"msg": "Incorrect sudo password"}
+fatal: [sau01]: FAILED! => {"msg": "Incorrect sudo password"}
+fatal: [sau01des]: FAILED! => {"msg": "Incorrect sudo password"}
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+skipping: [sapsolmaN01]
+ok: [sapspa01]
+ok: [sapspp01]
+ok: [sapspf01]
+ok: [sapspb01]
+ok: [sapspe]
+ok: [sapspu01]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [sapsolmaN01]
+skipping: [sapspa01]
+skipping: [sapspb01]
+skipping: [sapspe]
+skipping: [sapspf01]
+skipping: [sapspp01]
+skipping: [sapspu01]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [sapsolmaN01]
+ok: [sapspa01]
+ok: [sapspb01]
+ok: [sapspe]
+ok: [sapspf01]
+ok: [sapspp01]
+ok: [sapspu01]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [sapspa01 -> localhost]
+changed: [sapspf01 -> localhost]
+changed: [sapspe -> localhost]
+changed: [sapspb01 -> localhost]
+changed: [sapsolmaN01 -> localhost]
+changed: [sapspp01 -> localhost]
+changed: [sapspu01 -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host sescli01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [sescli01]
+[WARNING]: Platform linux on host sescli01DEs is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [sescli01DEs]
+[WARNING]: Platform linux on host setapp01DEs is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [setapp01DEs]
+[WARNING]: Platform linux on host setapp01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [setapp01]
+ok: [sentry01]
+[WARNING]: Platform linux on host smovil03 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [smovil03]
+[WARNING]: Platform linux on host setdb01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [setdb01]
+[WARNING]: Platform linux on host setdb01dES is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [setdb01dES]
+ok: [SHUKUN]
+ok: [sonarqubE01]
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+skipping: [sentry01]
+ok: [sescli01]
+ok: [sescli01DEs]
+ok: [setapp01DEs]
+ok: [setapp01]
+skipping: [smovil03]
+skipping: [sonarqubE01]
+ok: [setdb01]
+ok: [SHUKUN]
+ok: [setdb01dES]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [sentry01]
+skipping: [sescli01]
+skipping: [sescli01DEs]
+skipping: [setapp01]
+skipping: [setapp01DEs]
+skipping: [setdb01]
+skipping: [setdb01dES]
+skipping: [SHUKUN]
+skipping: [smovil03]
+skipping: [sonarqubE01]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [sescli01]
+ok: [sentry01]
+ok: [sescli01DEs]
+ok: [setapp01]
+ok: [setapp01DEs]
+ok: [setdb01dES]
+ok: [setdb01]
+ok: [SHUKUN]
+ok: [smovil03]
+ok: [sonarqubE01]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [sescli01 -> localhost]
+changed: [sescli01DEs -> localhost]
+changed: [setapp01 -> localhost]
+changed: [sentry01 -> localhost]
+changed: [setapp01DEs -> localhost]
+changed: [setdb01 -> localhost]
+changed: [SHUKUN -> localhost]
+changed: [setdb01dES -> localhost]
+changed: [smovil03 -> localhost]
+changed: [sonarqubE01 -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host spadb is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [spadb]
+[WARNING]: Platform linux on host spbdb is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [spbdb]
+[WARNING]: Platform linux on host speas02 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [speas02]
+[WARNING]: Platform linux on host speas03 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [speas03]
+[WARNING]: Platform linux on host speas01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [speas01]
+[WARNING]: Platform linux on host speas04 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [speas04]
+[WARNING]: Platform linux on host speas05 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [speas05]
+[WARNING]: Platform linux on host spedb is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [spedb]
+[WARNING]: Platform linux on host speas06 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [speas06]
+[WARNING]: Platform linux on host spfdb is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [spfdb]
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+ok: [spadb]
+ok: [spbdb]
+ok: [speas02]
+ok: [speas03]
+ok: [speas01]
+ok: [speas04]
+ok: [spfdb]
+ok: [speas05]
+ok: [spedb]
+ok: [speas06]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [spadb]
+skipping: [spbdb]
+skipping: [speas01]
+skipping: [speas02]
+skipping: [speas03]
+skipping: [speas04]
+skipping: [speas05]
+skipping: [speas06]
+skipping: [spedb]
+skipping: [spfdb]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [spadb]
+ok: [spbdb]
+ok: [speas01]
+ok: [speas02]
+ok: [speas03]
+ok: [speas04]
+ok: [speas05]
+ok: [speas06]
+ok: [spedb]
+ok: [spfdb]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [spbdb -> localhost]
+changed: [speas01 -> localhost]
+changed: [speas02 -> localhost]
+changed: [spadb -> localhost]
+changed: [speas03 -> localhost]
+changed: [speas04 -> localhost]
+changed: [speas05 -> localhost]
+changed: [speas06 -> localhost]
+changed: [spedb -> localhost]
+changed: [spfdb -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host sppdb is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [sppdb]
+[WARNING]: Platform linux on host srv-db-sTOrage-pifs is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [srv-db-sTOrage-pifs]
+[WARNING]: Platform linux on host spudb is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [spudb]
+ok: [stor2rrd01]
+[WARNING]: Platform linux on host sw-backuPS is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [sw-backuPS]
+[WARNING]: Platform linux on host susemanaGEr01 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [susemanaGEr01]
+[WARNING]: Platform linux on host taonet02 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [taonet02]
+[WARNING]: Platform linux on host srv-web-APi-pifs is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [srv-web-APi-pifs]
+[WARNING]: Platform linux on host sycai01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [sycai01]
+fatal: [SSM01.saNTpau.es]: UNREACHABLE! => {"changed": false, "msg": "Invalid/incorrect password: #######################################################################\n#                     Authorized access only!                         #\n#                                                                     #\n#     Disconnect IMMEDIATELY if you are not an authorized user!!!     #\n#             All actions Will be monitored and recorded              #\n#######################################################################\n\n\nPermission denied, please try again.", "unreachable": true}
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+skipping: [stor2rrd01]
+ok: [sppdb]
+ok: [spudb]
+skipping: [sw-backuPS]
+skipping: [taonet02]
+ok: [srv-db-sTOrage-pifs]
+ok: [susemanaGEr01]
+ok: [sycai01]
+ok: [srv-web-APi-pifs]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [spudb]
+skipping: [sppdb]
+skipping: [stor2rrd01]
+skipping: [srv-db-sTOrage-pifs]
+skipping: [srv-web-APi-pifs]
+skipping: [susemanaGEr01]
+skipping: [sw-backuPS]
+skipping: [sycai01]
+skipping: [taonet02]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [sppdb]
+ok: [spudb]
+ok: [srv-web-APi-pifs]
+ok: [srv-db-sTOrage-pifs]
+ok: [stor2rrd01]
+ok: [susemanaGEr01]
+ok: [sycai01]
+ok: [sw-backuPS]
+ok: [taonet02]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [spudb -> localhost]
+changed: [srv-db-sTOrage-pifs -> localhost]
+changed: [srv-web-APi-pifs -> localhost]
+changed: [sppdb -> localhost]
+changed: [stor2rrd01 -> localhost]
+changed: [susemanaGEr01 -> localhost]
+changed: [sw-backuPS -> localhost]
+changed: [sycai01 -> localhost]
+changed: [taonet02 -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host trak03deS is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [trak03deS]
+[WARNING]: Platform linux on host trak03 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [trak03]
+[WARNING]: Platform linux on host trak06deS is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [trak06deS]
+ok: [tarif04]
+[WARNING]: Platform linux on host wdisp01pRO is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [wdisp01pRO]
+[DEPRECATION WARNING]: Distribution Ubuntu 20.04 on host webapps01 should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release will default to using the 
+discovered platform python for this host. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information. This feature will be removed in version 2.12. Deprecation warnings can be disabled 
+by setting deprecation_warnings=False in ansible.cfg.
+ok: [webapps01]
+[WARNING]: Platform linux on host wdisp01dES is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [wdisp01dES]
+[WARNING]: Platform linux on host webir01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [webir01]
+fatal: [UBUNTU01]: FAILED! => {"msg": "Incorrect sudo password"}
+fatal: [webapps01Des]: FAILED! => {"msg": "Incorrect sudo password"}
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+skipping: [trak03]
+skipping: [trak03deS]
+skipping: [trak06deS]
+skipping: [webapps01]
+ok: [tarif04]
+ok: [wdisp01pRO]
+ok: [webir01]
+ok: [wdisp01dES]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [tarif04]
+skipping: [trak03]
+skipping: [trak03deS]
+skipping: [trak06deS]
+skipping: [wdisp01dES]
+skipping: [wdisp01pRO]
+skipping: [webapps01]
+skipping: [webir01]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [trak03]
+ok: [tarif04]
+ok: [trak06deS]
+ok: [trak03deS]
+ok: [wdisp01dES]
+ok: [wdisp01pRO]
+ok: [webapps01]
+ok: [webir01]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [trak03 -> localhost]
+changed: [tarif04 -> localhost]
+changed: [trak03deS -> localhost]
+changed: [wdisp01dES -> localhost]
+changed: [trak06deS -> localhost]
+changed: [wdisp01pRO -> localhost]
+changed: [webapps01 -> localhost]
+changed: [webir01 -> localhost]
+
+PLAY [2. Auditar Secure Boot en todas las VMs (Método Robusto)] *****************************************************************************************************************************************************************************
+
+TASK [Verificar si el sistema arrancó en modo EFI] ******************************************************************************************************************************************************************************************
+[WARNING]: Platform linux on host webpub01DEs is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [webpub01DEs]
+[WARNING]: Platform linux on host webpub02DEs is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [webpub02DEs]
+[WARNING]: Platform linux on host webir02 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [webir02]
+[WARNING]: Platform linux on host webpub02 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [webpub02]
+[WARNING]: Platform linux on host webpub01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [webpub01]
+[WARNING]: Platform linux on host webpub03 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [webpub03]
+[WARNING]: Platform linux on host webpub04 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [webpub04]
+ok: [xicvar01]
+[WARNING]: Platform linux on host zabbix01 is using the discovered Python interpreter at /usr/bin/python3.6, but future installation of another Python interpreter could change this. See
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
+ok: [zabbix01]
+fatal: [developmENt03]: FAILED! => {"msg": "Incorrect sudo password"}
+
+TASK [(Método 1) Intentar verificar con mokutil] ********************************************************************************************************************************************************************************************
+ok: [webir02]
+ok: [webpub01DEs]
+ok: [webpub01]
+skipping: [xicvar01]
+ok: [webpub02]
+ok: [webpub02DEs]
+ok: [webpub04]
+ok: [webpub03]
+ok: [zabbix01]
+
+TASK [(Método 2) Intentar verificar con dmesg] **********************************************************************************************************************************************************************************************
+skipping: [webir02]
+skipping: [webpub01DEs]
+skipping: [webpub01]
+skipping: [webpub02]
+skipping: [webpub03]
+skipping: [webpub02DEs]
+skipping: [webpub04]
+skipping: [xicvar01]
+skipping: [zabbix01]
+
+TASK [Determinar el estado final de Secure Boot] ********************************************************************************************************************************************************************************************
+ok: [webpub01]
+ok: [webir02]
+ok: [webpub01DEs]
+ok: [webpub02DEs]
+ok: [webpub02]
+ok: [webpub03]
+ok: [webpub04]
+ok: [xicvar01]
+ok: [zabbix01]
+
+TASK [Guardar resultado en el reporte CSV] **************************************************************************************************************************************************************************************************
+changed: [webir02 -> localhost]
+changed: [webpub01 -> localhost]
+changed: [webpub02DEs -> localhost]
+changed: [webpub01DEs -> localhost]
+changed: [webpub02 -> localhost]
+changed: [webpub03 -> localhost]
+changed: [xicvar01 -> localhost]
+changed: [webpub04 -> localhost]
+changed: [zabbix01 -> localhost]
+
+PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+HSPEIDB01.santpau.es       : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+HSPEIDBSteST.dspau.santpau.es : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+HSPEIGIT01                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+HSPEIWSTesT.santpau.es     : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+HSPEIXERo01.santpau.es     : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+HSPEIXERo02.santpau.es     : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+Intranet01                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+Intranet02                 : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+MYSQL01                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+PETITSACASA01              : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+PETITSACASA01DES           : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+QUENDAANblICK              : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+SHUKUN                     : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+SSM01.saNTpau.es           : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+UBUNTU01                   : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+activiti01                 : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+ansible01                  : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+app-nnn                    : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+appinfurG01                : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+appinfurG01des             : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+appwmp01                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+arum01                     : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+atb01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+bastion01                  : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bastion02                  : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+bastion03                  : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+bbddspauA01                : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+cisco-sySLog01             : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+codiasshSP01               : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+codiasshSP02               : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+commvaulT-frel.santpau.es  : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+developmENt03              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dlab01                     : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+dna-backUPs                : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+dns01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+dns02                      : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+dns03                      : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+dns04                      : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+dns05                      : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+dokuflex01                 : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+dokuflex01cons.santpau.es  : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+dokuflex01test             : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+dwh01                      : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+dwh01des                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+dwh02                      : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+dwh02des                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+enigma01DEs                : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+enigmaprN03                : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+estimtraCK01.santpau.es    : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+estimtraCK01des.santpau.es : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+etccons01                  : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+exhsp-prOXy-pass           : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+exhsp-prOXy-pass-int       : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+exhsp-prOXy-pass-int-clone : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+famaafm02                  : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+famaafm02Des               : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+famaapp01                  : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+famaapp01Des               : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+foreman01                  : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+ftp01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+gefact02                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+gestioip                   : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+gestionlOGs                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+gestprj01                  : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+gitlab01                   : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+gota04                     : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+gota04deS                  : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+gwp01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+hspeibi01.dspau.santpau.es : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+informesDB01               : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+intrahsp01                 : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+intrahsp01des              : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+intrahsp02                 : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+intrahsp02des              : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+intrahsp03                 : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+intrahsp03des              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+intrahsp04                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+intrahsp04des              : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+intranetHSp04              : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+ipquorum03                 : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+ipquorum04                 : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+iptv01deS                  : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+jenkins01                  : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+jirahsp                    : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+jirahsp-TEst               : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+jirahspbD                  : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+jirahspbD-test             : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+localhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+mirth02                    : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+mirth02dES                 : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+mongodb                    : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+mongodb01                  : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+mongodb01Des               : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+mongodb02                  : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+mongodb02Des               : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+mongodb03                  : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+mongodb03Des               : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+mongodb04                  : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+mongodb04Des               : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+mongodbdES                 : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+moodle                     : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+nagios.sANtpau.es          : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+nexus01                    : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+omaweb01.Santpau.es        : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+openlab01                  : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+openlab01Des               : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+openlab05                  : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+openlab08                  : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+opsmanagER01               : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+patrim1.SAntpau.es         : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+patwindb02                 : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+patwindb02des              : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+petitsacASa01des           : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+petitsacASa02              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+petitsacASa02des           : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+pid01                      : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+piddb                      : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+pip01                      : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+pipdb                      : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+piq01                      : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+piqdb                      : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+proxy-paSS                 : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+proxy-paSS-ir              : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+proxypasS01                : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+puigmal                    : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+puigsacaLM                 : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+pyxisgr01.santpau.es       : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+recerca02                  : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+redcapapP01                : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+redcapdb01                 : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+redis01                    : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+ritmocorE.santpau.es       : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+rman01                     : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+rman19                     : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+sapcconnECt01              : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+sapsolmaN01                : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+sapspa01                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+sapspb01                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+sapspe                     : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+sapspf01                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+sapspp01                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+sapspu01                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+sau01                      : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+sau01des                   : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+scannessUS01               : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+sentry01                   : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+sescli01                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+sescli01DEs                : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+setapp01                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+setapp01DEs                : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+setdb01                    : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+setdb01dES                 : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+smovil03                   : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+sonarqubE01                : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+spadb                      : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+spbdb                      : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+speas01                    : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+speas02                    : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+speas03                    : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+speas04                    : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+speas05                    : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+speas06                    : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+spedb                      : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+spfdb                      : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+sppdb                      : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+spudb                      : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+srv-db-sTOrage-pifs        : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+srv-web-APi-pifs           : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+stor2rrd01                 : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+susemanaGEr01              : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+sw-backuPS                 : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+sycai01                    : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+taonet02                   : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+tarif04                    : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+trak03                     : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+trak03deS                  : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+trak06deS                  : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+wdisp01dES                 : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+wdisp01pRO                 : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+webapps01                  : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+webapps01Des               : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+webir01                    : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+webir02                    : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+webpub01                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+webpub01DEs                : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+webpub02                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+webpub02DEs                : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+webpub03                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+webpub04                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+xicvar01                   : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+zabbix01                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+

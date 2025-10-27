@@ -1,0 +1,27 @@
+---
+- name: Auditar el estado de Secure Boot (Método Robusto)
+  hosts: all
+  gather_facts: yes
+
+  tasks:
+    - name: Crear el fichero de reporte (solo se ejecuta una vez)
+      delegate_to: localhost
+      run_once: true
+      copy:
+        content: "Servidor,Estado_SecureBoot\n" # Cabecera del CSV
+        dest: "./reporte_secureboot_ansible.csv"
+      
+    - name: Determinar y registrar el estado (host por host)
+      delegate_to: localhost # Esta tarea se ejecuta en tu PC
+      lineinfile:
+        path: "./reporte_secureboot_ansible.csv"
+        line: >-
+          {{ inventory_hostname }},
+          {%- if ansible_facts.efi is defined and ansible_facts.efi.secureboot is defined -%}
+          {{ ansible_facts.efi.secureboot }}
+          {%- elif ansible_facts.efi is defined -%}
+          NO_SE_PUDO_VERIFICAR
+          {%- else -%}
+          NO_EFI (Modo BIOS/Legacy)
+          {%- endif -%}
+        create: no
