@@ -1,0 +1,47 @@
+ ┌─────────────────────────────────────────────────────────────┐
+ │               CLÚSTER K3s (Entorno Consolidación)           │
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                │ Alerta Crítica: DiskPressure (87%)
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ │       Docker Registry Pod (Almacenamiento: registry-pvc)    │
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                │ RESTRICCIÓN: Montado en modo RWO
+                                │ (ReadWriteOnce - Bloqueado por Pod)
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ │               CRONJOB DE AUTOMATIZACIÓN (Daily)             │
+ │                  (Namespace: registry / 05:30 AM)           │
+ └──────┬───────────────────────┬───────────────────────┬──────┘
+        │                       │                       │
+        │ 1. Identidad          │ 2. Concurrency        │ 3. Script Runner
+        ▼                       ▼    Policy             ▼    (bitnami/kubectl)
+ ┌──────────────┐        ┌──────────────┐        ┌──────────────┐
+ │ Identidad    │        │ Directiva    │        │ Orquestador  │
+ │ RBAC (SA)    │        │ Forbid       │        │ Bash Inyectado│
+ └──────┬───────┘        └──────┬───────┘        └──────┬───────┘
+        │                       │                       │
+        │ Rol con acceso        │ Bloquea trabajos     │ Filtra pods con
+        │ limitado a pods/exec  │ simultáneos en disco  │ etiqueta app=registry
+        └───────┬───────────────┼───────────────────────┘
+                │               │
+                v               v
+                +---------------+
+                │ API K8s Exec  │
+                +───────┬───────+
+                        │
+                        │ Inyecta comando directo en caliente (Sin desmontar PVC)
+                        ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ │    Comando: bin/registry garbage-collect /etc/.../config.yml │
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                │ Purga profunda de capas obsoletas (Blobs CI/CD)
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ │              RESULTADO: ESTABILIZACIÓN DEL NODO              │
+ │          - Reducción drástica de ocupación (87% -> 32%)     │
+ │          - Eliminación de Eviction del K8s Dashboard        │
+ └─────────────────────────────────────────────────────────────┘

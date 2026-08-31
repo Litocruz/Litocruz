@@ -1,0 +1,319 @@
+hostname,distro,shim_version,grub2_version,kernel_version,firmware_type
+ansible01,Rocky 9.6,15.8,2.06,5.14.0-570.58.1.el9_6.x86_64,EFI
+appinfurG01des,Ubuntu 22.04,1.51.4+15.8-0ubuntu1,2.06-2ubuntu7.1,5.15.0-67-generic,EFI
+appwmp01,Ubuntu 22.04,1.51.4+15.8-0ubuntu1,2.06-2ubuntu7.2,5.15.0-140-generic,EFI
+atb01,Ubuntu 20.04,,2.04-1ubuntu26.17,5.4.0-166-generic,BIOS
+bastion02,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.88-default,EFI
+cisco-sySLog01,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.110-default,BIOS
+codiasshSP02,Debian 12,,2.06-13+deb12u1,6.1.0-25-amd64,BIOS
+commvaulT-frel.santpau.es,CentOS 7.6,package shim-x64 is not installed
+not_installed,2.02,3.10.0-957.21.3.el7.x86_64,BIOS
+dlab01,Ubuntu 22.04,,2.06-2ubuntu7.2,5.15.0-164-generic,BIOS
+dns02,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.189-default,BIOS
+dns03,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.189-default,BIOS
+dns04,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.189-default,BIOS
+dokuflex01,Ubuntu 16.04,,2.02~beta2-36ubuntu3.29,4.4.0-210-generic,BIOS
+dokuflex01cons.santpau.es,Ubuntu 16.04,,2.02~beta2-36ubuntu3.29,4.4.0-210-generic,BIOS
+dokuflex01test,Ubuntu 16.04,,2.02~beta2-36ubuntu3.32,4.4.0-210-generic,BIOS
+dwh01,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+dwh02,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+dwh02des,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.33-default,EFI
+enigma01DEs,Debian 10,,2.02+dfsg1-20,4.19.0-9-amd64,BIOS
+estimtraCK01.santpau.es,CentOS 7.9,package shim-x64 is not installed
+not_installed,2.02,3.10.0-1160.59.1.el7.x86_64,BIOS
+estimtraCK01des.santpau.es,CentOS 7.9,package shim-x64 is not installed
+not_installed,2.02,3.10.0-1160.59.1.el7.x86_64,BIOS
+exhsp-prOXy-pass,SLES 15.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-24.86-default,EFI
+exhsp-prOXy-pass-int,SLES 15.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-24.83-default,EFI
+famaafm02Des,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+famaapp01,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.110-default,BIOS
+famaapp01Des,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.136-default,BIOS
+foreman01,Rocky 9.5,15.8,2.06,5.14.0-427.42.1.el9_4.x86_64,EFI
+ftp01,SLES 15.7,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.12,6.4.0-150700.53.6-default,BIOS
+gefact02,SLES 15.3,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-150300.59.49-default,EFI
+gestionlOGs,SLES 11.1,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+package grub2 is not installed
+not_installed,2.6.32.59-0.7-default,BIOS
+gestprj01,RedHat 7.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,3.10.0-327.el7.x86_64,BIOS
+gitlab01,Ubuntu 22.04,,2.06-2ubuntu7.2,5.15.0-94-generic,BIOS
+gota04deS,SLES 15.3,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-150300.59.49-default,EFI
+hspeibi01.santpau.es,OracleLinux 8.4,package shim-x64 is not installed
+not_installed,2.02,5.4.17-2102.203.6.el8uek.x86_64,BIOS
+HSPEIDB01.santpau.es,OracleLinux 8.7,package shim-x64 is not installed
+not_installed,2.02,5.15.0-3.60.5.1.el8uek.x86_64,BIOS
+HSPEIWSTesT.santpau.es,OracleLinux 8.7,package shim-x64 is not installed
+not_installed,2.02,5.15.0-3.60.5.1.el8uek.x86_64,BIOS
+HSPEIXERo02.santpau.es,OracleLinux 8.7,package shim-x64 is not installed
+not_installed,2.02,5.15.0-3.60.5.1.el8uek.x86_64,BIOS
+intrahsp01,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.12-default,BIOS
+intrahsp01des,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.136-default,BIOS
+intrahsp02,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.12-default,BIOS
+intrahsp03,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.12-default,BIOS
+intrahsp04des,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.136-default,BIOS
+intranetHSp04,SLES 15.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150500.55.44-default,EFI
+ipquorum03,SLES 15.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-24.52-default,BIOS
+iptv01deS,Ubuntu 12.04,,1.99-21ubuntu3,3.2.0-23-generic,BIOS
+jenkins01,Ubuntu 22.04,,2.06-2ubuntu7.2,5.15.0-131-generic,BIOS
+jirahsp,Ubuntu 22.04,,2.06-2ubuntu7.2,5.15.0-142-generic,BIOS
+jirahspbD,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.100-default,EFI
+jirahspbD-test,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.100-default,EFI
+jirahsp-TEst,Ubuntu 22.04,,2.06-2ubuntu7.2,5.15.0-142-generic,BIOS
+mongodb,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+mongodb01,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+mongodb01Des,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+mongodb02,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+mongodb02Des,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+mongodb03Des,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+mongodb04Des,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+mongodbdES,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+moodle,Ubuntu 22.04,,2.06-2ubuntu7.2,5.15.0-122-generic,BIOS
+omaweb01.Santpau.es,Ubuntu 20.04,,2.04-1ubuntu26.15,5.4.0-152-generic,BIOS
+openlab01,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.110-default,BIOS
+openlab01Des,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.110-default,BIOS
+openlab05,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.37-default,BIOS
+opsmanagER01,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+patwindb02,SLES 15.3,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-150300.59.49-default,EFI
+patwindb02des,SLES 15.3,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-150300.59.49-default,EFI
+PETITSACASA01,SLES 11.1,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+package grub2 is not installed
+not_installed,2.6.32.59-0.7-default,BIOS
+petitsacASa01des,SLES 15.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150500.55.65-default,BIOS
+petitsacASa02,SLES 11.1,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+package grub2 is not installed
+not_installed,2.6.32.12-0.7-default,BIOS
+petitsacASa02des,SLES 15.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150500.55.65-default,BIOS
+pid01,SLES 15.7,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.12,6.4.0-150700.53.11-default,EFI
+pip01,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+pipdb,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+piq01,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+proxypasS01,SLES 15.6,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.12,6.4.0-150600.23.30-default,EFI
+proxy-paSS-ir,SLES 15.3,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-150300.59.49-default,EFI
+puigmal,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.136-default,BIOS
+puigsacaLM,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.136-default,BIOS
+QUENDAANblICK,CentOS 7.8,package shim-x64 is not installed
+not_installed,2.02,3.10.0-1127.13.1.el7.x86_64,BIOS
+recerca02,Ubuntu 14.04,,2.02~beta2-9ubuntu1.17,3.13.0-39-generic,BIOS
+redcapapP01,SLES 15.3,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-150300.59.49-default,EFI
+redis01,Ubuntu 22.04,,2.06-2ubuntu7.2,5.15.0-91-generic,BIOS
+rman01,SLES 15.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-24.96-default,EFI
+rman19,SLES 15.3,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-150300.59.49-default,EFI
+sapcconnECt01,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+sapsolmaN01,SLES 12.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-95.54-default,BIOS
+sapspa01,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+sapspb01,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+sapspe,SLES 15.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-24.46-default,EFI
+sapspf01,SLES 15.7,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.12,6.4.0-150700.53.6-default,EFI
+sapspu01,SLES 15.7,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.12,6.4.0-150700.53.11-default,EFI
+sau01,Ubuntu 20.04,,2.04-1ubuntu26.13,5.4.0-216-generic,BIOS
+sau01des,Ubuntu 20.04,,2.04-1ubuntu26.13,5.4.0-152-generic,BIOS
+scannessUS01,Ubuntu 20.04,,2.04-1ubuntu26.17,5.4.0-173-generic,BIOS
+sescli01,SLES 15.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150500.55.59-default,EFI
+setapp01,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+setapp01DEs,SLES 15.3,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-150300.59.49-default,EFI
+setdb01,SLES 15.3,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-150300.59.49-default,EFI
+setdb01dES,SLES 15.3,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-150300.59.49-default,EFI
+smovil03,Debian 8,,2.02~beta2-22+deb8u1,3.16.0-4-686-pae,BIOS
+sonarqubE01,Ubuntu 22.04,,2.06-2ubuntu7.2,5.15.0-160-generic,BIOS
+spadb,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+spbdb,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+speas02,SLES 15.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-24.46-default,EFI
+speas03,SLES 15.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-24.46-default,EFI
+speas05,SLES 15.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-24.46-default,EFI
+speas06,SLES 15.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-24.46-default,EFI
+spedb,SLES 15.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-24.46-default,EFI
+spfdb,SLES 15.7,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.12,6.4.0-150700.53.6-default,EFI
+sppdb,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.38-default,EFI
+spudb,SLES 15.7,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.12,6.4.0-150700.53.11-default,EFI
+srv-web-APi-pifs,SLES 15.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150500.55.73-default,EFI
+stor2rrd01,CentOS 7.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,3.10.0-327.36.3.el7.x86_64,BIOS
+sw-backuPS,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.110-default,BIOS
+taonet02,SLES 12.1,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02~beta2,3.12.74-60.64.40-default,BIOS
+tarif04,CentOS 7.9,15,2.02,3.10.0-1160.88.1.el7.x86_64,EFI
+trak03deS,SLES 12.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.02,4.12.14-122.110-default,BIOS
+UBUNTU01,Ubuntu 16.04,,2.02~beta2-36ubuntu3.2,4.4.0-59-generic,BIOS
+wdisp01dES,SLES 15.6,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.12,6.4.0-150600.23.7-default,EFI
+webapps01,Ubuntu 20.04,,2.04-1ubuntu26.17,5.4.0-152-generic,BIOS
+webir01,SLES 15.3,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-150300.59.98-default,EFI
+webpub01,SLES 15.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-24.96-default,EFI
+webpub01DEs,SLES 15.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-24.83-default,EFI
+webpub02DEs,SLES 15.2,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.04,5.3.18-24.96-default,EFI
+webpub04,SLES 15.5,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150500.55.44-default,EFI
+zabbix01,SLES 15.4,package shim-x64 is not installed
+not_installed,package grub2-common is not installed
+2.06,5.14.21-150400.24.63-default,EFI
+developmENt03,Ubuntu 20.04,,2.02+dfsg1-12ubuntu2,4.4.0-148-generic,BIOS

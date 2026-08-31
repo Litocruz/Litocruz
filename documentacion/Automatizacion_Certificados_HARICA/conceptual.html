@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapa Conceptual SSL HARICA</title>
+    <style>
+        body { background-color: #1e1e1e; color: #d4d4d4; font-family: monospace; padding: 20px; }
+        pre { background: #252526; padding: 15px; border-radius: 5px; border: 1px solid #3c3c3c; line-height: 1.2; }
+    </style>
+</head>
+<body>
+    <h2>🗺️ Mapa Conceptual 1: Automatización SSL (HARICA)</h2>
+    <pre>
+[ TIMER SYSTEMD ]
+                         (Despierta 2 veces al día)
+                                       │
+                                       ▼
+                             ┌───────────────────┐
+                             │    ansible01      │
+                             │ (Engine: Certbot) │
+                             └─────────┬─────────┘
+                                       │
+                1. Solicita Certificado │ 4. Entrega Certificado (.pem)
+                                       ▼
+                       ┌───────────────────────────────┐
+                       │ CA HARICA (API Enterprise/EAB)│
+                       └───────────────┬───────────────┘
+                                       │
+                                       │ 2. Reto Criptográfico
+                                       ▼    (DNS-01 Challenge)
+┌───────────────────┐                  │
+│    puigmal        │◄─────────────────┘
+│ (DNS Master/BIND) │   3. Inyección Dinámica TXT
+└───────────────────┘       (Protocolo RFC 2136)
+        │
+        ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                 🚀 DISPARADOR: ORQUESTRADOR POST-DESPLIEGUE                  │
+│                  (Script: deploy_sistemas.sh / lib_common.sh)               │
+└──────────────────────────────────────┬──────────────────────────────────────┘
+                                       │
+                                       ▼
+                      ┌─────────────────────────────────┐
+                      │ 🛠️ FABRICACIÓN DE ARTEFACTOS    │
+                      │  - Compila 9 formatos OpenSSL   │
+                      │  - Crea PFX Estándar y Legacy   │
+                      └────────────────┬────────────────┘
+                                       │
+                                       ▼
+                      ┌─────────────────────────────────┐
+                      │ ⚠️ MECANISMO FAIL-SAFE (TEST)   │
+                      │  - Verifica contraseñas de PFX  │
+                      │  - Compara MD5 (Key vs Cert)    │
+                      └────────┬────────────────┬───────┘
+                               │                │
+                    Si falla   │                │ Si es exitoso (Match)
+                    ───────────┘                └───────────┐
+                    ▼                                       ▼
+       ┌──────────────────────────┐            ┌──────────────────────────┐
+       │ 🛑 ABORTO DE SEGURIDAD   │            │ 📦 DISTRIBUCIÓN DINÁMICA │
+       │  - Protege producción    │            │     (deploy.d/*.sh)      │
+       │  - Notifica ALERT al SOC │            └────────────┬─────────────┘
+       └──────────────────────────┘                         │
+                                          ┌─────────────────┼─────────────────┐
+                                          ▼                 ▼                 ▼
+                                   [ DEPLOY REMOTO ] [ BACKUP WINDOWS ] [ REPORTES & CRON ]
+                                    - SSH / SCP / oc   - Copia ZIP a     - health_check.sh
+                                      patch (OpenShift)  unidad CIFS     - reporte_estado_ssl.sh
+    </pre>
+</body>
+</html>

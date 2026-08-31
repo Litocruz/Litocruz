@@ -1,0 +1,51 @@
+#csgmsrchdsp #poweroff
+#carescape01 #NO ROUTE TO HOST mismo problema que susemanager01
+#cucmipcchsp.santpau.es
+#CUCMIPCCHSPS
+#cucmpublisherhsp.santpau.es
+#cucmsubscriberhsp.santpau.es
+#cucmsubscriberhsp1.santpau.es
+#cucmunityhsp
+#dev-oke-bkf7c-master-0
+#dev-oke-bkf7c-master-1
+#dev-oke-bkf7c-master-2
+#dev-oke-bkf7c-worker-bktqf
+#dev-oke-bkf7c-worker-fvgvw
+#enquesta01 #APAGADO
+#exhsp-proxy-pass-int-clone
+#gambela #APAGADO
+#HSPEICONNECT01
+#HSPEICS.santpau.es
+#HSPEIGTI01
+#HSPEINAS06
+#HSPEINAS07.santpau.es
+#HSPEINAS08.santpau.es
+#HSPEIXERO01.santpau.es
+#intrahsp04
+#kairos02-bqfh8-infra-lwbz7
+#kairos02-bqfh8-infra-qk2cl
+#kairos02-bqfh8-infra-qmkhq
+#kairos02-bqfh8-master-0
+#kairos02-bqfh8-master-1
+#kairos02-bqfh8-master-2
+#kairos02-bqfh8-worker-mdbll
+#kairos02-bqfh8-worker-mlnz5
+#kairos02-bqfh8-worker-rqsdw
+#kairos02-bqfh8-worker-zjvgt
+#kairos03-pqx27-infra-76pcv
+#kairos03-pqx27-infra-dzcfc
+#kairos03-pqx27-infra-m9sg7
+#kairos03-pqx27-master-0
+#kairos03-pqx27-master-1
+#kairos03-pqx27-master-2
+#kairos03-pqx27-worker-0-85hcr
+#kairos03-pqx27-worker-0-dk4tp
+#kairos03-pqx27-worker-0-gm7pn
+#kairos03-pqx27-worker-0-lv6fs
+#MASIMODLMS01
+#MASIMODMS01
+#MASIMOIG01
+#MASIMOIG01DES
+#MASIMOPSN01DES
+#Panorama #APAGADO
+#teampass01 #NO EXISTE

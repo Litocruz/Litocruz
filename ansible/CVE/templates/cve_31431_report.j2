@@ -1,0 +1,8 @@
+# REPORTE DE MITIGACIÓN EN CALIENTE - CVE-2026-31431
+*Fecha de Generación: {{ lookup('pipe', 'date +%Y-%m-%d') }} | Hora: {{ lookup('pipe', 'date +%H:%M:%S') }}*
+
+| Servidor (VM) | Estado de Mitigación (Kernel) |
+| :--- | :--- |
+{% for host in ansible_play_hosts_all %}
+| **{{ host }}** | {{ hostvars[host]['mitigation_summary'] | default('ERROR: Tarea no ejecutada') }} |
+{% endfor %}

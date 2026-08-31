@@ -1,0 +1,17 @@
+{
+  "template": "DSI-COX-PL-Plantilla procediment Word v0.2.docx",
+  "tablas": {
+    "nom_doc": "Renovación de Certificado SSL (HARICA) en HAProxy",
+    "version": "1.0",
+    "cambio_desc": "Renovación anual de certificados SSL para correuhsp.santpau.cat"
+  },
+  "reemplazos": {
+    "TITULO_DOC": "Renovación de Certificado SSL (HARICA) en HAProxy",
+    "SERVICIO": "Webmail / Exchange (correuhsp.santpau.cat)",
+    "VERSION": "1.0",
+    "FECHA": "2026-05-04",
+    "OBJETIVO": "Establecer los pasos técnicos necesarios para la renovación de los certificados SSL (HARICA) en los balanceadores HAProxy.",
+    "ALCANCE": "Aplica a los servidores balanceadores exhsp-proxy-pass y exhsp-proxy-pass-int.",
+    "PASOS": "FASE 1: Preparación y Extracción\n\nUna vez descargado el archivo .zip con los certificados desde el portal de HARICA al servidor exhsp-proxy-pass, procedemos a descomprimirlo.\n\n1. Navegar al directorio donde se subió el .zip (ej. /home/logicalis/certs/)\ncd /home/logicalis/certs/\n\n2. Descomprimir el archivo\nunzip correuhsp_santpau_cat_2026.zip\n\nDe todos los archivos extraídos, solo utilizaremos dos:\n- correuhsp_santpau_cat/2026/correuhsp_santpau_cat_2026_bundle_root.pem (Contiene el Certificado del Servidor + Intermedio + Root).\n- correuhsp_santpau_cat/correuhsp_santpau_cat.key (Contiene la Llave Privada).\n\n--------------------------------------------------\nFASE 2: Construcción del \"Bundle\" para HAProxy\n\nHAProxy requiere que toda la cadena de certificados y la llave privada estén en un único archivo, y es estrictamente necesario que no contenga metadatos de texto fuera de las etiquetas -----BEGIN... y -----END...\n\n1. Realizar un backup preventivo del certificado en producción actual\ncp /etc/haproxy/correuhsp_santpau_cat_HAProxy.pem /etc/haproxy/oldfiles/correuhsp_santpau_cat_HAProxy.pem-$(date +%F)\n\n2. Unir el certificado completo y la llave privada, aplicando un filtro para eliminar cualquier \"basura\" o texto informativo:\ncat correuhsp_santpau_cat/2026/correuhsp_santpau_cat_2026_bundle_root.pem correuhsp_santpau_cat/correuhsp_santpau_cat.key | awk '/BEGIN/{f=1} f; /END/{f=0}' > /etc/haproxy/correuhsp_santpau_cat_HAProxy.pem\n\n3. Proteger el archivo para que solo root o el servicio de HAProxy pueda leer la llave privada\nchmod 600 /etc/haproxy/correuhsp_santpau_cat_HAProxy.pem\n\n--------------------------------------------------\nFASE 3: Validación y Despliegue\n\nNunca se debe reiniciar HAProxy sin antes validar que el nuevo archivo tiene un formato correcto.\n\n1. Verificar la sintaxis de la configuración\nhaproxy -c -f /etc/haproxy/haproxy.cfg\n* Resultado esperado: Configuration file is valid.\n\n2. Aplicar los cambios recargando el servicio de forma suave\nsystemctl reload haproxy\n\n--------------------------------------------------\nFASE 4: Comprobación Final\n\nPara garantizar que HAProxy ha cargado el archivo en memoria y lo está sirviendo correctamente hacia Internet, simular una conexión de cliente:\n\necho | openssl s_client -connect 84.88.183.25:443 -servername correuhsp.santpau.cat 2>/dev/null | openssl x509 -noout -dates\n\n*Resultado esperado: Las fechas notBefore y notAfter deben reflejar el nuevo periodo de validez."
+  }
+}

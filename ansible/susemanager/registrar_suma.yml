@@ -1,0 +1,124 @@
+---
+- name: Registro Masivo SUMA (Lógica replicada de config_vm.sh)
+  hosts: linux_vms
+  become: yes
+  gather_facts: yes
+  vars:
+    suma_server: "susemanager01.santpau.es"
+
+  tasks:
+    # -------------------------------------------------------------------------
+    # 1. VERIFICACIÓN PREVIA (SALT-CALL)
+    # -------------------------------------------------------------------------
+    - name: Comprobar si la VM ya responde a SUMA
+      ansible.builtin.shell: "timeout 5 salt-call test.ping"
+      register: salt_ping
+      failed_when: false
+      changed_when: false
+
+    - name: Determinar si requiere registro
+      ansible.builtin.set_fact:
+        needs_registration: >-
+          {{ salt_ping.rc == 127 or 
+             salt_ping.rc == 77 or 
+             'True' not in salt_ping.stdout }}
+
+    # -------------------------------------------------------------------------
+    # 2. BLOQUE DE LIMPIEZA Y PREPARACIÓN (Replicado de config_vm.sh)
+    # -------------------------------------------------------------------------
+    - name: Ejecutar ciclo de registro SUMA
+      when: needs_registration
+      block:
+        - name: Detener servicio salt-minion si está activo
+          ansible.builtin.systemd:
+            name: salt-minion
+            state: stopped
+          failed_when: false
+
+        - name: Purgar repositorios locales previos (SLES)
+          ansible.builtin.shell: |
+            if [ -f /usr/bin/zypper ]; then
+              mkdir -p /etc/zypp/repos.d.old
+              if [ -n "$(ls -A /etc/zypp/repos.d/ 2>/dev/null)" ]; then
+                mv /etc/zypp/repos.d/* /etc/zypp/repos.d.old/
+              fi
+              zypper --non-interactive verify >/dev/null 2>&1 || true
+              if command -v SUSEConnect &> /dev/null; then SUSEConnect --cleanup >/dev/null 2>&1 || true; fi
+            elif [ -f /usr/bin/apt-get ]; then
+              apt-get update -y >/dev/null 2>&1 || true
+            fi
+          args:
+            executable: /bin/bash
+
+        - name: Regenerar Machine ID y purgar cachés de Salt
+          ansible.builtin.shell: |
+            rm -f /etc/machine-id /var/lib/dbus/machine-id
+            rm -rf /var/cache/salt /etc/salt/pki/minion/*
+            dbus-uuidgen --ensure
+            systemd-machine-id-setup
+          args:
+            executable: /bin/bash
+
+        # -------------------------------------------------------------------------
+        # 3. SELECCIÓN AUTOMÁTICA Y NO INTERACTIVA DEL BOOTSTRAP
+        # -------------------------------------------------------------------------
+        - name: Determinar script de bootstrap adecuado por SO
+          ansible.builtin.set_fact:
+            bootstrap_script_name: >-
+              {% if ansible_distribution == 'SLES' and ansible_distribution_major_version == '12' %}bootstrap-sles12.sh
+              {% elif ansible_distribution == 'SLES' and ansible_distribution_major_version == '15' %}bootstrap-sles15.sh
+              {% elif ansible_distribution == 'Ubuntu' %}bootstrap-ubuntu.sh
+              {% elif ansible_distribution in ['RedHat', 'CentOS', 'Rocky'] %}bootstrap-rhel{{ ansible_distribution_major_version }}.sh
+              {% else %}bootstrap.sh{% endif %}
+
+        - name: Descargar script de Bootstrap desde el servidor SUMA
+          ansible.builtin.get_url:
+            url: "http://{{ suma_server }}/pub/bootstrap/{{ bootstrap_script_name }}"
+            dest: "/tmp/bootstrap_suma.sh"
+            mode: '0755'
+          register: download_status
+          ignore_errors: yes
+
+        - name: Fallback a script genérico bootstrap.sh si el específico no existe
+          ansible.builtin.get_url:
+            url: "http://{{ suma_server }}/pub/bootstrap/bootstrap.sh"
+            dest: "/tmp/bootstrap_suma.sh"
+            mode: '0755'
+          when: download_status is failed
+
+        - name: Ejecutar el script de Bootstrap
+          ansible.builtin.command: "/bin/sh /tmp/bootstrap_suma.sh"
+          register: bootstrap_result
+
+        # -------------------------------------------------------------------------
+        # 4. REFRESH FINAL DE REPOSITORIOS
+        # -------------------------------------------------------------------------
+        - name: Refrescar metadatos de repositorios
+          ansible.builtin.shell: |
+            if [ -f /usr/bin/zypper ]; then
+              zypper lr && zypper --non-interactive ref -s
+            elif [ -f /usr/bin/apt-get ]; then
+              apt-get update -y
+            fi
+          args:
+            executable: /bin/bash
+          when: bootstrap_result.rc == 0
+
+        - name: Eliminar script temporal
+          ansible.builtin.file:
+            path: "/tmp/bootstrap_suma.sh"
+            state: absent
+
+    # -------------------------------------------------------------------------
+    # 5. REPORTE FINAL
+    # -------------------------------------------------------------------------
+    - name: Resultado del registro
+      ansible.builtin.debug:
+        msg: >-
+          {% if not needs_registration %}
+          [OMITIDO] {{ inventory_hostname }} ya responde a SUMA.
+          {% elif bootstrap_result is defined and bootstrap_result.rc == 0 %}
+          [ÉXITO] {{ inventory_hostname }} se ha registrado correctamente en SUMA.
+          {% else %}
+          [ERROR] Falló el registro en {{ inventory_hostname }}.
+          {% endif %}

@@ -1,0 +1,223 @@
+Servidor,Entorno,Distro_SO,Kernel_Activo_RAM,Parche_Disponible_Repo,Reinicio_Pendiente
+APP-NNN,Produccion,SLES 15 SP5,5.14.21-150500.55.59-default,NO,NO
+BBDDSPAUA01,Produccion,SLES 15 SP5,5.14.21-150500.55.59-default,NO,NO
+DWH01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+DWH02,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+ETCCONS01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+EXHSP-PROXY-PASS,Produccion,SLES 15 SP2,5.3.18-24.86-default,NO,NO
+EXHSP-PROXY-PASS-INT,Produccion,SLES 15 SP2,5.3.18-24.83-default,NO,NO
+EXHSP-PROXY-PASS-INT_CLONE,Produccion,No Alcanzable / Error,N/A,NO,NO
+FAMAAFM02,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+FTP01,Produccion,SLES 15 SP7,6.4.0-150700.53.6-default,NO,NO
+GEFACT02,Produccion,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+GOTA04,Produccion,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+INFORMESDB01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+INTRANETHSP03,Produccion,SLES 15 SP6,6.4.0-150600.23.30-default,SI,NO
+INTRANETHSP04,Produccion,SLES 15 SP5,5.14.21-150500.55.44-default,NO,NO
+IPQUORUM03,Produccion,SLES 15 SP2,5.3.18-24.52-default,NO,NO
+IPQUORUM04,Produccion,SLES 15 SP2,5.3.18-24.52-default,NO,NO
+IPQUORUM05,Produccion,SLES 15 SP7,6.4.0-150700.53.19-default,SI,NO
+IPQUORUM06,Produccion,SLES 15 SP7,6.4.0-150700.53.19-default,SI,NO
+JIRAHSPBD,Produccion,SLES 15 SP4,5.14.21-150400.24.100-default,NO,NO
+MONGODB,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+MONGODB01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+MONGODB02,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+MONGODB03,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+MONGODB04,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+MOVISALUD01,Produccion,SLES 15 SP7,6.4.0-150700.53.19-default,SI,NO
+MOVISALUDBD01,Produccion,SLES 15 SP7,6.4.0-150700.53.19-default,SI,NO
+MOVISALUDINV01,Produccion,SLES 15 SP7,6.4.0-150700.53.19-default,SI,NO
+MOVISALUDINVSQL,Produccion,SLES 15 SP7,6.4.0-150700.53.19-default,SI,NO
+OMIQ01,Produccion,SLES 15 SP7,6.4.0-150700.53.40-default,SI,NO
+OMIQ01SQL,Produccion,SLES 15 SP7,6.4.0-150700.53.25-default,SI,NO
+OPSMANAGER01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+PATWINDB02,Produccion,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+PIP01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+PIPDB,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+PIQ01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+PIQDB,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+PROXY-PASS,Produccion,SLES 15 SP1,4.12.14-197.29-default,NO,NO
+PROXY-PASS-HA,Produccion,SLES 15 SP6,6.4.0-150600.23.30-default,NO,NO
+PROXY-PASS-IR,Produccion,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+PROXYPASS01,Produccion,SLES 15 SP6,6.4.0-150600.23.30-default,NO,NO
+REDCAPAPP01,Produccion,SLES 15 SP5,5.3.18-150300.59.49-default,NO,NO
+REDCAPDB01,Produccion,SLES 15 SP5,5.3.18-150300.59.49-default,NO,NO
+RMAN01,Produccion,SLES 15 SP2,5.3.18-24.96-default,NO,NO
+RMAN19,Produccion,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+SAPSPB01,Produccion,SLES 15 SP7,6.4.0-150700.53.40-default,NO,NO
+SAPSPE,Produccion,SLES 15 SP4,5.14.21-150400.24.100-default,NO,NO
+SAPSPF01,Produccion,SLES 15 SP7,6.4.0-150700.53.6-default,NO,NO
+SAPSPP01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+SAPSPU01,Produccion,SLES 15 SP7,6.4.0-150700.53.11-default,NO,NO
+SESCLI01,Produccion,SLES 15 SP5,5.14.21-150500.55.59-default,NO,NO
+SETAPP01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,SI,NO
+SETDB01,Produccion,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+SPBDB,Produccion,SLES 15 SP7,6.4.0-150700.53.40-default,NO,NO
+SPEAS01,Produccion,SLES 15 SP4,5.14.21-150400.24.100-default,NO,NO
+SPEAS02,Produccion,SLES 15 SP4,5.14.21-150400.24.100-default,NO,NO
+SPEAS03,Produccion,SLES 15 SP4,5.14.21-150400.24.100-default,NO,NO
+SPEAS04,Produccion,SLES 15 SP4,5.14.21-150400.24.100-default,NO,NO
+SPEAS05,Produccion,SLES 15 SP4,5.14.21-150400.24.100-default,NO,NO
+SPEAS06,Produccion,SLES 15 SP4,5.14.21-150400.24.100-default,NO,NO
+SPEDB,Produccion,SLES 15 SP2,5.3.18-24.46-default,NO,NO
+SPFDB,Produccion,SLES 15 SP7,6.4.0-150700.53.6-default,NO,NO
+SPPDB,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+SPUDB,Produccion,SLES 15 SP7,6.4.0-150700.53.11-default,NO,NO
+SRV-DB-STORAGE-PIFS,Produccion,SLES 15 SP5,5.14.21-150500.55.73-default,NO,NO
+SRV-WEB-API-PIFS,Produccion,SLES 15 SP5,5.14.21-150500.55.73-default,NO,NO
+SUSEMANAGER01,Produccion,SLES 15 SP4,5.14.21-150400.24.170-default,NO,NO
+SUSEMANAGER02,Produccion,SLES 15 SP7,6.4.0-150700.53.66-default,NO,NO
+SYCAI01,Produccion,SLES 15 SP6,6.4.0-150600.23.30-default,SI,NO
+Suse-SSB1,Produccion,SLES 15 SP7,6.4.0-150700.53.19-default,SI,NO
+WDISP01PRO,Produccion,SLES 15 SP2,5.3.18-24.83-default,NO,NO
+WEBIR01,Produccion,SLES 15 SP3,5.3.18-150300.59.98-default,NO,NO
+WEBIR02,Produccion,SLES 15 SP3,5.3.18-150300.59.98-default,NO,NO
+WEBPUB01,Produccion,SLES 15 SP2,5.3.18-24.96-default,NO,NO
+WEBPUB02,Produccion,SLES 15 SP2,5.3.18-24.96-default,NO,NO
+WEBPUB03,Produccion,SLES 15 SP2,5.3.18-24.83-default,NO,NO
+WEBPUB04,Produccion,SLES 15 SP5,5.14.21-150500.55.44-default,NO,NO
+WEBPUB05,Produccion,SLES 15 SP7,6.4.0-150700.53.19-default,SI,NO
+bastion02,Produccion,SLES 15 SP4,5.14.21-150400.24.88-default,NO,NO
+bastion03,Produccion,SLES 15 SP4,5.14.21-150400.24.88-default,NO,NO
+exhsp-proxy-pass-2026,Produccion,SLES 15 SP7,6.4.0-150700.53.40-default,SI,NO
+exhsp-proxy-pass-int-2026,Produccion,SLES 15 SP7,6.4.0-150700.53.40-default,SI,NO
+sapcconnect01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+suse15sp7,Produccion,SLES 15 SP7,6.4.0-150700.53.19-default,SI,NO
+zabbix01,Produccion,SLES 15 SP4,5.14.21-150400.24.63-default,NO,NO
+DNS01,Produccion,SLES 12 SP5,4.12.14-122.189-default,NO,NO
+DNS02,Produccion,SLES 12 SP5,4.12.14-122.189-default,NO,NO
+DNS04,Produccion,SLES 12 SP5,4.12.14-122.189-default,NO,NO
+DNS05,Produccion,SLES 12 SP5,4.12.14-122.189-default,NO,NO
+FAMAAPP01,Produccion,SLES 12 SP5,4.12.14-122.110-default,NO,NO
+INTRAHSP01,Produccion,SLES 12 SP5,4.12.14-122.12-default,NO,NO
+INTRAHSP02,Produccion,SLES 12 SP5,4.12.14-122.12-default,NO,NO
+INTRAHSP03,Produccion,SLES 12 SP5,4.12.14-122.12-default,NO,NO
+JARTUM,Produccion,SLES 12 SP5,4.12.14-122.110-default,SI,NO
+OPENLAB01,Produccion,SLES 12 SP5,4.12.14-122.110-default,NO,NO
+OPENLAB05,Produccion,SLES 12 SP5,4.12.14-122.37-default,NO,NO
+OPENLAB08,Produccion,SLES 12 SP5,4.12.14-122.110-default,NO,NO
+PUIGMAL,Produccion,SLES 12 SP5,4.12.14-122.136-default,NO,NO
+PUIGSACALM,Produccion,SLES 12 SP5,4.12.14-122.136-default,NO,NO
+SAPSOLMAN01,Produccion,SLES 12 SP4,4.12.14-95.54-default,NO,NO
+SW-BACKUPS,Produccion,SLES 12 SP5,4.12.14-122.110-default,NO,NO
+TAONET02,Produccion,SLES 12 SP1,3.12.74-60.64.40-default,NO,NO
+TRAK03,Produccion,SLES 12 SP5,4.12.14-122.26-default,NO,NO
+ACTIVITI01,Produccion,Ubuntu 16.04,4.4.0-210-generic,SI,NO
+ALINITY02,Produccion,No Alcanzable / Error,N/A,NO,NO
+APPINFURG01,Produccion,No Alcanzable / Error,N/A,NO,NO
+APPWMP01,Produccion,Ubuntu 22.04,5.15.0-140-generic,SI,SI
+ARUM01,Produccion,Ubuntu 18.04,4.15.0-213-generic,NO,NO
+ATB01,Produccion,Ubuntu 20.04,5.4.0-166-generic,NO,SI
+BACTERIEMIES01,Produccion,Ubuntu 22.04,5.15.0-71-generic,NO,SI
+DNA-BACKUPS,Produccion,Ubuntu 16.04,4.4.0-186-generic,NO,NO
+DOKUFLEX01,Produccion,Ubuntu 16.04,4.4.0-210-generic,SI,NO
+DOKUFLEX01CONS,Produccion,Ubuntu 16.04,4.4.0-210-generic,SI,NO
+ENIGMAPRN03,Produccion,Ubuntu 22.04,5.15.0-107-generic,NO,SI
+FLINKISO01,Produccion,No Alcanzable / Error,N/A,NO,NO
+GESTIOIP,Produccion,Ubuntu 22.04,5.15.0-141-generic,NO,SI
+GITLAB01,Produccion,Ubuntu 22.04,5.15.0-94-generic,NO,SI
+JENKINS01,Produccion,Ubuntu 22.04,5.15.0-177-generic,NO,NO
+JIRAHSP,Produccion,Ubuntu 22.04,5.15.0-177-generic,NO,NO
+KABISOFT01,Produccion,Ubuntu 22.04,5.15.0-181-generic,SI,SI
+MDM01,Produccion,No Alcanzable / Error,N/A,NO,NO
+MOODLE,Produccion,Ubuntu 22.04,5.15.0-122-generic,SI,SI
+NEXUS01,Produccion,Ubuntu 22.04,5.15.0-89-generic,NO,SI
+OMAWEB01,Produccion,Ubuntu 20.04,5.4.0-152-generic,NO,SI
+RECERCA02,Produccion,Ubuntu 14.04,3.13.0-39-generic,SI,NO
+REDIS01,Produccion,Ubuntu 22.04,5.15.0-91-generic,NO,SI
+SAU01,Produccion,Ubuntu 20.04,5.4.0-216-generic,SI,NO
+SCANNESSUS01,Produccion,Ubuntu 20.04,5.4.0-173-generic,NO,SI
+SENTRY01,Produccion,Ubuntu 22.04,5.15.0-121-generic,NO,SI
+SONARQUBE01,Produccion,Ubuntu 22.04,5.15.0-160-generic,NO,SI
+UBUNTU01,Produccion,Ubuntu 16.04,4.4.0-59-generic,NO,SI
+XICVAR01,Produccion,Ubuntu 22.04,5.15.0-105-generic,NO,SI
+XSOAROTPALOALTO,Produccion,No Alcanzable / Error,N/A,NO,NO
+bastion01,Produccion,Ubuntu 22.04,5.15.0-97-generic,NO,SI
+HSPEIBI01,Produccion,OracleLinux 8.4,5.4.17-2102.203.6.el8uek.x86_64,SI,SI
+HSPEICS.82,Produccion,No Alcanzable / Error,N/A,NO,NO
+HSPEIDB01.82,Produccion,No Alcanzable / Error,N/A,NO,NO
+HSPEIGP01,Produccion,No Alcanzable / Error,N/A,NO,NO
+HSPEIXERO01.82,Produccion,No Alcanzable / Error,N/A,NO,NO
+HSPEIXERO02.82,Produccion,OracleLinux 8.7,5.15.0-3.60.5.1.el8uek.x86_64,NO,SI
+CODIASSHSP,Produccion,Debian 12.7,6.1.0-25-amd64,NO,NO
+CODIASSHSP02,Produccion,Debian 12,6.1.0-25-amd64,NO,NO
+IRWEBDB01,Produccion,Debian 12,6.1.0-18-amd64,NO,SI
+IRWEBFRONT01,Produccion,Debian 12.15,6.1.0-18-amd64,NO,SI
+ANSIBLE01,Produccion,Rocky 9.7,5.14.0-611.36.1.el9_7.x86_64,NO,NO
+FOREMAN01,Produccion,Rocky 9.5,5.14.0-427.42.1.el9_4.x86_64,NO,NO
+QUENDAANBLICK02,Produccion,No Alcanzable / Error,N/A,NO,NO
+ACUNTIA03,Produccion,No Alcanzable / Error,N/A,NO,NO
+AWSGATEWAY,Produccion,No Alcanzable / Error,N/A,NO,NO
+Auckland,Produccion,No Alcanzable / Error,N/A,NO,NO
+Barcelones,Produccion,No Alcanzable / Error,N/A,NO,NO
+CRD02,Produccion,openSUSE 13.2,3.16.6-2-desktop,NO,NO
+ENIGMA01,Produccion,Debian 10,4.19.0-9-amd64,NO,NO
+ENIGMA01_restore,Produccion,No Alcanzable / Error,N/A,NO,NO
+ESTIMTRACK01,Produccion,CentOS 7.9,3.10.0-1160.59.1.el7.x86_64,NO,NO
+GESTPRJ01,Produccion,RedHat 7.2,3.10.0-327.el7.x86_64,NO,NO
+GWP03,Produccion,No Alcanzable / Error,N/A,NO,NO
+GestionLogs,Produccion,SLES 11 SP1,2.6.32.59-0.7-default,NO,NO
+HSPEICONNECT01,Produccion,No Alcanzable / Error,N/A,NO,NO
+HSPEIGIT01,Produccion,No Alcanzable / Error,N/A,NO,NO
+Intranet01,Produccion,No Alcanzable / Error,N/A,NO,NO
+Intranet02,Produccion,No Alcanzable / Error,N/A,NO,NO
+JUMPBOXEDR01,Produccion,CentOS 7.9,3.10.0-1160.el7.x86_64,NO,NO
+NAGIOS01,Produccion,CentOS 7.6,3.10.0-957.12.1.el7.x86_64,NO,NO
+PATRIMONI,Produccion,No Alcanzable / Error,N/A,NO,NO
+PETITSACASA01,Produccion,SLES 11 SP1,2.6.32.59-0.7-default,NO,NO
+PETITSACASA02,Produccion,SLES 11 SP1,2.6.32.12-0.7-default,NO,NO
+PYXIS01,Produccion,No Alcanzable / Error,N/A,NO,NO
+PYXISGR01,Produccion,CentOS 7.7,3.10.0-1062.1.2.el7.x86_64,SI,NO
+QUENDAANBLICK,Produccion,CentOS 7.8,3.10.0-1127.13.1.el7.x86_64,NO,NO
+SMOVIL03,Produccion,Debian 8,3.16.0-4-686-pae,NO,NO
+SSM01,Produccion,No Alcanzable / Error,N/A,NO,NO
+STOR2RRD01,Produccion,CentOS 7.2,3.10.0-327.36.3.el7.x86_64,NO,NO
+TARIF04,Produccion,CentOS 7.9,3.10.0-1160.88.1.el7.x86_64,NO,SI
+WEBHSP04,Produccion,SLES 15 SP1,4.12.14-197.56-default,SI,NO
+DWH01DES,Desarrollo,SLES 15 SP4,5.14.21-150400.24.33-default,NO,NO
+DWH02DES,Desarrollo,SLES 15 SP4,5.14.21-150400.24.33-default,NO,NO
+FAMAAFM02DES,Desarrollo,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+GOTA04DES_restore,Desarrollo,SLES 15 SP3,5.3.18-150300.59.49-default,SI,NO
+INTRANETHSP03DES,Desarrollo,SLES 15 SP7,6.4.0-150600.23.30-default,SI,NO
+JIRAHSPBD-TEST,Desarrollo,SLES 15 SP4,5.14.21-150400.24.100-default,NO,NO
+MONGODB01DES,Desarrollo,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+MONGODB02DES,Desarrollo,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+MONGODB03DES,Desarrollo,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+MONGODB04DES,Desarrollo,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+MONGODBDES,Desarrollo,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+MOVISALUD01DES,Desarrollo,SLES 15 SP7,6.4.0-150700.53.19-default,SI,NO
+OMIQ01DES,Desarrollo,SLES 15 SP7,6.4.0-150700.53.22-default,SI,NO
+OMIQ01SQLDES,Desarrollo,SLES 15 SP7,6.4.0-150700.53.19-default,SI,NO
+PATWINDB02DES,Desarrollo,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+PID01,Desarrollo,SLES 15 SP7,6.4.0-150700.53.11-default,SI,NO
+PIDDB,Desarrollo,SLES 15 SP7,6.4.0-150700.53.11-default,SI,NO
+PROMISEDLAND01,Desarrollo,SLES 15 SP7,6.4.0-150700.53.40-default,SI,NO
+SAPSPA01,Desarrollo,SLES 15 SP7,6.4.0-150700.53.52-default,NO,NO
+SESCLI01DES,Desarrollo,SLES 15 SP5,5.14.21-150500.55.59-default,NO,NO
+SETAPP01DES,Desarrollo,SLES 15 SP3,5.3.18-150300.59.49-default,SI,NO
+SETDB01DES,Desarrollo,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+SPADB,Desarrollo,SLES 15 SP7,6.4.0-150700.53.34-default,NO,NO
+WDISP01DES,Desarrollo,SLES 15 SP6,6.4.0-150600.23.7-default,NO,NO
+WEBPUB01DES,Desarrollo,SLES 15 SP2,5.3.18-24.83-default,NO,NO
+WEBPUB02DES,Desarrollo,SLES 15 SP2,5.3.18-24.96-default,NO,NO
+WEBPUB05DES,Desarrollo,No Alcanzable / Error,N/A,NO,NO
+FAMAAPP01DES,Desarrollo,SLES 12 SP5,4.12.14-122.136-default,NO,NO
+INTRAHSP01DES,Desarrollo,SLES 12 SP5,4.12.14-122.136-default,NO,NO
+INTRAHSP02DES,Desarrollo,SLES 12 SP5,4.12.14-122.136-default,NO,NO
+INTRAHSP03DES,Desarrollo,No Alcanzable / Error,N/A,NO,NO
+INTRAHSP04DES,Desarrollo,SLES 12 SP5,4.12.14-122.136-default,NO,NO
+APPINFURG01DES,Desarrollo,No Alcanzable / Error,N/A,NO,NO
+DEVELOPMENT03,Desarrollo,No Alcanzable / Error,N/A,NO,NO
+DLAB01,Desarrollo,Ubuntu 22.04,5.15.0-174-generic,NO,SI
+DOKUFLEX01TEST,Desarrollo,Ubuntu 16.04,4.4.0-210-generic,SI,NO
+IPTV01DES,Desarrollo,Ubuntu 12.04,3.2.0-23-generic,NO,NO
+JIRAHSP-TEST,Desarrollo,Ubuntu 22.04,5.15.0-177-generic,NO,NO
+KABISOFT02,Desarrollo,Ubuntu 22.04,5.15.0-181-generic,SI,SI
+SAU01DES,Desarrollo,Ubuntu 20.04,5.4.0-152-generic,SI,SI
+WEBAPPS01,Desarrollo,Ubuntu 20.04,5.4.0-152-generic,SI,SI
+WEBAPPS01DES,Desarrollo,Ubuntu 20.04,5.4.0-152-generic,SI,SI
+HSPEIDBTEST.82,Desarrollo,No Alcanzable / Error,N/A,NO,NO
+HSPEIWSTEST.82,Desarrollo,OracleLinux 8.7,5.15.0-3.60.5.1.el8uek.x86_64,NO,SI
+ENIGMA01DES,Desarrollo,Debian 10,4.19.0-9-amd64,NO,NO
+ESTIMTRACK01DES,Desarrollo,CentOS 7.9,3.10.0-1160.59.1.el7.x86_64,NO,NO
+GESTPRJ01DES,Desarrollo,RedHat 7.2,3.10.0-327.el7.x86_64,NO,NO

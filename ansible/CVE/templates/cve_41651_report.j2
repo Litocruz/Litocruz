@@ -1,0 +1,7 @@
+# REPORTE DE EJECUCIÓN: PURGA DE PACKAGEKIT (CVE-2026-41651)
+*Fecha de Generación: {{ lookup('pipe', 'date +%Y-%m-%d') }} | Hora: {{ lookup('pipe', 'date +%H:%M:%S') }}*
+
+## RESUMEN DE ESTADO POR HOST PROCESADO:
+{% for host in ansible_play_hosts_all %}
+* **{{ host }}**: {{ hostvars[host]['packagekit_action'] | default('Fallo de Conexion/Ejecucion') }}
+{% endfor %}

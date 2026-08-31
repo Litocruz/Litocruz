@@ -1,0 +1,52 @@
+---
+- name: 1. Inicializar Reporte de Vulnerabilidad 2026
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Crear cabecera CSV
+      ansible.builtin.lineinfile:
+        path: ./auditoria_vulnerabilidad_2026.csv
+        line: "hostname,distro,shim_version,grub2_version,kernel_version,firmware_type"
+        create: yes
+        state: present
+        regexp: '^hostname'
+
+- name: 2. Auditar Versiones Críticas
+  hosts: linux_vms
+  gather_facts: true
+  become: true
+  ignore_unreachable: yes
+
+  tasks:
+    - name: Verificar si el directorio EFI existe
+      ansible.builtin.stat:
+        path: /sys/firmware/efi
+      register: efi_dir
+
+    - name: Obtener versión de SHIM
+      ansible.builtin.shell: |
+        if command -v rpm >/dev/null; then
+          rpm -q --qf "%{VERSION}" shim-x64 2>/dev/null || echo "not_installed"
+        else
+          dpkg-query -W -f='${Version}' shim-signed 2>/dev/null | cut -d: -f2 || echo "not_installed"
+        fi
+      register: shim_check
+      changed_when: false
+
+    - name: Obtener versión de GRUB2
+      ansible.builtin.shell: |
+        if command -v rpm >/dev/null; then
+          rpm -q --qf "%{VERSION}" grub2-common 2>/dev/null || rpm -q --qf "%{VERSION}" grub2 2>/dev/null || echo "not_installed"
+        else
+          dpkg-query -W -f='${Version}' grub-common 2>/dev/null | cut -d: -f2 || echo "not_installed"
+        fi
+      register: grub_check
+      changed_when: false
+
+    - name: Guardar en CSV Final
+      ansible.builtin.lineinfile:
+        path: ./auditoria_vulnerabilidad_2026.csv
+        line: >-
+          {{ inventory_hostname | trim }},{{ (ansible_distribution + ' ' + ansible_distribution_version) | trim }},{{ shim_check.stdout | trim }},{{ grub_check.stdout | trim }},{{ ansible_kernel | trim }},{{ 'EFI' if efi_dir.stat.exists else 'BIOS' }}
+      delegate_to: localhost
+      become: false

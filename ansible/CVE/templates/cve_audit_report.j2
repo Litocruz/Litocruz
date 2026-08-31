@@ -1,0 +1,8 @@
+# MATRIZ DE CUMPLIMIENTO DE SEGURIDAD - AUDITORÍA CRÍTICA (CVE-2026)
+*Fecha de Generación: {{ lookup('pipe', 'date +%Y-%m-%d') }} | Hora: {{ lookup('pipe', 'date +%H:%M:%S') }}*
+
+| Servidor (VM) | CVE-2026-31431 (Kernel) | CVE-2026-41651 (PackageKit) |
+| :--- | :--- | :--- |
+{% for host in ansible_play_hosts_all %}
+| **{{ host }}** | {{ hostvars[host]['cve_1_status'] | default('INACCESIBLE / UNREACHABLE') }} | {{ hostvars[host]['cve_2_remediable'] | default('INACCESIBLE / UNREACHABLE') }} |
+{% endfor %}

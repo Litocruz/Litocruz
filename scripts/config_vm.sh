@@ -19,6 +19,8 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m'
 
+SUSE_MANAGER_SERVER="susemanager01.santpau.es"
+
 log_info() { echo -e "${GREEN}[INFO]${NC} $1"; }
 log_warn() { echo -e "${YELLOW}[AVISO]${NC} $1"; }
 log_error() { echo -e "${RED}[ERROR]${NC} $1"; }
@@ -118,32 +120,48 @@ install_ds_agent() {
 }
 
 install_suse_manager_agent() {
-    if [[ "$OS_FAMILY" != "sles" ]]; then log_info "El sistema no es SLES. Omitiendo."; return 0; fi
-    log_info "Iniciando configuración del agente de SUSE Manager..."
-    log_info "Paso 1/4: Preparando la máquina (limpieza de repos, SCC y machine-id)..."
-    if [ ! -d /etc/zypp/repos.d.old ]; then mkdir -p /etc/zypp/repos.d.old; fi
-    if [ -n "$(ls -A /etc/zypp/repos.d/)" ]; then mv /etc/zypp/repos.d/* /etc/zypp/repos.d.old/; fi
-    zypper --non-interactive verify >/dev/null 2>&1
-    if command -v SUSEConnect &> /dev/null; then SUSEConnect --cleanup >/dev/null 2>&1; fi
+    log_info "Iniciando configuración del agente de SUSE Manager (SUMA)..."
+    
+    # 1. Limpieza y preparación según la familia del SO
+    if [[ "$OS_FAMILY" == "sles" ]]; then
+        if [ ! -d /etc/zypp/repos.d.old ]; then mkdir -p /etc/zypp/repos.d.old; fi
+        if [ -n "$(ls -A /etc/zypp/repos.d/)" ]; then mv /etc/zypp/repos.d/* /etc/zypp/repos.d.old/; fi
+        zypper --non-interactive verify >/dev/null 2>&1
+        if command -v SUSEConnect &> /dev/null; then SUSEConnect --cleanup >/dev/null 2>&1; fi
+    elif [[ "$OS_FAMILY" == "debian" ]]; then
+        log_info "Preparando entorno Debian/Ubuntu para SUMA..."
+        apt-get update -y >/dev/null 2>&1
+    fi
+
     if systemctl is-active --quiet salt-minion; then systemctl stop salt-minion; fi
     rm -f /etc/machine-id /var/lib/dbus/machine-id; rm -rf /var/cache/salt
     dbus-uuidgen --ensure; systemd-machine-id-setup
     log_info "Preparación finalizada."
-    log_info "Paso 2/4: Obteniendo scripts de registro..."
-    read -p "Introduce la dirección del servidor SUSE Manager: " SUSE_MANAGER_SERVER
+
+    # 2. Obtención de scripts de registro
+    #read -p "Introduce la dirección del servidor SUSE Manager: " SUSE_MANAGER_SERVER
     if [[ -z "$SUSE_MANAGER_SERVER" ]]; then log_error "La dirección del servidor es necesaria. Abortando."; return 1; fi
+
     ALL_SCRIPTS=$(curl -s "http://${SUSE_MANAGER_SERVER}/pub/bootstrap/" | grep -o 'href="[^"]*\.sh"' | sed -e 's/href="//' -e 's/"//')
+    
     if [[ -z "$ALL_SCRIPTS" ]]; then
         log_error "No se pudieron obtener los scripts del servidor. Se procederá con la introducción manual."
         read -p "Introduce el nombre COMPLETO del script bootstrap: " BOOTSTRAP_SCRIPT_NAME
     else
         . /etc/os-release
-        SLES_MAJOR_VERSION=$(echo "$VERSION_ID" | cut -d'.' -f1)
-        mapfile -t MATCHING_SCRIPTS < <(echo "$ALL_SCRIPTS" | grep -E "sles${SLES_MAJOR_VERSION}|sle${SLES_MAJOR_VERSION}")
+        if [[ "$OS_FAMILY" == "sles" ]]; then
+            SLES_MAJOR_VERSION=$(echo "$VERSION_ID" | cut -d'.' -f1)
+            mapfile -t MATCHING_SCRIPTS < <(echo "$ALL_SCRIPTS" | grep -E "sles${SLES_MAJOR_VERSION}|sle${SLES_MAJOR_VERSION}")
+        elif [[ "$OS_FAMILY" == "debian" ]]; then
+            # Filtrar scripts para Ubuntu / Debian basándose en el codename (ej. jammy) o versión
+            mapfile -t MATCHING_SCRIPTS < <(echo "$ALL_SCRIPTS" | grep -E "ubuntu|debian|${VERSION_CODENAME}")
+        fi
+
         if [ ${#MATCHING_SCRIPTS[@]} -eq 0 ]; then
-            log_warn "No se encontraron scripts para SLES v${SLES_MAJOR_VERSION}. Mostrando todos los scripts."
+            log_warn "No se filtraron scripts específicos para este SO. Mostrando todos los disponibles."
             mapfile -t MATCHING_SCRIPTS < <(echo "$ALL_SCRIPTS")
         fi
+
         log_info "Por favor, selecciona el script de bootstrap adecuado:"
         PS3="Elige una opción (número): "
         select script_choice in "${MATCHING_SCRIPTS[@]}"; do
@@ -151,18 +169,28 @@ install_suse_manager_agent() {
             else log_error "Opción no válida."; fi
         done
     fi
+
     if [[ -z "$BOOTSTRAP_SCRIPT_NAME" ]]; then log_error "No se seleccionó script. Abortando."; return 1; fi
+
     local bootstrap_url="http://${SUSE_MANAGER_SERVER}/pub/bootstrap/${BOOTSTRAP_SCRIPT_NAME}"
-    log_info "Paso 3/4: Ejecutando script: $BOOTSTRAP_SCRIPT_NAME"
+    log_info "Paso 3/4: Ejecutando script de bootstrap: $BOOTSTRAP_SCRIPT_NAME"
     curl -Sks "${bootstrap_url}" -o "/tmp/bootstrap.sh"
+    
     if [ $? -eq 0 ]; then
         sh /tmp/bootstrap.sh
         if [ $? -ne 0 ]; then log_error "El script de bootstrap finalizó con error."; return 1; fi
-        log_info "Paso 4/4: Refrescando repositorios..."
-        zypper lr && zypper --non-interactive ref -s
-        log_info "¡Proceso de registro en SUSE Manager completado!"
+
+        log_info "Paso 4/4: Refrescando repositorios del sistema..."
+        if [[ "$OS_FAMILY" == "sles" ]]; then
+            zypper lr && zypper --non-interactive ref -s
+        elif [[ "$OS_FAMILY" == "debian" ]]; then
+            apt-get update -y
+        fi
+
+        log_info "¡Proceso de registro en SUSE Manager completado con éxito!"
     else
-        log_error "No se pudo descargar el script de bootstrap."; return 1
+        log_error "No se pudo descargar el script de bootstrap desde el servidor."
+        return 1
     fi
 }
 

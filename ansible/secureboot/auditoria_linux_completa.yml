@@ -1,0 +1,72 @@
+---
+- name: 1. Inicializar Reporte CSV
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: Crear cabecera del reporte
+      ansible.builtin.lineinfile:
+        path: ./auditoria_linux_ds.csv
+        line: "hostname,distro,secure_boot,ds_service,ds_modules,status_summary"
+        create: yes
+        mode: '0644'
+        state: present
+        regexp: '^hostname,distro,secure_boot'
+
+- name: 2. Auditoría Técnica de VMs
+  hosts: all
+  gather_facts: true  # Activamos esto para obtener la distro automáticamente
+  become: true
+  serial: 15          # Un poco más agresivo para 300 VMs
+
+  tasks:
+    # --- BLOQUE SECURE BOOT ---
+    - name: Verificar EFI y Secure Boot
+      ansible.builtin.shell: |
+        if [ ! -d /sys/firmware/efi ]; then
+          echo "BIOS"
+        else
+          mokutil --sb-state 2>/dev/null | grep -i "enabled" > /dev/null && echo "ENABLED" || echo "DISABLED"
+        fi
+      register: sb_check
+      changed_when: false
+      ignore_errors: true
+
+    # --- BLOQUE DEEP SECURITY ---
+    - name: Verificar servicio Deep Security
+      ansible.builtin.systemd:
+        name: ds_agent
+      register: ds_svc
+      ignore_errors: true
+
+    - name: Verificar módulos del Kernel (Drivers de protección)
+      ansible.builtin.shell: "lsmod | grep -E 'tm_fs|tm_nw|tm_mon|ds_filter'"
+      register: ds_mods
+      ignore_errors: true
+      changed_when: false
+
+    # --- LÓGICA DE NEGOCIO ---
+    - name: Calcular estado de salud
+      ansible.builtin.set_fact:
+        sb_val: "{{ sb_check.stdout | default('UNKNOWN') }}"
+        svc_val: "{{ 'running' if ds_svc.status is defined and ds_svc.status.ActiveState == 'active' else 'stopped/missing' }}"
+        mod_val: "{{ 'LOADED' if ds_mods.rc == 0 else 'BLOCKED/MISSING' }}"
+
+    - name: Determinar resumen
+      ansible.builtin.set_fact:
+        summary: >-
+          {% if sb_val == 'ENABLED' and mod_val == 'BLOCKED/MISSING' %}
+          RISK: SB blocking DS
+          {% elif sb_val == 'ENABLED' and mod_val == 'LOADED' %}
+          OK: Secure & Protected
+          {% else %}
+          Standard Protection
+          {% endif %}
+
+    # --- SALIDA A CSV ---
+    - name: Escribir línea en CSV
+      ansible.builtin.lineinfile:
+        path: ./auditoria_linux_ds.csv
+        line: "{{ inventory_hostname }},{{ ansible_distribution }} {{ ansible_distribution_version }},{{ sb_val }},{{ svc_val }},{{ mod_val }},{{ summary }}"
+      delegate_to: localhost
+      become: false

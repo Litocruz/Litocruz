@@ -1,0 +1,25 @@
+---
+- name: Sincronizar Grupos de BBDD desde Ansible hacia SUMA
+  hosts: susemanaGEr01
+  become: true
+  vars:
+    suma_user: "logicalis"
+    suma_pass: "LogiHSP01"
+
+  tasks:
+    - name: Asegurar que los grupos maestros existen en SUMA
+      command: "podman exec uyuni-server spacecmd -y -u {{ suma_user }} -p {{ suma_pass }} group_create {{ item.name }} '{{ item.desc }}'"
+      loop:
+        - { name: 'BBDD-DEV', desc: 'Bases de Datos Desarrollo (Excluidas de parcheo automatico)' }
+        - { name: 'BBDD-PROD', desc: 'Bases de Datos Produccion (Excluidas de parcheo automatico)' }
+      ignore_errors: true
+
+    - name: Añadir BBDD de Desarrollo al grupo BBDD-DEV
+      command: "podman exec uyuni-server spacecmd -y -u {{ suma_user }} -p {{ suma_pass }} group_addsystems BBDD-DEV {{ item }}"
+      loop: "{{ groups['bbdd_des'] }}"
+      ignore_errors: true
+
+    - name: Añadir BBDD de Producción al grupo BBDD-PROD
+      command: "podman exec uyuni-server spacecmd -y -u {{ suma_user }} -p {{ suma_pass }} group_addsystems BBDD-PROD {{ item }}"
+      loop: "{{ groups['bbdd_prod'] }}"
+      ignore_errors: true

@@ -1,0 +1,76 @@
+---
+- name: Auditoria de Seguridad - Matriz de Estado y Cumplimiento de CVEs
+  hosts: linux_vms
+  gather_facts: false # Desactivado para tolerar servidores sin Python compatible
+  tasks:
+    - name: 1. Comprobar si existe la configuracion del workaround para CVE-2026-31431
+      shell: "grep -E '^blacklist[[:space:]]+algif_aead' /etc/modprobe.d/*.conf"
+      register: blacklist_check
+      failed_when: false
+      changed_when: false
+
+    - name: 2. Comprobar si el modulo algif_aead sigue cargado en memoria
+      shell: "lsmod | grep algif_aead"
+      register: lsmod_check
+      failed_when: false
+      changed_when: false
+
+    # Omitimos package_facts porque requiere Python funcional en el destino.
+    # En su lugar, hacemos un check crudo de PackageKit si es necesario, o lo manejamos defensivamente.
+    - name: 3. Comprobar PackageKit de forma cruda (Compatible con sistemas antiguos)
+      shell: "rpm -q PackageKit || dpkg -l | grep packagekit"
+      register: packagekit_check
+      failed_when: false
+      changed_when: false
+
+#    - name: 3. Recopilar inventario de paquetes instalados
+#      package_facts:
+#        manager: auto
+#      failed_when: false
+
+    - name: 4. Evaluar estado de cumplimiento para CVE-2026-31431 (Kernel)
+      set_fact:
+        cve_1_status: >-
+          {% if blacklist_check.rc == 0 and lsmod_check.rc != 0 %}
+          CUMPLE (Mitigado en caliente)
+          {% elif blacklist_check.rc == 0 and lsmod_check.rc == 0 %}
+          PARCIAL (Mitigado persistente, requiere Reboot)
+          {% else %}
+          VULNERABLE (Modulo activo y sin bloqueo)
+          {% endif %}
+
+    - name: 5. Evaluar viabilidad de remediacion de CVE-2026-41651 (PackageKit)
+      set_fact:
+        cve_2_remediable: >-
+          {% if packagekit_check.rc is defined and packagekit_check.rc == 0 %}
+          SI (Vulnerable - Desinstalacion pendiente)
+          {% else %}
+          SI (Ya protegido / No instalado o No aplica)
+          {% endif %}
+
+#    - name: 5. Evaluar viabilidad de remediacion de CVE-2026-41651 (PackageKit)
+#      set_fact:
+#        cve_2_remediable: >-
+#          {% if 'PackageKit' in ansible_facts.packages or 'packagekit' in ansible_facts.packages %}
+#          SI (Vulnerable - Desinstalacion pendiente)
+#          {% elif 'coreos' in ansible_kernel or 'rhcos' in ansible_hostname | lower %}
+#          NO APLICA (SO Inmutable / Kubernetes Node)
+#          {% else %}
+#          SI (Ya protegido / No instalado)
+#          {% endif %}
+
+    - name: 6. Compilar y generar tabla consolidada en el nodo de control (Localhost)
+      delegate_to: localhost
+      run_once: true
+      copy:
+        dest: ./matriz_cumplimiento_seguridad.md
+        content: |
+          # MATRIZ DE CUMPLIMIENTO DE SEGURIDAD - AUDITORÍA CRÍTICA (CVE-2026)
+          *Fecha de Generacion: {{ ansible_date_time.date }} | Hora: {{ ansible_date_time.time }}*
+
+          | Servidor (VM) | CVE-2026-31431 (Kernel Workaround) | CVE-2026-41651 (Remediable/PackageKit) |
+          | :--- | :--- | :--- |
+          {% for host in groups['linux_vms'] %}
+          | **{{ host }}** | {{ hostvars[host]['cve_1_status'] | default('SIN DATOS / UNREACHABLE') }} | {{ hostvars[host]['cve_2_remediable'] | default('SIN DATOS / UNREACHABLE') }} |
+          {% endfor %}
+        mode: '0644'

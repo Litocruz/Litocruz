@@ -1,0 +1,96 @@
+---
+- name: Auditoría de Kernel para Informe Ejecutivo
+  hosts: linux_servers
+  become: yes
+  gather_facts: yes
+  serial: 10
+  ignore_unreachable: yes
+
+  tasks:
+    # 1. Obtener Kernel real en memoria RAM
+    - name: Capturar Kernel activo
+      command: uname -r
+      register: current_kernel
+      changed_when: false
+      ignore_errors: yes
+
+    # 2. Consultar disponibilidad de actualización en repositorios locales
+    - name: "[SLES] Buscar parches de kernel"
+      shell: 'timeout 15 zypper --non-interactive lu | grep -E -i "kernel-default|kernel-source" || true'
+      register: sles_updates
+      changed_when: false
+      failed_when: false
+      when: ansible_os_family == "Suse"
+
+    - name: "[Debian/Ubuntu] Consultar candidato de kernel"
+      shell: "apt-cache policy linux-image-generic | grep -A 1 'Candidato:' || true"
+      register: debian_updates
+      changed_when: false
+      failed_when: false
+      when: ansible_os_family == "Debian"
+
+    - name: "[RHEL/CentOS/Rocky] Buscar actualizaciones de kernel"
+      shell: "timeout 15 yum check-update kernel | grep -E '^kernel\\.' || true"
+      register: rhel_updates
+      changed_when: false
+      failed_when: false
+      when: ansible_os_family == "RedHat"
+
+    # 3. Consultar si hay un reinicio de sistema pendiente
+    - name: "[Debian/Ubuntu] Comprobar flag de reboot"
+      stat:
+        path: /var/run/reboot-required
+      register: reboot_flag_debian
+      when: ansible_os_family == "Debian"
+
+    - name: "[SLES] Comprobar procesos/kernel pendientes de reboot"
+      command: zypper ps -s
+      register: zypper_ps
+      failed_when: false
+      changed_when: false
+      when: ansible_os_family == "Suse"
+
+    - name: "[RHEL] Comparar ultimo RPM vs Kernel activo"
+      shell: "rpm -q --last kernel | head -n 1 | awk '{print $1}' | sed 's/kernel-//'"
+      register: rhel_latest_kernel
+      failed_when: false
+      changed_when: false
+      when: ansible_os_family == "RedHat"
+
+    # 4. Consolidar variables por host
+    - name: Consolidar estado por host
+      set_fact:
+        distro_formatted: >-
+          {% if ansible_distribution == 'SLES' %}SLES {{ ansible_distribution_major_version }}{% if ansible_distribution_version.split('.')[1] is defined %} SP{{ ansible_distribution_version.split('.')[1] }}{% endif %}
+          {% else %}{{ ansible_distribution | default('Desconocido') }} {{ ansible_distribution_version | default('') }}{% endif %}
+        patch_available: >-
+          {{ (sles_updates.stdout is defined and sles_updates.stdout != '') or
+             (debian_updates.stdout is defined and 'ninguno' not in debian_updates.stdout and debian_updates.stdout != '') or
+             (rhel_updates.stdout is defined and rhel_updates.stdout != '') }}
+        reboot_pending: >-
+          {{ (reboot_flag_debian.stat is defined and reboot_flag_debian.stat.exists) or
+             (zypper_ps.stdout is defined and 'kernel' in zypper_ps.stdout) or
+             (rhel_latest_kernel.stdout is defined and current_kernel.stdout is defined and rhel_latest_kernel.stdout != current_kernel.stdout) }}
+      when: current_kernel is defined and current_kernel.stdout is defined
+
+# -----------------------------------------------------------------------------
+# PLAY 2: CONSOLIDACIÓN FINAL EN UN ÚNICO CSV
+# -----------------------------------------------------------------------------
+- name: Generar Informe CSV Completo
+  hosts: localhost
+  gather_facts: no
+  become: no
+
+  tasks:
+    - name: Generar archivo CSV consolidado
+      copy:
+        dest: "informe_estado_kernel_ejecutivo.csv"
+        content: |
+          Servidor,Entorno,Distro_SO,Kernel_Activo_RAM,Parche_Disponible_Repo,Reinicio_Pendiente
+          {% for host in groups['linux_servers'] %}
+          {% if hostvars[host].current_kernel is defined and hostvars[host].current_kernel.stdout is defined %}
+          {{ host }},{{ 'Desarrollo' if 'linux_des' in hostvars[host].group_names else 'Produccion' }},{{ hostvars[host].distro_formatted | trim }},{{ hostvars[host].current_kernel.stdout }},{{ 'SI' if hostvars[host].patch_available else 'NO' }},{{ 'SI' if hostvars[host].reboot_pending else 'NO' }}
+          {% else %}
+          {{ host }},{{ 'Desarrollo' if 'linux_des' in hostvars[host].group_names else 'Produccion' }},No Alcanzable / Error,N/A,NO,NO
+          {% endif %}
+          {% endfor %}

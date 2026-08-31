@@ -1,0 +1,86 @@
+---
+- name: 1. Inicializar Reporte CSV
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: Crear cabecera del reporte
+      ansible.builtin.lineinfile:
+        path: ./auditoria_final.csv
+        line: "hostname,distro,secure_boot,ds_service,ds_modules,status_summary"
+        create: yes
+        mode: '0644'
+        state: present
+        regexp: '^hostname,distro'
+
+- name: 2. Auditoría Técnica con Gestión de Errores
+  hosts: linux_vms  # Usamos solo tu grupo de Linux
+  gather_facts: false # Lo desactivamos inicialmente para que no muera al conectar
+  ignore_unreachable: yes # Crucial: sigue adelante aunque no conecte
+  become: true
+  serial: 20
+
+  tasks:
+    - name: Intentar conexión y obtener facts
+      ansible.builtin.setup:
+      register: setup_result
+      ignore_errors: yes
+
+    - name: Bloque de auditoría (solo si conectó)
+      block:
+        # --- BLOQUE SECURE BOOT ---
+        - name: Verificar EFI y Secure Boot
+          ansible.builtin.shell: |
+            if [ ! -d /sys/firmware/efi ]; then
+              echo "BIOS"
+            else
+              if command -v mokutil >/dev/null; then
+                mokutil --sb-state | grep -i "enabled" > /dev/null && echo "ENABLED" || echo "DISABLED"
+              else
+                echo "EFI-UNKNOWN (no mokutil)"
+              fi
+            fi
+          register: sb_check
+          changed_when: false
+
+        # --- BLOQUE DEEP SECURITY ---
+        - name: Verificar servicio Deep Security
+          ansible.builtin.systemd:
+            name: ds_agent
+          register: ds_svc
+          ignore_errors: yes
+
+        - name: Verificar módulos del Kernel
+          ansible.builtin.shell: "lsmod | grep -E 'tm_fs|tm_nw|tm_mon|ds_filter'"
+          register: ds_mods
+          ignore_errors: true
+          changed_when: false
+
+        # --- CONSOLIDACIÓN ---
+        - name: Set facts de éxito
+          ansible.builtin.set_fact:
+            f_distro: "{{ ansible_distribution | default('Linux') }} {{ ansible_distribution_version | default('') }}"
+            f_sb: "{{ sb_check.stdout }}"
+            f_svc: "{{ 'running' if ds_svc.status is defined and ds_svc.status.ActiveState == 'active' else 'stopped' }}"
+            f_mod: "{{ 'LOADED' if ds_mods.rc == 0 else 'NOT_LOADED' }}"
+            f_summary: >-
+              {% if sb_check.stdout == 'ENABLED' and ds_mods.rc != 0 %} RISK: SB blocking DS {% else %} OK/Protected {% endif %}
+      
+      when: setup_result is not unreachable and setup_result is successful
+
+    - name: Set facts de error (solo si NO conectó)
+      ansible.builtin.set_fact:
+        f_distro: "N/A"
+        f_sb: "N/A"
+        f_svc: "N/A"
+        f_mod: "N/A"
+        f_summary: "Connection/Auth Error"
+      when: setup_result is unreachable or setup_result is failed
+
+    # --- ESCRITURA FINAL (para todos) ---
+    - name: Escribir línea en CSV
+      ansible.builtin.lineinfile:
+        path: ./auditoria_final.csv
+        line: "{{ inventory_hostname }},{{ f_distro }},{{ f_sb }},{{ f_svc }},{{ f_mod }},{{ f_summary }}"
+      delegate_to: localhost
+      become: false

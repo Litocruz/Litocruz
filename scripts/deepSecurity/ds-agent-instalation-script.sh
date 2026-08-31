@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ACTIVATIONURL='dsm://DSMHSP01.dspau.santpau.es:4120/'
-MANAGERURL='https://DSMHSP01.dspau.santpau.es:4119'
+ACTIVATIONURL='dsm://DSMHSP01.santpau.es:4120/'
+MANAGERURL='https://DSMHSP01.santpau.es:4119'
 CURLOPTIONS='--silent --tlsv1.2'
 linuxPlatform='';
 isRPM='';

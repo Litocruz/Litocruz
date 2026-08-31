@@ -1,0 +1,26 @@
+# Metadatos de Windows / WSL
+*:Zone.Identifier
+
+# Archivos temporales de Office
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# Archivos de swap de editores
+*.swp
+*.swo
+*~
+
+# Logs y volcados
+*.log
+
+# Backups manuales sucios
+*.bk
+*.bk*
+*.old
+*.before*
+*.orig
+*.limpio
+
+# Archivos comprimidos pesados (evaluar si realmente deben ir en git)
+# *.zip

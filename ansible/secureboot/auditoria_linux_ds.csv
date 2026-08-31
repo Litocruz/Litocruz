@@ -1,0 +1,2 @@
+hostname,distro,secure_boot,ds_service,ds_modules,status_summary
+BONEVIEW01,CentOS 8,BIOS,running,BLOCKED/MISSING, Standard Protection 

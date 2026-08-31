@@ -1,0 +1,152 @@
+Servidor,Entorno,Distro_SO,Kernel_Activo,Parche_Kernel_Disponible,Reinicio_Pendiente
+activiti01,Produccion,Ubuntu 16.04,4.4.0-210-generic,SI,NO
+ansible01,Produccion,Rocky 9.7,5.14.0-611.36.1.el9_7.x86_64,NO,NO
+app-nnn,Produccion,SLES 15 SP5,5.14.21-150500.55.59-default,NO,NO
+appwmp01,Produccion,Ubuntu 22.04,5.15.0-140-generic,SI,SI
+arum01,Produccion,Ubuntu 18.04,4.15.0-213-generic,NO,NO
+atb01,Produccion,Ubuntu 20.04,5.4.0-166-generic,NO,SI
+bastion01,Produccion,Ubuntu 22.04,5.15.0-97-generic,NO,SI
+bastion02,Produccion,SLES 15 SP4,5.14.21-150400.24.88-default,NO,NO
+bastion03,Produccion,SLES 15 SP4,5.14.21-150400.24.88-default,NO,NO
+BACTERIEMIES01,Produccion,Ubuntu 22.04,5.15.0-71-generic,NO,SI
+bbddspauA01,Produccion,SLES 15 SP5,5.14.21-150500.55.59-default,NO,NO
+cisco-sySLog01,Produccion,SLES 12 SP5,4.12.14-122.110-default,NO,NO
+codiasshSP01,Produccion,Debian 12.7,6.1.0-25-amd64,NO,NO
+codiasshSP02,Produccion,Debian 12,6.1.0-25-amd64,NO,NO
+commvaulT-frel.santpau.es,Produccion,CentOS 7.6,3.10.0-957.21.3.el7.x86_64,NO,NO
+CRD02,Produccion,openSUSE 13.2,3.16.6-2-desktop,NO,NO
+dlab01,Produccion,Ubuntu 22.04,5.15.0-174-generic,NO,SI
+dna-backUPs,Produccion,Ubuntu 16.04,4.4.0-186-generic,NO,NO
+dns01,Produccion,SLES 12 SP5,4.12.14-122.189-default,NO,NO
+dns02,Produccion,SLES 12 SP5,4.12.14-122.189-default,NO,NO
+dns04,Produccion,SLES 12 SP5,4.12.14-122.189-default,NO,NO
+dns05,Produccion,SLES 12 SP5,4.12.14-122.189-default,NO,NO
+dokuflex01,Produccion,Ubuntu 16.04,4.4.0-210-generic,SI,NO
+dokuflex01cons.santpau.es,Produccion,Ubuntu 16.04,4.4.0-210-generic,SI,NO
+dokuflex01test,Produccion,Ubuntu 16.04,4.4.0-210-generic,SI,NO
+dwh01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+dwh02,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+enigma01.santpau.es,Produccion,Debian 10,4.19.0-9-amd64,NO,NO
+enigmaprN03,Produccion,Ubuntu 22.04,5.15.0-107-generic,NO,SI
+estimtraCK01.santpau.es,Produccion,CentOS 7.9,3.10.0-1160.59.1.el7.x86_64,NO,NO
+etccons01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+exhsp-prOXy-pass,Produccion,SLES 15 SP2,5.3.18-24.86-default,NO,NO
+exhsp-prOXy-pass-int,Produccion,SLES 15 SP2,5.3.18-24.83-default,NO,NO
+famaafm02,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+famaapp01,Produccion,SLES 12 SP5,4.12.14-122.110-default,NO,NO
+foreman01,Produccion,Rocky 9.5,5.14.0-427.42.1.el9_4.x86_64,NO,NO
+ftp01,Produccion,SLES 15 SP7,6.4.0-150700.53.6-default,NO,NO
+gefact02,Produccion,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+gestioip,Produccion,Ubuntu 22.04,5.15.0-141-generic,NO,SI
+gestionlogs,Produccion,SLES 11 SP1,2.6.32.59-0.7-default,NO,NO
+gestprj01,Produccion,RedHat 7.2,3.10.0-327.el7.x86_64,NO,NO
+gitlab01,Produccion,Ubuntu 22.04,5.15.0-94-generic,NO,SI
+gota04,Produccion,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+hspeibi01.santpau.es,Produccion,OracleLinux 8.4,5.4.17-2102.203.6.el8uek.x86_64,SI,SI
+HSPEIDB01.santpau.es,Produccion,OracleLinux 8.7,5.15.0-3.60.5.1.el8uek.x86_64,NO,SI
+HSPEIWSTesT.santpau.es,Produccion,OracleLinux 8.7,5.15.0-3.60.5.1.el8uek.x86_64,NO,SI
+HSPEIXERo02.santpau.es,Produccion,OracleLinux 8.7,5.15.0-3.60.5.1.el8uek.x86_64,NO,SI
+informesDB01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+intrahsp01,Produccion,SLES 12 SP5,4.12.14-122.12-default,NO,NO
+intrahsp02,Produccion,SLES 12 SP5,4.12.14-122.12-default,NO,NO
+intrahsp03,Produccion,SLES 12 SP5,4.12.14-122.12-default,NO,NO
+intranetHSp04,Produccion,SLES 15 SP5,5.14.21-150500.55.44-default,NO,NO
+ipquorum03,Produccion,SLES 15 SP2,5.3.18-24.52-default,NO,NO
+ipquorum04,Produccion,SLES 15 SP2,5.3.18-24.52-default,NO,NO
+jenkins01,Produccion,Ubuntu 22.04,5.15.0-177-generic,NO,NO
+jirahsp,Produccion,Ubuntu 22.04,5.15.0-177-generic,NO,NO
+jirahspbD,Produccion,SLES 15 SP4,5.14.21-150400.24.100-default,NO,NO
+jirahspbD-test,Produccion,SLES 15 SP4,5.14.21-150400.24.100-default,NO,NO
+JUMPBOXEDR01,Produccion,CentOS 7.9,3.10.0-1160.el7.x86_64,NO,NO
+mongodb,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+mongodb01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+mongodb02,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+mongodb03,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+mongodb04,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+moodle,Produccion,Ubuntu 22.04,5.15.0-122-generic,SI,SI
+nagios.sANtpau.es,Produccion,CentOS 7.6,3.10.0-957.12.1.el7.x86_64,NO,NO
+nexus01,Produccion,Ubuntu 22.04,5.15.0-89-generic,NO,SI
+omaweb01.Santpau.es,Produccion,Ubuntu 20.04,5.4.0-152-generic,NO,SI
+openlab01,Produccion,SLES 12 SP5,4.12.14-122.110-default,NO,NO
+openlab05,Produccion,SLES 12 SP5,4.12.14-122.37-default,NO,NO
+openlab08,Produccion,SLES 12 SP5,4.12.14-122.110-default,NO,NO
+opsmanagER01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+patwindb02,Produccion,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+PETITSACASA01,Produccion,SLES 11 SP1,2.6.32.59-0.7-default,NO,NO
+petitsacASa02,Produccion,SLES 11 SP1,2.6.32.12-0.7-default,NO,NO
+pid01,Produccion,SLES 15 SP7,6.4.0-150700.53.11-default,NO,NO
+piddb,Produccion,SLES 15 SP7,6.4.0-150700.53.11-default,NO,NO
+pip01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+pipdb,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+piq01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+piqdb,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+proxy-paSS,Produccion,SLES 15 SP1,4.12.14-197.29-default,NO,NO
+proxypasS01,Produccion,SLES 15 SP6,6.4.0-150600.23.30-default,NO,NO
+proxy-paSS-ir,Produccion,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+puigmal,Produccion,SLES 12 SP5,4.12.14-122.136-default,NO,NO
+puigsacaLM,Produccion,SLES 12 SP5,4.12.14-122.136-default,NO,NO
+pyxisgr01.santpau.es,Produccion,CentOS 7.7,3.10.0-1062.1.2.el7.x86_64,NO,NO
+QUENDAANblICK,Produccion,CentOS 7.8,3.10.0-1127.13.1.el7.x86_64,NO,NO
+recerca02,Produccion,Ubuntu 14.04,3.13.0-39-generic,SI,NO
+redcapapP01,Produccion,SLES 15 SP5,5.3.18-150300.59.49-default,NO,NO
+redcapdb01,Produccion,SLES 15 SP5,5.3.18-150300.59.49-default,NO,NO
+redis01,Produccion,Ubuntu 22.04,5.15.0-91-generic,NO,SI
+rman01,Produccion,SLES 15 SP2,5.3.18-24.96-default,NO,NO
+rman19,Produccion,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+sapcconnECt01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+sapsolmaN01,Produccion,SLES 12 SP4,4.12.14-95.54-default,NO,NO
+sapspa01,Produccion,SLES 15 SP7,6.4.0-150700.53.52-default,NO,NO
+sapspb01,Produccion,SLES 15 SP7,6.4.0-150700.53.40-default,NO,NO
+sapspe,Produccion,SLES 15 SP4,5.14.21-150400.24.100-default,NO,NO
+sapspf01,Produccion,SLES 15 SP7,6.4.0-150700.53.6-default,SI,NO
+sapspp01,Produccion,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+sapspu01,Produccion,SLES 15 SP7,6.4.0-150700.53.11-default,NO,NO
+sau01,Produccion,Ubuntu 20.04,5.4.0-216-generic,SI,NO
+scannessUS01,Produccion,Ubuntu 20.04,5.4.0-173-generic,NO,SI
+sentry01,Produccion,Ubuntu 22.04,5.15.0-121-generic,NO,SI
+sescli01,Produccion,SLES 15 SP5,5.14.21-150500.55.59-default,NO,NO
+srv-db-sTOrage-pifs,Produccion,SLES 15 SP5,5.14.21-150500.55.73-default,NO,NO
+srv-web-APi-pifs,Produccion,SLES 15 SP5,5.14.21-150500.55.73-default,NO,NO
+stor2rrd01,Produccion,CentOS 7.2,3.10.0-327.36.3.el7.x86_64,NO,NO
+susemanaGEr01,Produccion,SLES 15 SP7,6.4.0-150700.53.66-default,NO,NO
+sw-backuPS,Produccion,SLES 12 SP5,4.12.14-122.110-default,NO,NO
+sycai01,Produccion,SLES 15 SP6,6.4.0-150600.23.30-default,NO,NO
+taonet02,Produccion,SLES 12 SP1,3.12.74-60.64.40-default,NO,NO
+tarif04,Produccion,CentOS 7.9,3.10.0-1160.88.1.el7.x86_64,NO,SI
+trak03,Produccion,SLES 12 SP5,4.12.14-122.26-default,NO,NO
+UBUNTU01,Produccion,Ubuntu 16.04,4.4.0-59-generic,NO,NO
+wdisp01pRO,Produccion,SLES 15 SP2,5.3.18-24.83-default,NO,NO
+webapps01,Produccion,Ubuntu 20.04,5.4.0-152-generic,SI,SI
+webir01,Produccion,SLES 15 SP3,5.3.18-150300.59.98-default,NO,NO
+webir02,Produccion,SLES 15 SP3,5.3.18-150300.59.98-default,NO,NO
+webpub01,Produccion,SLES 15 SP2,5.3.18-24.96-default,NO,NO
+webpub02,Produccion,SLES 15 SP2,5.3.18-24.96-default,NO,NO
+webpub03,Produccion,SLES 15 SP2,5.3.18-24.83-default,NO,NO
+webpub04,Produccion,SLES 15 SP5,5.14.21-150500.55.44-default,NO,NO
+xicvar01,Produccion,Ubuntu 22.04,5.15.0-105-generic,NO,SI
+zabbix01,Produccion,SLES 15 SP4,5.14.21-150400.24.63-default,NO,NO
+developmENt03,Produccion,Ubuntu 20.04,4.4.0-148-generic,SI,NO
+dwh01des,Desarrollo,SLES 15 SP4,5.14.21-150400.24.33-default,NO,NO
+dwh02des,Desarrollo,SLES 15 SP4,5.14.21-150400.24.33-default,NO,NO
+enigma01DEs,Desarrollo,Debian 10,4.19.0-9-amd64,NO,NO
+estimtraCK01des.santpau.es,Desarrollo,CentOS 7.9,3.10.0-1160.59.1.el7.x86_64,NO,NO
+famaafm02Des,Desarrollo,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+famaapp01Des,Desarrollo,SLES 12 SP5,4.12.14-122.136-default,NO,NO
+intrahsp01des,Desarrollo,SLES 12 SP5,4.12.14-122.136-default,NO,NO
+intrahsp02des,Desarrollo,SLES 12 SP5,4.12.14-122.136-default,NO,NO
+intrahsp04des,Desarrollo,SLES 12 SP5,4.12.14-122.136-default,NO,NO
+iptv01deS,Desarrollo,Ubuntu 12.04,3.2.0-23-generic,NO,NO
+mongodb01Des,Desarrollo,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+mongodb02Des,Desarrollo,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+mongodb03Des,Desarrollo,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+mongodb04Des,Desarrollo,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+mongodbdES,Desarrollo,SLES 15 SP4,5.14.21-150400.24.38-default,NO,NO
+patwindb02des,Desarrollo,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+sau01des,Desarrollo,Ubuntu 20.04,5.4.0-152-generic,SI,SI
+sescli01DEs,Desarrollo,SLES 15 SP5,5.14.21-150500.55.59-default,NO,NO
+setapp01DEs,Desarrollo,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+setdb01dES,Desarrollo,SLES 15 SP3,5.3.18-150300.59.49-default,NO,NO
+wdisp01dES,Desarrollo,SLES 15 SP6,6.4.0-150600.23.7-default,NO,NO
+webapps01Des,Desarrollo,Ubuntu 20.04,5.4.0-152-generic,SI,SI
+webpub01DEs,Desarrollo,SLES 15 SP2,5.3.18-24.83-default,NO,NO
+webpub02DEs,Desarrollo,SLES 15 SP2,5.3.18-24.96-default,NO,NO

@@ -1,0 +1,394 @@
+    1  2024-10-04 12:32:51 poweroff
+    2  2024-12-18 09:27:38 zypper update
+    3  2024-12-18 09:34:19 zypper upgrade
+    4  2024-12-18 09:34:40 zypper ps -s
+    5  2024-12-18 09:34:56 history
+    6  2024-12-18 09:35:01 vim
+    7  2024-12-18 09:35:30 zypper update
+    8  2024-12-18 09:35:59 passwd root
+    9  2024-12-18 09:36:21 poweroff
+   10  2025-10-01 09:20:53 ip a
+   11  2025-10-06 11:21:54 passwd
+   12  2025-10-06 11:23:11 SUSEConnect --status
+   13  2025-10-06 12:07:09 ls
+   14  2025-10-06 12:07:16 chmod u+x registrar_cliente_desde_cliente.sh 
+   15  2025-10-06 12:07:21 ./registrar_cliente_desde_cliente.sh 
+   16  2025-10-06 12:07:32 vim registrar_cliente_desde_cliente.sh 
+   17  2025-10-06 12:34:50 ls
+   18  2025-10-06 12:34:54 vim registrar_cliente_desde_cliente.sh 
+   19  2025-10-06 12:35:33 ./registrar_cliente_desde_cliente.sh 
+   20  2025-10-06 12:36:52 systemctl status minion
+   21  2025-10-06 12:37:12 systemctl status salt-minion.service 
+   22  2025-10-06 12:38:14 zypper verify
+   23  2025-10-06 12:38:20 ./registrar_cliente_desde_cliente.sh 
+   24  2025-10-06 12:38:55 systemctl status salt-minion.service 
+   25  2025-10-06 12:41:20 systemctl status salt-minion.service
+   26  2025-10-06 12:41:29 service salt-minion.service status
+   27  2025-10-06 12:41:36 service salt-minion status
+   28  2025-10-06 12:41:47 cd /etc/zypp/
+   29  2025-10-06 12:41:47 ls
+   30  2025-10-06 12:41:50 ls -l
+   31  2025-10-06 12:42:01 ls repos.d
+   32  2025-10-06 12:42:04 ls repos.d.old/
+   33  2025-10-06 12:42:21 zypper verify
+   34  2025-10-06 12:42:35 ls repos.d.old/
+   35  2025-10-06 12:42:37 ls repos.d
+   36  2025-10-06 12:42:42 SUSEConnect --cleanup
+   37  2025-10-06 12:42:57 service salt-minion status
+   38  2025-10-06 12:43:22 zypper lr
+   39  2025-10-06 12:46:03 ip a
+   40  2025-10-06 12:46:51 ssh-keygen -R 172.31.99.99 -f /var/lib/salt/.ssh/known_hosts
+   41  2025-10-06 12:47:02 ssh-keygen -R 172.31.99.99 -f .ssh/known_hosts
+   42  2025-10-06 12:48:53 service salt-minion status
+   43  2025-10-06 12:49:00 service salt-minion.service status
+   44  2025-10-06 13:00:47 cat /etc/host
+   45  2025-10-06 13:00:49 cat /etc/hosts
+   46  2025-10-06 13:14:57 service salt-minion.service status
+   47  2025-10-06 13:15:24 reboot
+   48  2025-10-08 16:40:16 systemctl status salt-minion.service
+   49  2025-10-08 16:41:09 ls
+   50  2025-10-08 16:50:28 ip a
+   51  2025-10-08 16:51:26 systemctl status salt-minion.service
+   52  2025-10-08 16:54:41 curl -v http://susemanager01.santpau.es/pub/
+   53  2025-10-10 09:49:17 cat /etc/os-release 
+   54  2025-10-10 09:52:04 service salt status
+   55  2025-10-10 09:52:29 service salt-minion status
+   56  2025-10-10 09:54:59 service venv-salt-minion satatus
+   57  2025-10-10 09:55:02 service venv-salt-minion status
+   58  2025-10-10 09:55:14 service venv-salt-minion status -v
+   59  2025-10-10 09:55:23 service venv-salt-minion status 
+   60  2025-10-10 09:58:13 service venv-salt-minion restart 
+   61  2025-10-10 09:58:15 service venv-salt-minion status 
+   62  2025-10-10 10:00:20 service venv-salt-minion restart
+   63  2025-10-10 10:00:25 service venv-salt-minion status 
+   64  2025-10-10 10:02:05 sudo journalctl -u venv-salt-minion.service --since "10 minutes ago" --no-pager
+   65  2025-10-10 10:04:24 sudo zypper remove venv-salt-minion
+   66  2025-10-10 10:04:41 sudo rm -rf /etc/salt/pki/minion
+   67  2025-10-10 10:05:20 service venv-salt-minion status 
+   68  2025-10-10 10:05:46 service venv-salt-minion restart
+   69  2025-10-10 10:05:54 service salt-minion restart
+   70  2025-10-10 10:05:57 service venv-salt-minion status 
+   71  2025-10-10 10:06:11 sudo zypper remove venv-salt-minion
+   72  2025-10-10 10:06:21 sudo rm -rf /etc/salt/pki/minion
+   73  2025-10-10 10:07:35 service venv-salt-minion restart
+   74  2025-10-10 10:07:40 service venv-salt-minion status 
+   75  2025-10-10 10:07:48 sudo journalctl -u venv-salt-minion.service --since "10 minutes ago" --no-pager
+   76  2025-10-10 10:08:28 sudo zypper remove venv-salt-minion
+   77  2025-10-10 10:08:38 sudo rm -rf /etc/salt/pki/minion
+   78  2025-10-10 10:09:24 service venv-salt-minion restart
+   79  2025-10-10 10:09:30 service venv-salt-minion status
+   80  2025-10-10 10:11:14 service venv-salt-minion restart
+   81  2025-10-10 10:11:18 service venv-salt-minion status
+   82  2025-10-10 10:14:42 service venv-salt-minion restart
+   83  2025-10-10 10:14:49 service venv-salt-minion status
+   84  2025-10-10 09:25:29 ls -l /etc/machine-id
+   85  2025-10-10 09:25:47 ls -l /var/lib/dbus/machine-id
+   86  2025-10-10 09:31:41 ls -l /etc/machine-id
+   87  2025-10-10 09:31:44 ls -l /var/lib/dbus/machine-id
+   88  2025-10-10 09:31:50 systemctl status salt-minion.service
+   89  2025-10-10 09:47:42 ./config_vm.sh 
+   90  2025-10-10 09:48:18 ./config_vm.sh --do-susemanager
+   91  2025-10-10 10:19:35 ls
+   92  2025-10-10 10:19:40 ./registrar_cliente_desde_cliente.sh 
+   93  2025-10-10 10:19:46 vim registrar_cliente_desde_cliente.sh 
+   94  2025-10-10 10:20:10 ./registrar_cliente_desde_cliente.sh 
+   95  2025-10-10 10:21:20 systemctl status salt-minion.service
+   96  2025-10-10 10:22:54 chmod u+x instalar_agente.sh 
+   97  2025-10-10 10:22:58 ./instalar_agente.sh 
+   98  2025-10-10 10:24:55 cd /etc/zypp/
+   99  2025-10-10 10:24:55 ls
+  100  2025-10-10 10:24:58 ls repos.d
+  101  2025-10-10 10:25:13 zypper verify
+  102  2025-10-10 10:25:27 SUSEConnect --cleanup
+  103  2025-10-10 10:25:39 ls /etc/machine-id
+  104  2025-10-10 10:25:42 cat /etc/machine-id
+  105  2025-10-10 10:25:52 rm /etc/machine-id
+  106  2025-10-10 10:26:05 rm /var/lib/dbus/machine-id
+  107  2025-10-10 10:26:11 dbus-uuidgen --ensure
+  108  2025-10-10 10:26:18 systemd-machine-id-setup
+  109  2025-10-10 10:26:25 service salt-minion stop
+  110  2025-10-10 10:26:35 service venv-salt-minion stop
+  111  2025-10-10 10:27:00 rm -rf /var/cache/salt
+  112  2025-10-10 10:37:47 zypper lr
+  113  2025-10-10 11:03:05 rpm -q venv-salt-minion
+  114  2025-10-10 11:03:20 sudo zypper remove venv-salt-minion
+  115  2025-10-10 11:03:27 sles15sp6:/etc/zypp # zypper lr
+  116  2025-10-10 11:03:27 Repository priorities are without effect. All enabled repositories share the same priority.
+  117  2025-10-10 11:03:27 # | Alias                  | Name                   | Enabled | GPG Check | Refresh
+  118  2025-10-10 11:03:27 --+------------------------+------------------------+---------+-----------+--------
+  119  2025-10-10 11:03:27 1 | SUSE-Manager-Bootstrap | SUSE-Manager-Bootstrap | Yes     | (  ) No   | Yes
+  120  2025-10-10 11:03:27 sles15sp6:/etc/zypp # 
+  121  2025-10-10 11:03:30 ls -l /etc/salt/pki/
+  122  2025-10-10 11:07:15 cat /etc/os-release 
+  123  2025-10-13 15:36:42 ls
+  124  2025-10-13 15:36:50 ./registrar_cliente_desde_cliente.sh 
+  125  2025-10-13 15:38:58 service salt-minion status
+  126  2025-10-13 15:39:48 sudo tail -f /var/log/tomcat/catalina.out
+  127  2025-10-13 15:40:00 sudo tail -f /var/log/rhn/rhn_web_ui.log
+  128  2025-10-13 15:41:33 ./registrar_cliente_desde_cliente.sh 
+  129  2025-10-13 15:43:05 ls
+  130  2025-10-13 15:43:11 vim instalar_agente.sh 
+  131  2025-10-13 15:43:27 vim config_vm.sh 
+  132  2025-10-13 15:43:37 ./config_vm.sh 
+  133  2025-10-13 16:13:54 hostnamectl set-hostaname sles15sp6-7
+  134  2025-10-13 16:14:00 hostnamectl set-hostname sles15sp6-7
+  135  2025-10-13 16:14:25 ip a
+  136  2025-10-13 16:17:07 reboot
+  137  2025-10-14 09:26:55 vim /etc/sysconfig/network/ifcfg-eth0 
+  138  2025-10-14 09:29:13 systemctl status wickedd.service 
+  139  2025-10-14 09:29:22 systemctl restart wickedd.service 
+  140  2025-10-14 09:29:23 systemctl status wickedd.service 
+  141  2025-10-14 09:29:34 ip a
+  142  2025-10-14 09:29:40 vim /etc/sysconfig/network/ifcfg-eth0 
+  143  2025-10-14 09:29:59 wicked ifreload all
+  144  2025-11-03 09:50:42 ls
+  145  2025-11-04 14:47:27 ip a
+  146  2025-11-04 14:47:41 ls
+  147  2025-11-04 14:47:53 ./config_vm.sh -h
+  148  2025-11-04 14:48:04 ./config_vm.sh --do-susemanager
+  149  2025-11-04 14:49:28 service salt-minion status
+  150  2025-11-04 14:49:46 service venv-salt-minion status
+  151  2025-11-07 11:27:33 sudo mgr-sync sync channel sle-manager-tools15-updates-x86_64-sp6
+  152  2025-11-07 14:31:51 ls
+  153  2025-11-07 14:32:05 vim instalar_agente.sh 
+  154  2025-11-07 14:33:53 ./registrar_cliente_desde_cliente.sh -h
+  155  2025-11-07 14:34:00 ./registrar_cliente_desde_cliente.sh --help
+  156  2025-11-07 14:34:03 ./registrar_cliente_desde_cliente.sh 
+  157  2025-11-07 14:44:31 vimregistrar_cliente_desde_cliente.sh 
+  158  2025-11-07 14:44:33 vim registrar_cliente_desde_cliente.sh 
+  159  2025-11-07 14:44:50 ./registrar_cliente_desde_cliente.sh 
+  160  2025-11-07 14:46:35 ip a
+  161  2025-11-07 14:52:24 ./registrar_cliente_desde_cliente.sh 
+  162  2025-11-11 11:40:02 ls
+  163  2025-11-11 11:40:07 ./registrar_cliente_desde_cliente.sh 
+  164  2025-11-11 12:29:04 rpm -qa minion
+  165  2025-11-11 12:29:26 rpm -qa "minion"
+  166  2025-11-11 12:29:34 rpm -qa "*minion*"
+  167  2025-11-11 12:42:12 systemctl status salt-minion.service 
+  168  2025-11-11 12:42:21 systemctl status venv-salt-minion
+  169  2025-11-11 12:43:00 systemctl --failed
+  170  2025-11-11 12:44:44 reboot
+  171  2025-11-11 14:06:11 systemctl status venv-salt-minion
+  172  2025-11-11 14:09:52 zypper remove product:sle-module-live-patching
+  173  2025-11-11 14:10:18 systemctl status venv-salt-minion
+  174  2025-11-11 14:16:27 cat /etc/os-release 
+  175  2025-11-11 14:16:30 reboot
+  176  2025-11-11 14:18:39 cat /etc/os-release 
+  177  2025-11-11 14:20:01 ip a
+  178  2025-11-11 14:20:46 ping 172.31.99.99
+  179  2025-11-11 14:23:47 systemctl status venv-salt-minion
+  180  2025-11-11 14:27:05 cat /etc/os-release 
+  181  2025-11-11 14:29:04 zypper lr -u
+  182  2025-11-11 14:30:02 zypper patch
+  183  2025-11-11 14:32:47 reboot
+  184  2025-11-11 14:33:42 zypper patch
+  185  2025-11-11 14:33:51 cat /etc/os-release 
+  186  2025-11-11 14:33:53 zypper patch
+  187  2025-11-11 14:34:29 ip a
+  188  2025-11-11 14:34:39 nslookup sles15sp6-7
+  189  2026-02-02 12:23:01 tas2
+  190  2026-02-02 12:23:03 yast2
+  191  2026-02-02 12:23:47 reboot
+  192  2026-02-02 12:27:19 poweroff
+  193  2026-02-02 12:25:03 hostnamectl set-hostname suse-sb2
+  194  2026-02-02 12:25:05 bash
+  195  2026-02-02 12:59:52 ./config_vm.sh -h
+  196  2026-02-02 13:00:12 ./config_vm.sh --do-dsagent
+  197  2026-02-02 13:04:19 ls /opt/ds_agent/
+  198  2026-02-02 13:04:48 ls *.der
+  199  2026-02-02 13:04:55 ls -l *.der
+  200  2026-02-02 13:05:06 ls  *.der
+  201  2026-02-02 13:05:12 ls  *.default
+  202  2026-02-02 13:05:19 ls
+  203  2026-02-02 13:05:24 ls /opt/ds_agent/
+  204  2026-02-02 13:05:27 cd /opt/ds_agent/
+  205  2026-02-02 13:05:33 ls *.der
+  206  2026-02-02 13:07:33 ls *.init
+  207  2026-02-02 13:07:51 find . -name *.der -type f
+  208  2026-02-02 16:44:42 ls -l /opt/ds_agent/ds_agent.der
+  209  2026-02-02 16:46:32 rpm -qa | grep ds_agent
+  210  2026-02-02 16:46:45 find /opt/ds_agent -name "*.der"
+  211  2026-02-02 16:48:23 lsmod | grep ds_
+  212  2026-02-02 16:49:12 mokutil --sb-state
+  213  2026-02-02 16:49:45 sudo mokutil --import /opt/ds_agent/secureboot/DS20_v2.der
+  214  2026-02-02 16:50:34 reboot
+  215  2026-02-02 18:36:05 journalctl -u ds_agent
+  216  2026-02-02 18:36:13 mokutil --sb-state
+  217  2026-02-02 18:36:18 lsmod | grep ds_
+  218  2026-02-02 18:36:27 uname -r
+  219  2026-02-02 18:39:00 grep -i "kernel" /var/opt/ds_agent/log/ds_agent.log | tail -n 20
+  220  2026-02-02 18:39:26 grep -i "kernel" /var/opt/ds_agent/diag/ds_control.log | tail -n 20
+  221  2026-02-02 18:39:34 grep -i "kernel" /var/opt/ds_agent/diag/dsa_control.log | tail -n 20
+  222  2026-02-02 18:39:46 grep -i "kernel" /var/opt/ds_agent/diag/ds_agent.log | tail -n 20
+  223  2026-02-02 18:40:04 grep -i "kernel" /var/opt/ds_agent/diag/ds_agent-err.log | tail -n 20
+  224  2026-02-02 18:40:11 grep -i "kernel" /var/opt/ds_agent/diag/ds_filter_json.log | tail -n 20
+  225  2026-02-02 18:42:09 ls -R /var/opt/ds_agent/ | grep ".ko"
+  226  2026-02-02 18:42:17 dmesg | grep -i "ds_"
+  227  2026-02-02 18:42:25 ls -R /var/opt/ds_agent/ | grep -R ".ko"
+  228  2026-02-02 18:42:30 ls -R /var/opt/ | grep -R ".ko"
+  229  2026-02-02 16:52:28 vim test.sh
+  230  2026-02-02 16:52:33 bash test.sh 
+  231  2026-02-02 16:57:55 cat test.sh 
+  232  2026-02-03 08:35:51 ls
+  233  2026-02-03 08:35:57 ./config_vm.sh -h
+  234  2026-02-03 08:36:05 ./config_vm.sh --do-susemanager
+  235  2026-02-03 09:18:30 ystemctl list-units --type=service --state=running
+  236  2026-02-03 09:18:32 systemctl list-units --type=service --state=running
+  237  2026-02-03 09:18:41 ls
+  238  2026-02-03 09:18:50 bash test.sh 
+  239  2026-02-03 09:18:59 systemctl status ds_agent.service 
+  240  2026-02-03 09:19:12 systemctl restart ds_agent.service 
+  241  2026-02-03 09:19:15 systemctl status ds_agent.service 
+  242  2026-02-03 09:20:54 zypper up
+  243  2026-02-03 09:21:17 zypper ref
+  244  2026-02-03 09:21:21 systemctl restart ds_agent.service 
+  245  2026-02-03 09:21:38 ./config_vm.sh --do-dsagent
+  246  2026-02-03 09:46:08 cat test.sh 
+  247  2026-02-03 09:47:19 vim test.sh 
+  248  2026-02-03 09:47:27 bash test.sh 
+  249  2026-02-03 09:48:11 lsmod | grep ds
+  250  2026-02-03 09:57:19 poweroff
+  251  2026-02-03 13:14:57 shim-install --config-file=/boot/grub2/grub.cfg
+  252  2026-02-03 13:17:12 reboot
+  253  2026-02-03 13:18:42 poweroff
+  254  2026-02-03 13:19:46 bash test.sh 
+  255  2026-02-03 13:19:54 vim test.sh 
+  256  2026-02-03 13:21:28 cat test.sh 
+  257  2026-02-03 13:21:30 bash test.sh 
+  258  2026-02-03 13:23:20 poweroff
+  259  2026-02-03 13:26:48 bash test.sh 
+  260  2026-02-03 13:26:54 poweroff
+  261  2026-02-03 13:29:29 bash test.sh 
+  262  2026-02-03 13:30:47 mokutil --list-new
+  263  2026-02-03 13:31:05 mokutil --import /opt/ds_agent/secureboot/DS20_v2.der
+  264  2026-02-03 13:31:20 reboot
+  265  2026-02-03 13:32:48 mokutil --list-new
+  266  2026-02-03 13:32:51 bash test.sh 
+  267  2026-02-03 13:32:58 mokutil --list-new
+  268  2026-02-03 13:32:59 bash test.sh 
+  269  2026-02-03 13:33:25 uptima
+  270  2026-02-03 13:33:29 uptime
+  271  2026-02-03 13:33:31 bash test.sh 
+  272  2026-02-03 13:33:33 mokutil --list-new
+  273  2026-02-03 13:34:18 mokutil --list-enrolled | grep -A 3 "Trend Micro"
+  274  2026-02-03 13:34:38 modprobe dsa_filter
+  275  2026-02-03 13:34:52 dmesg | grep -i "dsa"
+  276  2026-02-03 13:34:55 dmesg | grep -i "ds"
+  277  2026-02-03 13:36:18 find /var/opt/ds_agent -name "dsa_filter.ko"
+  278  2026-02-03 13:38:04 find /var/opt/ds_agent -name "ds"
+  279  2026-02-03 13:38:13 find /var/opt/ -name "ds"
+  280  2026-02-03 13:38:15 find /var/opt/ -name "dsa"
+  281  2026-02-03 14:21:48 systemctl restart ds_agent.service 
+  282  2026-02-03 14:21:54 systemctl status ds_agent.service 
+  283  2026-02-03 14:22:11 find /var/opt/ds_agent -name "dsa_filter.ko"
+  284  2026-02-03 14:22:16 find /var/opt/ds_agent -name "ds"
+  285  2026-02-03 14:22:19 find /var/opt/ -name "ds"
+  286  2026-02-03 14:22:22 find /var/ -name "ds"
+  287  2026-02-03 14:22:30 find / -name "ds"
+  288  2026-02-03 14:22:41 find /var/opt/ds_agent -name "ds*"
+  289  2026-02-03 14:23:47 find /var/opt/ds_agent -name "*.ko"
+  290  2026-02-03 14:23:53 find /var/opt/ -name "*.ko"
+  291  2026-02-03 14:23:57 find /var/ -name "*.ko"
+  292  2026-02-03 14:24:01 find / -name "*.ko"
+  293  2026-02-03 14:24:27 tail -f /var/opt/ds_agent/diag/ds_agent.log | grep -iE "module|kernel|ksp|signature"
+  294  2026-02-03 14:30:37 insmod /opt/ds_agent/6.4.0-150700.53.19-default/dsa_filter_hook.ko
+  295  2026-02-03 14:31:33 modinfo /opt/ds_agent/6.4.0-150700.53.19-default/dsa_filter_hook.ko | grep -iE "signer|sig_key"
+  296  2026-02-03 14:31:55 dmesg | tail -n 20
+  297  2026-02-03 14:33:06 ls /opt/ds_agent/secureboot/
+  298  2026-02-03 14:33:30 mokutil --import /opt/ds_agent/secureboot/DS2022.der
+  299  2026-02-03 14:33:48 reboot
+  300  2026-02-03 14:34:59 modinfo /opt/ds_agent/6.4.0-150700.53.19-default/dsa_filter_hook.ko | grep -iE "signer|sig_key"
+  301  2026-02-03 14:35:04 insmod /opt/ds_agent/6.4.0-150700.53.19-default/dsa_filter_hook.ko
+  302  2026-02-03 14:36:21 bash test.sh 
+  303  2026-02-10 10:00:38 ls /opt/ds_agent/secureboot/
+  304  2026-02-10 10:01:05 ls
+  305  2026-02-10 10:14:57 ls /opt/ds_agent/secureboot/
+  306  2026-02-10 10:15:01 bash test.sh 
+  307  2026-02-10 10:19:44 dmesg | grep -i "secure boot"
+  308  2026-02-15 23:34:11 mokutil --sb-state
+  309  2026-03-10 11:40:16 dmesg | grep -i "secure boot"
+  310  2026-03-10 11:41:09 lsmod | grep dsa
+  311  2026-04-29 09:24:04 dmesg | grep -i "secure boot"
+  312  2026-04-29 09:24:44 mokutil --sb-state
+  313  2026-04-29 09:24:57 ls
+  314  2026-04-29 09:25:08 vim test.sh 
+  315  2026-04-29 09:25:44 rm ds-agent-instalation-script.sh config_vm.sh registrar_cliente_desde_cliente.sh
+  316  2026-04-29 09:25:45 ls
+  317  2026-04-29 09:25:53 rm instalar_agente.sh
+  318  2026-04-29 09:25:54 ls
+  319  2026-04-29 09:27:37 cat /etc/os-release 
+  320  2026-04-29 09:28:43 rpm -q shim grub2-x86_64-efi
+  321  2026-04-29 09:28:50 fdisk -l /dev/sda | grep -i "disklabel"
+  322  2026-05-04 09:37:15 ls
+  323  2026-05-04 11:43:20 cat /etc/machine-id
+  324  2026-05-04 11:43:23 echo "" > /etc/machine-id
+  325  2026-05-04 11:43:35 cat /var/lib/dbus/machine-id
+  326  2026-05-04 11:43:59 rm /var/lib/dbus/machine-id
+  327  2026-05-04 11:44:02 timedatectl 
+  328  2026-05-04 11:46:10 ls
+  329  2026-05-04 11:46:12 df -h
+  330  2026-05-04 11:47:01 lvs
+  331  2026-05-04 11:52:51 vgs
+  332  2026-05-04 11:53:56 ss -lntup
+  333  2026-05-04 11:54:06 vgs
+  334  2026-05-04 11:56:50 systemctl stop ds_agent.service 
+  335  2026-05-04 11:56:58 systemctl stop postfix.service 
+  336  2026-05-04 11:57:19 lvcreate -L 10G -n var system
+  337  2026-05-04 11:57:31 mkfs.xfs /dev/system/var
+  338  2026-05-04 11:57:37 mkdir /mnt/newvar
+  339  2026-05-04 11:57:43 mount /dev/system/var /mnt/newvar
+  340  2026-05-04 11:57:45 df -h
+  341  2026-05-04 11:57:56 rsync -avAXHP /var/ /mnt/newvar/
+  342  2026-05-04 11:58:14 blkid /dev/system/var
+  343  2026-05-04 11:58:31 vim /etc/fstab 
+  344  2026-05-04 11:59:41 /mv /var /var_old
+  345  2026-05-04 11:59:43 mv /var /var_old
+  346  2026-05-04 12:00:05 mkdir /var && chmod 755 /var
+  347  2026-05-04 12:00:16 ls
+  348  2026-05-04 12:00:19 ls /
+  349  2026-05-04 12:00:23 cd /var
+  350  2026-05-04 12:00:24 ls
+  351  2026-05-04 12:00:29 cd spool/
+  352  2026-05-04 12:00:30 ls
+  353  2026-05-04 12:00:32 cd cron/
+  354  2026-05-04 12:00:32 ls
+  355  2026-05-04 12:00:35 cd lastrun/
+  356  2026-05-04 12:00:36 ls
+  357  2026-05-04 12:02:26 reboot
+  358  2026-05-04 13:01:10 df -h
+  359  2026-05-04 13:01:27 ls /
+  360  2026-05-04 13:01:31 cd /var_old/
+  361  2026-05-04 13:01:32 ls
+  362  2026-05-04 13:01:38 mc
+  363  2026-05-04 13:02:21 ls
+  364  2026-05-04 13:02:25 ls -l
+  365  2026-05-04 13:02:36 cd ..
+  366  2026-05-04 13:02:38 cd /var
+  367  2026-05-04 13:02:40 ls -l
+  368  2026-05-04 13:03:10 ls -l /var_old/
+  369  2026-05-04 13:03:19 pwd
+  370  2026-05-04 13:03:22 df -h
+  371  2026-05-04 13:03:28 cd log/
+  372  2026-05-04 13:03:29 ls -l
+  373  2026-05-04 13:03:45 systemctl status ds_agent.service 
+  374  2026-05-04 13:04:16 df -h
+  375  2026-05-04 13:07:29 rm -rf /var_old
+  376  2026-05-04 13:07:38 df -h
+  377  2026-05-04 13:07:53 ls -l /var/log
+  378  2026-05-04 13:08:11 ls -lt /var/log
+  379  2026-05-04 13:11:56 cat /var/lib/dbus/machine-id
+  380  2026-05-04 13:13:26 rm /var/lib/dbus/machine-id
+  381  2026-05-04 13:13:35 echo "" > /etc/machine-id
+  382  2026-05-04 13:13:45 reboot
+  383  2026-05-04 13:14:32 df -h
+  384  2026-05-04 13:14:42 echo "" > /etc/machine-id
+  385  2026-05-04 13:14:44 rm /var/lib/dbus/machine-id
+  386  2026-05-04 13:14:47 poweroff
+  387  2026-05-04 13:18:07 truncate -s 0 /etc/machine-id
+  388  2026-05-04 13:18:15 rm /var/lib/dbus/machine-id
+  389  2026-05-04 13:18:24 ls -l /etc/machine-id
+  390  2026-05-04 13:18:38 ln -s /etc/machine-id /var/lib/dbus/machine-id
+  391  2026-05-04 13:18:48 find /var/log -type f -exec truncate -s 0 {} \;
+  392  2026-05-04 13:18:53 rm -rf /tmp/* /var/tmp/*
+  393  2026-05-04 13:19:07 ip a
+  394  2026-05-04 13:19:48 history > history_suse-sb2

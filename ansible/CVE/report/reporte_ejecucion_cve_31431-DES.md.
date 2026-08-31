@@ -1,0 +1,31 @@
+# REPORTE DE MITIGACIÓN EN CALIENTE - CVE-2026-31431
+*Fecha de Generación: 2026-05-26 | Hora: 11:36:47*
+
+| Servidor (VM) | Estado de Mitigación (Kernel) |
+| :--- | :--- |
+| **appinfurG01des** | ERROR: Tarea no ejecutada |
+| **dwh01des** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **dwh02des** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **enigma01DEs** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **estimtraCK01des.santpau.es** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **famaafm02Des** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **famaapp01Des** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **intrahsp01des** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **intrahsp02des** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **intrahsp03des** | ERROR: Tarea no ejecutada |
+| **intrahsp04des** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **iptv01deS** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **mongodb01Des** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **mongodb02Des** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **mongodb03Des** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **mongodb04Des** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **mongodbdES** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **patwindb02des** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **sau01des** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **sescli01DEs** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **setapp01DEs** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **setdb01dES** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **wdisp01dES** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **webapps01Des** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **webpub01DEs** |  Mitigado (Modulo descargado y deshabilitado)  |
+| **webpub02DEs** |  Mitigado (Modulo descargado y deshabilitado)  |

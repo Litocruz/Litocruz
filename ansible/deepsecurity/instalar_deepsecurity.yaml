@@ -1,0 +1,83 @@
+---
+- name: Gestión Avanzada de Deep Security
+  hosts: all
+  become: yes
+  gather_facts: no
+  vars:
+    local_installer_path: "/home/jestebanl/Litocruz/scripts/deepSecurity/ds-agent-instalation-script.sh"
+    remote_installer_path: "/tmp/ds-agent-instalation-script.sh"
+    target_version: "20.0.2-29760"
+    activation_url: "dsm://DSMHSP01.santpau.es:4120/"
+
+  tasks:
+    - name: 1. Verificar si dependencias ya existen
+      shell: "command -v curl && command -v file"
+      register: deps_check
+      failed_when: false
+      changed_when: false
+
+    - name: 2. Intentar instalar dependencias solo si faltan
+      package:
+        name: [curl, file]
+        state: present
+      when: deps_check.rc is defined and deps_check.rc != 0
+      ignore_errors: yes
+
+    - name: 3. Detectar versión instalada
+      block:
+        - name: Check RPM (SUSE/RedHat)
+          shell: rpm -q --queryformat '%{VERSION}-%{RELEASE}' ds_agent
+          register: rpm_version
+          when: ansible_pkg_mgr in ['zypper', 'yum', 'dnf']
+          failed_when: false
+
+        - name: Check DEB (Debian/Ubuntu)
+          shell: dpkg-query -W -f='${Version}' ds_agent
+          register: deb_version
+          when: ansible_pkg_mgr == 'apt'
+          failed_when: false
+
+    - name: 4. Definir si hay que borrar la versión antigua
+      set_fact:
+        needs_upgrade: >-
+          {% if rpm_version.rc is defined and rpm_version.rc == 0 and target_version not in rpm_version.stdout %}true
+          {% elif deb_version.rc is defined and deb_version.rc == 0 and target_version not in deb_version.stdout %}true
+          {% else %}false{% endif %}
+
+    - name: 5. Borrar versión antigua si hay conflicto
+      package:
+        name: ds_agent
+        state: absent
+      when: needs_upgrade | bool
+
+    - name: 6. Ejecutar Instalación Limpia
+      block:
+        - name: Copiar script
+          copy:
+            src: "{{ local_installer_path }}"
+            dest: "{{ remote_installer_path }}"
+            mode: '0755'
+
+        - name: Ejecutar instalador
+          shell: "{{ remote_installer_path }}"
+          register: install_log
+
+        - name: Debug instalación
+          debug:
+            var: install_log.stdout_lines
+      # Se ejecuta si no está instalado o si hay que hacer upgrade
+      when: >
+        (rpm_version.rc is defined and rpm_version.rc != 0) or 
+        (deb_version.rc is defined and deb_version.rc != 0) or 
+        needs_upgrade | bool
+
+    - name: 7. Forzar Activación
+      shell: "/opt/ds_agent/dsa_control -a {{ activation_url }} 'policyid:11'"
+      register: act_log
+      failed_when: false
+      changed_when: "'activated' in act_log.stdout"
+
+    - name: 8. Limpiar temporal
+      file:
+        path: "{{ remote_installer_path }}"
+        state: absent

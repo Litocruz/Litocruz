@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Cierre - Cabutia FC</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background-color: #1e1e1e;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            max-width: 550px;
+            width: 100%;
+        }
+        h1 {
+            color: #4caf50;
+            font-size: 22px;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        h2 {
+            color: #2196f3;
+            font-size: 16px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+        .data-box {
+            background-color: #252525;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            background-color: #2a2a2a;
+            color: #fff;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .results {
+            margin-top: 25px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+        .result-item {
+            background-color: #252525;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 4px solid #ff9800;
+        }
+        .result-item.group-a {
+            border-left-color: #4caf50;
+        }
+        .result-item.group-b {
+            border-left-color: #2196f3;
+        }
+        .value {
+            font-weight: bold;
+            color: #fff;
+            font-size: 15px;
+        }
+        .highlight-text {
+            color: #ffeb3b;
+            font-weight: bold;
+        }
+        .reglamento-box {
+            font-size: 13.5px;
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+        .reglamento-box ul {
+            padding-left: 20px;
+            margin: 5px 0;
+        }
+        .ejemplo {
+            background-color: #1a237e;
+            color: #e3f2fd;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            border-left: 4px solid #90caf9;
+        }
+        .beneficio-box {
+            background-color: #1b5e20;
+            color: #e8f5e9;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 4px solid #81c784;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>⚽ Cabutia FC</h1>
+    <div style="text-align: center; color: #888; font-size: 14px; margin-bottom: 20px;">Control de Torneo de Verano</div>
+    
+    <h2>📊 Datos Iniciales del Torneo</h2>
+    <div class="data-box">
+        • <strong>Costo Total Cancha Agapito:</strong> 510€ (6 partidos)<br>
+        • <strong>Pozo Inicial Congelado:</strong> 162€<br>
+        • <strong>Adelanto Neto Financiado:</strong> 348€
+    </div>
+
+    <h2>👥 Aportes por Adelantado</h2>
+    <div class="data-box">
+        🟢 <strong>Siempre (6 partidos) - Pusieron 49€ c/u:</strong><br>
+        &nbsp;&nbsp;• Maxi, Bruno, Julito Lito, Felipe, Mauro.<br>
+        🔵 <strong>Mínimo 4 partidos - Pusieron 33€ c/u:</strong><br>
+        &nbsp;&nbsp;• Moha, Soldee, Agus Bruno.
+    </div>
+
+    <h2>⚙️ Cierre de Torneo</h2>
+    <div class="form-group">
+        <label for="invitados">Cantidad TOTAL de asistencias de invitados:</label>
+        <input type="number" id="invitados" min="0" value="0" placeholder="Ej: 6 si fue un invitado por partido">
+    </div>
+
+    <button onclick="calcularTodo()">Calcular Balance Final</button>
+
+    <div class="results" id="resultados" style="display: none;">
+        <h2>💰 Flujo de Caja Extra</h2>
+        <div class="result-item">
+            Recaudado por invitados (a 6.5€): <span class="value" id="resInvitados">0€</span><br>
+            Recupero total del equipo rival: <span class="value">255.00€</span><br>
+            <strong>Total Caja a Repartir:</strong> <span class="value" id="resTotalCaja">0€</span>
+        </div>
+
+        <h2>💸 Devolución y Costo Neto Real</h2>
+        
+        <div class="result-item group-a">
+            <strong>GRUPO SIEMPRE (6 partidos)</strong><br>
+            • Devolución en mano: <span class="value" id="devSiempre">0€</span><br>
+            • Pusieron neto en total: <span class="value" id="netoSiempre">0€</span><br>
+            • Costo real por partido: <span class="highlight-text" id="costoPartSiempre">0€</span> (Cada uno)
+        </div>
+
+        <div class="result-item group-b">
+            <strong>GRUPO MÍNIMO 4 (4 partidos)</strong><br>
+            • Devolución en mano: <span class="value" id="devMinimo">0€</span><br>
+            • Pusieron neto en total: <span class="value" id="netoMinimo">0€</span><br>
+            • Costo real por partido: <span class="highlight-text" id="costoPartMinimo">0€</span> (Cada uno)
+        </div>
+    </div>
+
+    <h2>📜 Reglamento y Transparencia Financiera</h2>
+    <div class="data-box reglamento-box">
+        <div class="beneficio-box">
+            <strong>🎁 ¿Por qué te conviene pagar por adelantado?</strong><br>
+            El costo real de mercado de la cancha por partido/persona es de 6,07€. Los invitados sueltos pagan <strong>6,50€</strong>. <br><br>
+            Al comprometerte y pagar por adelantado (<strong>49€</strong> si vas a los 6 partidos o <strong>33€</strong> si vas a 4), pasás a ser "dueño" de la recaudación. Toda la plata que devuelva el rival (255€) más lo que pongan los invitados se usa para reintegrarte dinero al final. Esto hace que tu costo real termine bajando a un estimado de poco más de 2€ por partido. El compromiso financiero se premia con fútbol casi gratis.
+        </div>
+
+        <strong>1. Blindaje del Pozo Inicial:</strong><br>
+        Los 162€ que el equipo ya tenía guardados se usan temporalmente para congelar la reserva completa (510€) pero queden intactos en el pozo al final del verano. No se reparten.
+        <br><br>
+        <strong>2. Dinámica de Invitados:</strong><br>
+        Cualquier persona que se sume a un partido puntual paga <strong>6,5€ en el acto</strong>. Esa plata va directo a la caja de cierre para abaratar el costo de los 8 que adelantaron el pago.
+        <br><br>
+        <strong>3. Criterio de Repartija Justa:</strong><br>
+        El dinero que devuelve el rival (255€) más lo recaudado por invitados se distribuye de forma proporcional a los partidos que cada uno se comprometió a bancar desde el primer día:
+        <ul>
+            <li>Los del grupo <strong>Siempre</strong> acumulan 6 unidades de devolución por cabeza.</li>
+            <li>Los del grupo <strong>Mínimo 4</strong> acumulan 4 unidades de devolución por cabeza.</li>
+        </ul>
+        <br>
+        <strong>💡 Ejemplo de autoregulación (Partidos Extras):</strong><br>
+        Si un jugador que pagó el adelanto de 4 partidos (33€) decide sumarse a los 6:
+        <div class="ejemplo">
+            • Paga sus 33€ de adelanto inicial.<br>
+            • En los 2 partidos extras, juega como "invitado" y pone 6,5€ por fecha (+13€).<br>
+            • Su inversión total del bolsillo fue de <strong>46€</strong>.<br>
+            • Al cargar esas 2 asistencias extras en la calculadora como invitados, el pozo general crece, aumentando la devolución para todos.<br>
+            • Al final, el sistema le devolverá más dinero, garantizando que su costo real por partido baje de forma equitativa por haber apoyado al equipo desde el inicio.
+        </div>
+    </div>
+</div>
+
+<script>
+function calcularTodo() {
+    var totalInvitados = parseInt(document.getElementById('invitados').value);
+    if (isNaN(totalInvitados) || totalInvitados < 0) {
+        totalInvitados = 0;
+    }
+    
+    var precioInvitado = 6.5;
+    var recuperoRival = 255;
+    
+    var adelantoSiempre = 49;
+    var adelantoMinimo = 33;
+
+    var plataInvitados = totalInvitados * precioInvitado;
+    var totalCajaCierre = recuperoRival + plataInvitados;
+    
+    var totalPartidosPersona = 42;
+    var valorPorPartidoPersona = totalCajaCierre / totalPartidosPersona;
+    
+    var devIndSiempre = valorPorPartidoPersona * 6;
+    var devIndMinimo = valorPorPartidoPersona * 4;
+    
+    var netoIndSiempre = adelantoSiempre - devIndSiempre;
+    var netoIndMinimo = adelantoMinimo - devIndMinimo;
+
+    var costoPartidoSiempre = netoIndSiempre / 6;
+    var costoPartidoMinimo = netoIndMinimo / 4;
+    
+    document.getElementById('resInvitados').innerText = plataInvitados.toFixed(2) + '€';
+    document.getElementById('resTotalCaja').innerText = totalCajaCierre.toFixed(2) + '€';
+    
+    document.getElementById('devSiempre').innerText = devIndSiempre.toFixed(2) + '€';
+    document.getElementById('netoSiempre').innerText = netoIndSiempre.toFixed(2) + '€';
+    document.getElementById('costoPartSiempre').innerText = costoPartidoSiempre.toFixed(2) + '€';
+    
+    document.getElementById('devMinimo').innerText = devIndMinimo.toFixed(2) + '€';
+    document.getElementById('netoMinimo').innerText = netoIndMinimo.toFixed(2) + '€';
+    document.getElementById('costoPartMinimo').innerText = costoPartidoMinimo.toFixed(2) + '€';
+    
+    document.getElementById('resultados').style.display = 'block';
+}
+</script>
+
+</body>
+</html>

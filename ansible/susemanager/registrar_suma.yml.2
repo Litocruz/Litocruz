@@ -1,0 +1,105 @@
+---
+- name: Registro Masivo No Interactivo en SUSE Manager (SUMA)
+  hosts: linux_vms
+  become: yes
+  gather_facts: yes  # Necesario para detectar el SO (ansible_distribution y ansible_distribution_major_version)
+  vars:
+    suma_server: "susemanager01.santpau.es"
+
+  tasks:
+    # -------------------------------------------------------------------------
+    # 1. VERIFICACIÓN PREVIA
+    # -------------------------------------------------------------------------
+    - name: Comprobar si el minion ya responde a SUMA
+      ansible.builtin.shell: "timeout 5 salt-call test.ping"
+      register: salt_ping
+      failed_when: false
+      changed_when: false
+
+    - name: Determinar si la VM necesita alta en SUMA
+      ansible.builtin.set_fact:
+        needs_registration: >-
+          {{ salt_ping.rc == 127 or 
+             salt_ping.rc == 77 or 
+             'True' not in salt_ping.stdout }}
+
+    # -------------------------------------------------------------------------
+    # 2. BLOQUE DE REGISTRO NO INTERACTIVO
+    # -------------------------------------------------------------------------
+    - name: Ejecutar proceso de registro en SUMA
+      when: needs_registration
+      block:
+        - name: Limpieza de identidades y repositorios locales (SLES / Debian)
+          ansible.builtin.shell: |
+            if systemctl is-active --quiet salt-minion; then systemctl stop salt-minion; fi
+            rm -f /etc/machine-id /var/lib/dbus/machine-id
+            rm -rf /var/cache/salt /etc/salt/pki/minion/*
+            dbus-uuidgen --ensure; systemd-machine-id-setup
+            
+            if [ -f /usr/bin/zypper ]; then
+              mkdir -p /etc/zypp/repos.d.old
+              if [ -n "$(ls -A /etc/zypp/repos.d/ 2>/dev/null)" ]; then 
+                mv /etc/zypp/repos.d/* /etc/zypp/repos.d.old/ 
+              fi
+              if command -v SUSEConnect &> /dev/null; then SUSEConnect --cleanup >/dev/null 2>&1; fi
+            fi
+          args:
+            executable: /bin/bash
+
+        - name: Determinar el nombre del script Bootstrap según la distribución
+          ansible.builtin.set_fact:
+            bootstrap_script_name: >-
+              {% if ansible_distribution == 'SLES' and ansible_distribution_major_version == '12' %}bootstrap-sles12.sh
+              {% elif ansible_distribution == 'SLES' and ansible_distribution_major_version == '15' %}bootstrap-sles15.sh
+              {% elif ansible_distribution == 'Ubuntu' %}bootstrap-ubuntu.sh
+              {% elif ansible_distribution in ['RedHat', 'CentOS', 'Rocky'] %}bootstrap-rhel{{ ansible_distribution_major_version }}.sh
+              {% else %}bootstrap.sh{% endif %}
+
+        - name: Descargar el script de Bootstrap desde el servidor SUMA
+          ansible.builtin.get_url:
+            url: "http://{{ suma_server }}/pub/bootstrap/{{ bootstrap_script_name }}"
+            dest: "/tmp/bootstrap_suma.sh"
+            mode: '0755'
+          register: download_status
+          ignore_errors: yes
+
+        - name: Fallback a script por defecto si el específico no existe
+          ansible.builtin.get_url:
+            url: "http://{{ suma_server }}/pub/bootstrap/bootstrap.sh"
+            dest: "/tmp/bootstrap_suma.sh"
+            mode: '0755'
+          when: download_status is failed
+
+        - name: Ejecutar el Bootstrap de registro en SUMA
+          ansible.builtin.command: "/bin/sh /tmp/bootstrap_suma.sh"
+          register: bootstrap_result
+
+        - name: Refrescar metadatos de repositorios tras el registro
+          ansible.builtin.shell: |
+            if [ -f /usr/bin/zypper ]; then
+              zypper --non-interactive ref -s
+            elif [ -f /usr/bin/apt-get ]; then
+              apt-get update -y
+            fi
+          args:
+            executable: /bin/bash
+          when: bootstrap_result.rc == 0
+
+        - name: Limpiar archivo temporal
+          ansible.builtin.file:
+            path: "/tmp/bootstrap_suma.sh"
+            state: absent
+
+    # -------------------------------------------------------------------------
+    # 3. REPORTE FINAL DE EJECUCIÓN
+    # -------------------------------------------------------------------------
+    - name: Mostrar estado final
+      ansible.builtin.debug:
+        msg: >-
+          {% if not needs_registration %}
+          [OMITIDO] La VM '{{ inventory_hostname }}' ya estaba registrada en SUMA.
+          {% elif bootstrap_result is defined and bootstrap_result.rc == 0 %}
+          [ÉXITO] La VM '{{ inventory_hostname }}' se ha registrado correctamente en SUMA.
+          {% else %}
+          [ERROR] No se pudo registrar la VM '{{ inventory_hostname }}'.
+          {% endif %}

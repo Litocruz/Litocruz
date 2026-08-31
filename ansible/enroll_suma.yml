@@ -1,0 +1,84 @@
+---
+- name: Enrolamiento masivo de VMs en SUSE Manager 5.1.1
+  hosts: linux_vms
+  become: true
+  gather_facts: true
+  vars:
+    suma_server: "susemanager01.santpau.es"
+    env_suffix: "{{ 'DEV' if 'linux_des' in group_names else 'PROD' }}"
+    activation_key: "2-{{ ansible_os_family | upper }}-{{ env_suffix }}"
+
+  tasks:
+    - name: Verificar conectividad con SUSE Manager (Puertos Salt)
+      wait_for:
+        host: "{{ suma_server }}"
+        port: 4505
+        timeout: 5
+      ignore_errors: true
+      register: suma_conn
+
+    - name: Fallar si no hay visibilidad hacia SUMA
+      fail:
+        msg: "El nodo no alcanza el puerto 4505 en {{ suma_server }}. Revisa el Firewall."
+      when: suma_conn.failed
+
+    - name: Comprobar si venv-salt-minion o salt-minion ya están instalados
+      command: "systemctl is-active venv-salt-minion salt-minion"
+      register: minion_status
+      ignore_errors: true
+      changed_when: false
+
+    - name: Instalar venv-salt-minion (SUSE/RedHat para SUMA 5.1)
+      package:
+        name: venv-salt-minion
+        state: present
+      when: 
+        - ansible_os_family in ['Suse', 'RedHat']
+        - minion_status.rc != 0
+
+    - name: Instalar salt-minion (Debian/Ubuntu)
+      apt:
+        name: salt-minion
+        state: present
+        update_cache: true
+      when: 
+        - ansible_os_family == 'Debian'
+        - minion_status.rc != 0
+
+    - name: Asegurar que existe el directorio minion.d
+      file:
+        path: /etc/salt/minion.d
+        state: directory
+        mode: '0755'
+
+    - name: Configurar el Master en el Minion
+      copy:
+        dest: /etc/salt/minion.d/susemanager.conf
+        content: |
+          master: {{ suma_server }}
+          server_id_use_crc: adler32
+          enable_legacy_startup_events: False
+          enable_fqdns_grains: False
+        mode: '0644'
+      notify: restart salt-minion
+
+    - name: Inyectar Activation Key en los Grains
+      copy:
+        dest: /etc/salt/grains
+        content: |
+          susemanager:
+            activation_key: "{{ activation_key }}"
+        mode: '0644'
+      notify: restart salt-minion
+
+    - name: Asegurar que el servicio está habilitado y corriendo
+      service:
+        name: "{{ 'venv-salt-minion' if ansible_os_family in ['Suse', 'RedHat'] else 'salt-minion' }}"
+        state: started
+        enabled: true
+
+  handlers:
+    - name: restart salt-minion
+      service:
+        name: "{{ 'venv-salt-minion' if ansible_os_family in ['Suse', 'RedHat'] else 'salt-minion' }}"
+        state: restarted
