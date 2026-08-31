@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: selfmng-mdw-route
+  namespace: p1042
+spec:
+  host: selfmng-mdw-route-p1042.apps.lab.okd.local
+  to:
+    kind: Service
+    name: selfmng-mdw-svc
+    weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
+

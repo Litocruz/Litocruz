@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data0-kafka-0       # <--- MISMO NOMBRE QUE EL ORIGINAL
+  namespace: kafka
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
+  storageClassName: thin-csi  # <--- PERO CON DRIVER NUEVO

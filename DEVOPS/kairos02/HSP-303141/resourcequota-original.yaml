@@ -1,0 +1,43 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: ResourceQuota
+  metadata:
+    creationTimestamp: "2024-10-30T12:33:53Z"
+    name: project-resource-quota
+    namespace: sesiones-clinicas
+    resourceVersion: "583274302"
+    uid: 306b4621-2190-4cf7-b19f-2ed4ed0a7f60
+  spec:
+    hard:
+      limits.cpu: "20"
+      limits.memory: 12Gi
+      limits/cpu: "20"
+      persistentvolumeclaims: "3"
+      pods: "20"
+      requests.cpu: "6"
+      requests.memory: 8Gi
+      requests.storage: 10Gi
+      requests/memory: 8Gi
+  status:
+    hard:
+      limits.cpu: "20"
+      limits.memory: 12Gi
+      limits/cpu: "20"
+      persistentvolumeclaims: "3"
+      pods: "20"
+      requests.cpu: "6"
+      requests.memory: 8Gi
+      requests.storage: 10Gi
+      requests/memory: 8Gi
+    used:
+      limits.cpu: 9100m
+      limits.memory: 9864Mi
+      persistentvolumeclaims: "3"
+      pods: "16"
+      requests.cpu: 4400m
+      requests.memory: 3432Mi
+      requests.storage: 9Gi
+kind: List
+metadata:
+  resourceVersion: ""

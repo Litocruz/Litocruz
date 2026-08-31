@@ -1,0 +1,27 @@
+cat <<EOF > migracion-kafka-2.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: migracion-kafka-2
+  namespace: kafka
+spec:
+  containers:
+  - name: migracion
+    image: confluentinc/cp-server:7.6.0
+    command: ["/bin/sh", "-c", "sleep infinity"]
+    securityContext:
+      runAsUser: 0
+    volumeMounts:
+    - name: disco-viejo
+      mountPath: /mnt/viejo
+      readOnly: true
+    - name: disco-temp
+      mountPath: /mnt/temp
+  volumes:
+  - name: disco-viejo
+    persistentVolumeClaim:
+      claimName: data0-kafka-2
+  - name: disco-temp
+    persistentVolumeClaim:
+      claimName: data0-kafka-2-temp
+EOF

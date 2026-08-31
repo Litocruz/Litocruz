@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: migracion-kafka-0-restore
+  namespace: kafka
+spec:
+  containers:
+  - name: migracion
+    image: confluentinc/cp-server:7.6.0
+    command: ["/bin/sh", "-c", "sleep infinity"]
+    securityContext:
+      runAsUser: 0  # Somos root para copiar permisos exactos
+    volumeMounts:
+    - name: disco-temp
+      mountPath: /mnt/temp
+      readOnly: true
+    - name: disco-final
+      mountPath: /mnt/final
+  volumes:
+  - name: disco-temp
+    persistentVolumeClaim:
+      claimName: data0-kafka-0-temp  # Origen (donde están los datos ahora)
+  - name: disco-final
+    persistentVolumeClaim:
+      claimName: data0-kafka-0       # Destino (el nuevo disco vacío)

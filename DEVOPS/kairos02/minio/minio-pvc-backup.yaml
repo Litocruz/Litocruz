@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"PersistentVolumeClaim","metadata":{"annotations":{},"name":"minio-data","namespace":"sesiones-clinicas"},"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"2Gi"}},"storageClassName":"thin"}}
+    pv.kubernetes.io/bind-completed: "yes"
+    pv.kubernetes.io/bound-by-controller: "yes"
+    volume.beta.kubernetes.io/storage-provisioner: csi.vsphere.vmware.com
+    volume.kubernetes.io/storage-provisioner: csi.vsphere.vmware.com
+  creationTimestamp: "2025-06-10T08:20:14Z"
+  finalizers:
+  - kubernetes.io/pvc-protection
+  name: minio-data
+  namespace: sesiones-clinicas
+  resourceVersion: "454267368"
+  uid: 90472615-a02f-4416-9ab5-d6deb20cbc16
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: thin
+  volumeMode: Filesystem
+  volumeName: pvc-90472615-a02f-4416-9ab5-d6deb20cbc16
+status:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 2Gi
+  phase: Bound

@@ -1,0 +1,9 @@
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshot
+metadata:
+  name: test-snapshot-manual
+  namespace: kafka  # O donde tengas un PVC válido
+spec:
+  volumeSnapshotClassName: csi-vsphere-vsc
+  source:
+    persistentVolumeClaimName: data0-kafka-0 # # Usa un PVC que exista, por ejemplo uno de Kafka

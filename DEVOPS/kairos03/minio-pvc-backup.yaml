@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    pv.kubernetes.io/bind-completed: "yes"
+    pv.kubernetes.io/bound-by-controller: "yes"
+    volume.beta.kubernetes.io/storage-provisioner: csi.vsphere.vmware.com
+    volume.kubernetes.io/storage-provisioner: csi.vsphere.vmware.com
+  creationTimestamp: "2025-06-23T08:34:46Z"
+  finalizers:
+  - kubernetes.io/pvc-protection
+  name: minio-data
+  namespace: sesiones-clinicas
+  resourceVersion: "346335254"
+  uid: 7b375acf-eae1-4abf-a1db-102f59915e8c
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: thin
+  volumeMode: Filesystem
+  volumeName: pvc-7b375acf-eae1-4abf-a1db-102f59915e8c
+status:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 2Gi
+  phase: Bound

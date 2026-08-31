@@ -1,0 +1,14 @@
+cat <<EOF > kafka-2-temp.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data0-kafka-2-temp
+  namespace: kafka
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
+  storageClassName: thin-csi
+EOF

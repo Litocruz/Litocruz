@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: hsp-cites-app-route
+  namespace: p1042
+spec:
+  host: hsp-cites-app-route-p1042.apps.lab.okd.local
+  to:
+    kind: Service
+    name: hsp-cites-app-svc
+    weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
+

@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: selfmng-mdw-config
+data:
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://postgresql:5432/postgres"
+
+  MODULES_APPOINTMENTS_API: "/api/appointments"
+  MODULES_APPOINTMENTS_APP_URLS_0: "https://hsp-cites-app-route-p1042.apps.lab.okd.local"
+  MODULES_APPOINTMENTS_APP_URLS_1: "http://localhost:5173"
+  MODULES_APPOINTMENTS_APP_URLS_2: "http://localhost:5174"
+  MODULES_APPOINTMENTS_APP_URLS_3: "http://localhost:8080"
+  MODULES_APPOINTMENTS_APP_URLS_4: "http://localhost:4200"
+
+  MODULES_BACKOFFICE_API: "/api/backoffice"
+  MODULES_BACKOFFICE_APP_URLS_0: "https://hsp-cites-backoffice-route-p1042.apps.lab.okd.local"
+  MODULES_BACKOFFICE_APP_URLS_1: "http://localhost:5173"
+  MODULES_BACKOFFICE_APP_URLS_2: "http://localhost:5174"
+  MODULES_BACKOFFICE_APP_URLS_3: "http://localhost:8080"
+  MODULES_BACKOFFICE_APP_URLS_4: "http://localhost:4200"
+
+  TOKENIZER_VERSION: "v1"
+  TOKENIZER_VERSION_PREVIEW: "v1p"
+  TOKENIZER_SIGNATURE_LENGTH: "16"
+
+  CACHE_HAZELCAST_KUBERNETES_ENABLED: "true"
+  CACHE_HAZELCAST_KUBERNETES_SERVICE_NAME: "selfmng-mdw-svc"
+  CACHE_HAZELCAST_KUBERNETES_NAMESPACE: "p1042"
+
+

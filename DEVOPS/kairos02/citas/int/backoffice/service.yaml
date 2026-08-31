@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hsp-cites-backoffice-svc
+  namespace: p1042
+spec:
+  selector:
+      app: hsp-cites-backoffice
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: http

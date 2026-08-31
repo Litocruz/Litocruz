@@ -1,0 +1,239 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"route.openshift.io/v1","kind":"Route","metadata":{"annotations":{},"labels":{"router":"intranet"},"name":"rgv-services-ingress","namespace":"etc"},"spec":{"host":"rgv-services.produccio.apps.kairos03.santpau.es","port":{"targetPort":"http-port"},"tls":{"insecureEdgeTerminationPolicy":"Allow","termination":"edge"},"to":{"kind":"Service","name":"rgv-service","weight":100},"wildcardPolicy":"None"}}
+  creationTimestamp: "2024-05-08T14:31:08Z"
+  labels:
+    k8s-app: rgv
+    router: intranet
+  name: rgv-services-ingress
+  namespace: etc
+  resourceVersion: "535529535"
+  uid: 52cd3fe3-196c-45cc-86f0-0834963b33c6
+spec:
+  host: rgv-services.produccio.apps.kairos03.santpau.es
+  port:
+    targetPort: http-port
+  tls:
+    caCertificate: |-
+      subject=CN=GEANT TLS RSA 1, O=Hellenic Academic and Research Institutions CA, C=GR
+      issuer=CN=HARICA TLS RSA Root CA 2021, O=Hellenic Academic and Research Institutions CA, C=GR
+      -----BEGIN CERTIFICATE-----
+      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
+      V9IaUQGJ
+      -----END CERTIFICATE-----
+      subject=CN=HARICA TLS RSA Root CA 2021, O=Hellenic Academic and Research Institutions CA, C=GR
+      issuer=CN=Hellenic Academic and Research Institutions RootCA 2015, O=Hellenic Academic and Research Institutions Cert. Authority, L=Athens, C=GR
+      -----BEGIN CERTIFICATE-----
+      MIIGwDCCBKigAwIBAgIQKmCG1NTeRcleS5j7vy+/JjANBgkqhkiG9w0BAQsFADCBpjELMAkGA1UE
+      BhMCR1IxDzANBgNVBAcTBkF0aGVuczFEMEIGA1UEChM7SGVsbGVuaWMgQWNhZGVtaWMgYW5kIFJl
+      c2VhcmNoIEluc3RpdHV0aW9ucyBDZXJ0LiBBdXRob3JpdHkxQDA+BgNVBAMTN0hlbGxlbmljIEFj
+      YWRlbWljIGFuZCBSZXNlYXJjaCBJbnN0aXR1dGlvbnMgUm9vdENBIDIwMTUwHhcNMjEwOTAyMDc0
+      MTU1WhcNMjkwODMxMDc0MTU0WjBsMQswCQYDVQQGEwJHUjE3MDUGA1UECgwuSGVsbGVuaWMgQWNh
+      ZGVtaWMgYW5kIFJlc2VhcmNoIEluc3RpdHV0aW9ucyBDQTEkMCIGA1UEAwwbSEFSSUNBIFRMUyBS
+      U0EgUm9vdCBDQSAyMDIxMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAi8Lnr2WbBWeW
+      yQ0kudAOZPzO4iQYLIR/d1HLBBE2uF7taXGnnuQlCZdnwUfCz5EWNmI9OAThUYL/rNK0ad0u7BGj
+      Re5raztMv4yNpB6dEbnpOPl6DgyY4iMd0U5j1Oe4QUT7a69r2h/TxZGIW6SJktGB5ow5WKDWaUOp
+      rZhSWG7bCvtrz2j646ReOkVzmAfqXwJy3gyls5+uqR23HbP8ilnnbnJlrfUwlCMH84IWSzWYnFO7
+      L8rkWtnHjR38mJn7LKSCa/AqH44LX3FcXK5CeymJgcsDo5nKiJ4LQAlBM9vmWHr9rplwwFoP1hOG
+      cS92afyQ3dstbtHym/Uaa55vFYx68EsooCI4gCRsNqQ78jCR83gTz8E/NavxHREjtUMingGStxgC
+      5RHRgtsVAMxhN8EqfJrh0LqzUEbugqydMfj7I+IDAEhwowkmeRVTYPM4XK046oEAYxS5M17dC9ug
+      RQcaMwn4TbSnAqZp9MJZBYhlhVauS8vg3jx9LRrI6fsfo2FK1ioTrXdMGhibkQ9Y2AZUxZf4qj8g
+      iqaFpnf2pvwc4u5ulDMqg1CECuVPhvhQRXgAgetbaOMmjcx7XFH0FCxAvhpgHXpyYR0fYy2Iqs6i
+      RZAI/Gu+s1AqWv2oSBhG1pBAkpAKhF5oMfjr7Q3THcZ9mRhVVidlLo1FxSTszuMCAwEAAaOCASEw
+      ggEdMA8GA1UdEwEB/wQFMAMBAf8wHwYDVR0jBBgwFoAUcRVnyMjJvXVdctA4GGqd83EkVAswTAYI
+      KwYBBQUHAQEEQDA+MDwGCCsGAQUFBzAChjBodHRwOi8vcmVwby5oYXJpY2EuZ3IvY2VydHMvSGFy
+      aWNhUm9vdENBMjAxNS5jcnQwEQYDVR0gBAowCDAGBgRVHSAAMB0GA1UdJQQWMBQGCCsGAQUFBwMC
+      BggrBgEFBQcDATA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLmhhcmljYS5nci9IYXJpY2FS
+      b290Q0EyMDE1LmNybDAdBgNVHQ4EFgQUCkgjpmCkkgoz6pNbxVfqJU29Eu4wDgYDVR0PAQH/BAQD
+      AgGGMA0GCSqGSIb3DQEBCwUAA4ICAQDAze/rVni3cYGP1BWkxXnIVynqHcC6Cw7kbkXoXBZAqF9A
+      NQAKoz2YQ+WyzrparKVilMG6p6mdWTKeLy6eQDRhFSu9DrMYr4TBYxIp2e5ZLQBk96xbG3wSepBC
+      kTDA0MA0NybzM0gF5nTa82BMCED8EQXliWWsgqUorXuk7msadosX793M42llmAcj1zJkADzlyzi4
+      gcPvIc4skfmz1OW9jxxwyaR/41VYzPVyw7m0rsL9n3v5PCFJ1zrldYayKq9gOdwOZInNJQgPU6im
+      XEFBZWdqdR+xdL7qHVMkdzBRoFqnYjr2bonw87Rxk7dAsdzmUUPJTIayzDTdtU78XkOl0FivJWBX
+      DQPiVB2Z5NdOVPUANDnADA5octuC3YTG2ncpG9aNKM4ggAyr3imdnz5UZdioYkecv2TVJHT2lXE5
+      PH/ifJs8p9+WFgyzFsW97BUF1nKsZiUWvlyPY9C9PKuhI4OMeTEA99YIRXYjXDSZq300ko5sXUVK
+      VG2osAR4Sr3wqS5hLGNBfym7FZwsQ+/ja+fenEALAbAiEMpI9h71lpMpIhdx7rdRznNeSOok/pVM
+      aqvBZ0IvAq+yXb7d8C+tAND0IcUxYyyJqkE789RJdcGZO9JMXv4inBFIEuMAMlGPxzcroEx+ehDX
+      yGR0asw7CooV2DCfiEJlIsKzLcPZew==
+      -----END CERTIFICATE-----
+    certificate: |-
+      subject=CN=rgv-services.produccio.apps.kairos03.santpau.es, O=Fundació Gestió Sanitària Hospital de la Santa Creu i Sant Pau, L=Barcelona, C=ES
+      issuer=CN=GEANT TLS RSA 1, O=Hellenic Academic and Research Institutions CA, C=GR
+      -----BEGIN CERTIFICATE-----
+      MIIHWTCCBcGgAwIBAgIQICpy6bfy6dJscBLOcIIibzANBgkqhkiG9w0BAQsFADBgMQswCQYDVQQG
+      EwJHUjE3MDUGA1UECgwuSGVsbGVuaWMgQWNhZGVtaWMgYW5kIFJlc2VhcmNoIEluc3RpdHV0aW9u
+      cyBDQTEYMBYGA1UEAwwPR0VBTlQgVExTIFJTQSAxMB4XDTI1MDQxNjExMDUxNFoXDTI2MDQxNjEx
+      MDUxNFowgacxCzAJBgNVBAYTAkVTMRIwEAYDVQQHDAlCYXJjZWxvbmExSjBIBgNVBAoMQUZ1bmRh
+      Y2nDsyBHZXN0acOzIFNhbml0w6ByaWEgSG9zcGl0YWwgZGUgbGEgU2FudGEgQ3JldSBpIFNhbnQg
+      UGF1MTgwNgYDVQQDDC9yZ3Ytc2VydmljZXMucHJvZHVjY2lvLmFwcHMua2Fpcm9zMDMuc2FudHBh
+      dS5lczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJOEqmz+rLGv7j+fkUyt14whPZSP
+      lAccOK0ccTRv66SfXyhdTGGwY3/Z+R70h/uHNgJUazQ5yx6Ba0L+IAdJnrPiumKupJInAd37gWJQ
+      y20unpokTtfY3NPi1jqAEiKHElcNFRljGc7ZDSLCutnN8WSGq90+fDOYpykSV4cWDWv1wHCUtFev
+      8YYv8kWYtm5jQnB15/LmB3bOc0MrsvsJesYX9hz0UIGtiJARqDbIJZ5SFy53K5LFROhIyEae7bgS
+      OskjU7U8qYS94ame2wZV+wIY9lWQ786mRK4XEgv/WPXAdEZ/6XDOcU6YMTGe8DnU/9cK8cHt2Gj7
+      Q5upuIh9nOsCAwEAAaOCA0UwggNBMB8GA1UdIwQYMBaAFIYBcj+MqXDiMQZTFs4BX1t5yDw7MG8G
+      CCsGAQUFBwEBBGMwYTA4BggrBgEFBQcwAoYsaHR0cDovL2NydC5oYXJpY2EuZ3IvSEFSSUNBLUdF
+      QU5ULVRMUy1SMS5jZXIwJQYIKwYBBQUHMAGGGWh0dHA6Ly9vY3NwLXRscy5oYXJpY2EuZ3IwbwYD
+      VR0RBGgwZoIvcmd2LXNlcnZpY2VzLnByb2R1Y2Npby5hcHBzLmthaXJvczAzLnNhbnRwYXUuZXOC
+      M3d3dy5yZ3Ytc2VydmljZXMucHJvZHVjY2lvLmFwcHMua2Fpcm9zMDMuc2FudHBhdS5lczAtBgNV
+      HSAEJjAkMAgGBmeBDAECAjAIBgYEAI96AQcwDgYMKwYBBAGBzxEBAQECMB0GA1UdJQQWMBQGCCsG
+      AQUFBwMCBggrBgEFBQcDATA9BgNVHR8ENjA0MDKgMKAuhixodHRwOi8vY3JsLmhhcmljYS5nci9I
+      QVJJQ0EtR0VBTlQtVExTLVIxLmNybDAdBgNVHQ4EFgQUpS96ILEurD7fAB1l5sRghoAolNkwDgYD
+      VR0PAQH/BAQDAgWgMIIBfgYKKwYBBAHWeQIEAgSCAW4EggFqAWgAdgAlL5TCKynpbp9BGnIHK2lc
+      W1L/l6kNJUC7/NxR7E3uCwAAAZY+T3L2AAAEAwBHMEUCIC8lKC9khrHxmDnVNNdXCJ72zHNoMRqX
+      8tF34jTrMp5tAiEAjxLx68Tp+fCnv3Rep8XBtQcMdtkbzvtcEuu/YKrEvjQAdgAZhtTHKKpv/roD
+      b3gqTQGRqs4tcjEPrs5dcEEtJUzH1AAAAZY+T3LqAAAEAwBHMEUCIHds9nQIYZeyngwlUCY5cDsA
+      SrVrG9Wr9HfDyxUQkr2WAiEAwL1Ah7rUh3HK9omSqz2Rw1OCccIZHFEH36a/4VV6q5QAdgCWl2S/
+      VViXrfdDh2g3CEJ36fA61fak8zZuRqQ/D8qpxgAAAZY+T3K5AAAEAwBHMEUCIHDBrcw4kuoP/i8Y
+      2Zu1mZt5or3enaxv2Scp11cEeyreAiEA4svTlobfJ7faGbHspZCgjfL3W53CszWvUQQOjY2j4bIw
+      DQYJKoZIhvcNAQELBQADggGBAEGguOmg6Gof1JxwgbK/ZSx2SdmCFEyzCr0HzRaxUouRoG+Xubys
+      kc5bcJPE6DJITTbsuAgJbUKVucmhFGxCpn9dSVc9TqOcNiJh8tJATnEx7A5FNyAq792FOOlp92oV
+      2kqbZbAi+pf+D28YyjqKKHEyRPDbNABWtFdKzc+WDGd2VgTFOWXT4liir8L+Hpd6CQ8kKAbcj12x
+      9g50lGnbNNJfa9tq/Xlf2XwO3rWvqmqVCCLYypD2lOl2u0qtKmRgJe47TAsFYfOaMcCvH38otG3V
+      BCI7nzkiVUckmzcI0dFIBP0Gzea2GllESR9wIMZ3I0EcubRO1tkr23ibIJtB0H3DHapVdmkQ6+PH
+      xUGu16Ud/6M576MkW4ZZlOwQ7+Ypu3hbtLbMrXVZulx54RMnywHQdRgaxka/rgC33i//3Vwk6Ogb
+      dAfm6qt52tiAbc1ocDDnDlnKInpSrG61WfwB2LaTQOekwdy1fvW9EOukgVCPJq7gC13VjVOuasso
+      WlDS2A==
+      -----END CERTIFICATE-----
+      subject=CN=GEANT TLS RSA 1, O=Hellenic Academic and Research Institutions CA, C=GR
+      issuer=CN=HARICA TLS RSA Root CA 2021, O=Hellenic Academic and Research Institutions CA, C=GR
+      -----BEGIN CERTIFICATE-----
+      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
+      V9IaUQGJ
+      -----END CERTIFICATE-----
+      subject=CN=HARICA TLS RSA Root CA 2021, O=Hellenic Academic and Research Institutions CA, C=GR
+      issuer=CN=Hellenic Academic and Research Institutions RootCA 2015, O=Hellenic Academic and Research Institutions Cert. Authority, L=Athens, C=GR
+      -----BEGIN CERTIFICATE-----
+      MIIGwDCCBKigAwIBAgIQKmCG1NTeRcleS5j7vy+/JjANBgkqhkiG9w0BAQsFADCBpjELMAkGA1UE
+      BhMCR1IxDzANBgNVBAcTBkF0aGVuczFEMEIGA1UEChM7SGVsbGVuaWMgQWNhZGVtaWMgYW5kIFJl
+      c2VhcmNoIEluc3RpdHV0aW9ucyBDZXJ0LiBBdXRob3JpdHkxQDA+BgNVBAMTN0hlbGxlbmljIEFj
+      YWRlbWljIGFuZCBSZXNlYXJjaCBJbnN0aXR1dGlvbnMgUm9vdENBIDIwMTUwHhcNMjEwOTAyMDc0
+      MTU1WhcNMjkwODMxMDc0MTU0WjBsMQswCQYDVQQGEwJHUjE3MDUGA1UECgwuSGVsbGVuaWMgQWNh
+      ZGVtaWMgYW5kIFJlc2VhcmNoIEluc3RpdHV0aW9ucyBDQTEkMCIGA1UEAwwbSEFSSUNBIFRMUyBS
+      U0EgUm9vdCBDQSAyMDIxMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAi8Lnr2WbBWeW
+      yQ0kudAOZPzO4iQYLIR/d1HLBBE2uF7taXGnnuQlCZdnwUfCz5EWNmI9OAThUYL/rNK0ad0u7BGj
+      Re5raztMv4yNpB6dEbnpOPl6DgyY4iMd0U5j1Oe4QUT7a69r2h/TxZGIW6SJktGB5ow5WKDWaUOp
+      rZhSWG7bCvtrz2j646ReOkVzmAfqXwJy3gyls5+uqR23HbP8ilnnbnJlrfUwlCMH84IWSzWYnFO7
+      L8rkWtnHjR38mJn7LKSCa/AqH44LX3FcXK5CeymJgcsDo5nKiJ4LQAlBM9vmWHr9rplwwFoP1hOG
+      cS92afyQ3dstbtHym/Uaa55vFYx68EsooCI4gCRsNqQ78jCR83gTz8E/NavxHREjtUMingGStxgC
+      5RHRgtsVAMxhN8EqfJrh0LqzUEbugqydMfj7I+IDAEhwowkmeRVTYPM4XK046oEAYxS5M17dC9ug
+      RQcaMwn4TbSnAqZp9MJZBYhlhVauS8vg3jx9LRrI6fsfo2FK1ioTrXdMGhibkQ9Y2AZUxZf4qj8g
+      iqaFpnf2pvwc4u5ulDMqg1CECuVPhvhQRXgAgetbaOMmjcx7XFH0FCxAvhpgHXpyYR0fYy2Iqs6i
+      RZAI/Gu+s1AqWv2oSBhG1pBAkpAKhF5oMfjr7Q3THcZ9mRhVVidlLo1FxSTszuMCAwEAAaOCASEw
+      ggEdMA8GA1UdEwEB/wQFMAMBAf8wHwYDVR0jBBgwFoAUcRVnyMjJvXVdctA4GGqd83EkVAswTAYI
+      KwYBBQUHAQEEQDA+MDwGCCsGAQUFBzAChjBodHRwOi8vcmVwby5oYXJpY2EuZ3IvY2VydHMvSGFy
+      aWNhUm9vdENBMjAxNS5jcnQwEQYDVR0gBAowCDAGBgRVHSAAMB0GA1UdJQQWMBQGCCsGAQUFBwMC
+      BggrBgEFBQcDATA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLmhhcmljYS5nci9IYXJpY2FS
+      b290Q0EyMDE1LmNybDAdBgNVHQ4EFgQUCkgjpmCkkgoz6pNbxVfqJU29Eu4wDgYDVR0PAQH/BAQD
+      AgGGMA0GCSqGSIb3DQEBCwUAA4ICAQDAze/rVni3cYGP1BWkxXnIVynqHcC6Cw7kbkXoXBZAqF9A
+      NQAKoz2YQ+WyzrparKVilMG6p6mdWTKeLy6eQDRhFSu9DrMYr4TBYxIp2e5ZLQBk96xbG3wSepBC
+      kTDA0MA0NybzM0gF5nTa82BMCED8EQXliWWsgqUorXuk7msadosX793M42llmAcj1zJkADzlyzi4
+      gcPvIc4skfmz1OW9jxxwyaR/41VYzPVyw7m0rsL9n3v5PCFJ1zrldYayKq9gOdwOZInNJQgPU6im
+      XEFBZWdqdR+xdL7qHVMkdzBRoFqnYjr2bonw87Rxk7dAsdzmUUPJTIayzDTdtU78XkOl0FivJWBX
+      DQPiVB2Z5NdOVPUANDnADA5octuC3YTG2ncpG9aNKM4ggAyr3imdnz5UZdioYkecv2TVJHT2lXE5
+      PH/ifJs8p9+WFgyzFsW97BUF1nKsZiUWvlyPY9C9PKuhI4OMeTEA99YIRXYjXDSZq300ko5sXUVK
+      VG2osAR4Sr3wqS5hLGNBfym7FZwsQ+/ja+fenEALAbAiEMpI9h71lpMpIhdx7rdRznNeSOok/pVM
+      aqvBZ0IvAq+yXb7d8C+tAND0IcUxYyyJqkE789RJdcGZO9JMXv4inBFIEuMAMlGPxzcroEx+ehDX
+      yGR0asw7CooV2DCfiEJlIsKzLcPZew==
+      -----END CERTIFICATE-----
+    insecureEdgeTerminationPolicy: Allow
+    key: |-
+      -----BEGIN PRIVATE KEY-----
+      MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCThKps/qyxr+4/
+      n5FMrdeMIT2Uj5QHHDitHHE0b+ukn18oXUxhsGN/2fke9If7hzYCVGs0OcsegWtC
+      /iAHSZ6z4rpirqSSJwHd+4FiUMttLp6aJE7X2NzT4tY6gBIihxJXDRUZYxnO2Q0i
+      wrrZzfFkhqvdPnwzmKcpEleHFg1r9cBwlLRXr/GGL/JFmLZuY0Jwdefy5gd2znND
+      K7L7CXrGF/Yc9FCBrYiQEag2yCWeUhcudyuSxUToSMhGnu24EjrJI1O1PKmEveGp
+      ntsGVfsCGPZVkO/OpkSuFxIL/1j1wHRGf+lwznFOmDExnvA51P/XCvHB7dho+0Ob
+      qbiIfZzrAgMBAAECggEAKx4OQEBqEp+VGCSYMBzp0SwQF0GmJzPg/vw+vHBwJFRu
+      2Fn4zt7jHkYEUj9wFZ1ONH0fPosb6wUx6Ell7CthBzwgdWKNeKiNG6h9B1MNOpLz
+      SaOOJfndhdMaAcxYQJ5RRn9s6Ng1/Wckt0HKoonW4iaYyliOrfgS9+bEDZhtAN5I
+      nEIiVnxuJ15h50v3uAGS3LCHXDL283l22qGrvMmrbWo9eBD157x0dNHMtNEAD2uV
+      G4sEroY3tf9Iy1BHo1HcHV5RBlVzrxmIiKXjAlnaRBctIBwD0CSbM3TW8hfb6cDv
+      yiIfc7S+5cNYWfpOpH/NImkqjaQKD08s6f1WGnRuEQKBgQDJvQ8pwDn6FbdkNFnV
+      4DlxUbhgldMttlvhHWLOlJ+tKSbrSXkNg+YMXgQyIwif7MQmvnwQzRkXwO81OMu1
+      4WTikVGWdQrnGmFkFL/uYOKgDTlKh8dLn8owCtwlrVxOuq09N7elBQFCzSaZ5JZJ
+      6mcxbqi1iAcdJ5QTMC9OGJsbMQKBgQC7MjSQ1MeDgbQmQfk+AyTXJoo1i1K639P8
+      Ua3x3zASu2xeouIUkw94K1BE4a7D2h6xwB5GxFL5IVlxjhg+06glkim2FCwzG/vA
+      UFOKDEVQTlJheXT+K2SJ+bQQvdVc+XAyWIw6GywG2obmHNOcnfcMm+0Ec+vTx/A8
+      tMPDuFh62wKBgQCIRtVqX7cKcAcNgqu45ZoIKasCW9NnCsvwOviXEiD3SVhIEr7a
+      WWJaslvlPnNCDR/ICF8ovlOYDzXH3xEFUTfkMURK/c+ao+BsSfQJZJtSgPxVk3kW
+      Zd+gKoXiUcSMTmBefTfqGoJqjMjpple7oMOKyfTfg/9CO400lRUvjUGh0QKBgEkN
+      C5RlZMJ+EDZJ0qEPiwXnBVJl31AL3ub9XPshlNoKh/zaZY2P4h6MEJQA2jmV2hqV
+      lXsaTCLqj8QPpoiGAn0+78YdUy5SwkjHUAJ0TWxMVDuzsSMq/d4WMt3BpwzUTqNn
+      CLn4NpMqHjCYmT/qKSmjg7gUILiRsr+N70Nmoii3AoGAJLV62DE/BlwcFcPqBKJS
+      F/b7w8Kd8ApD8cYqdDVKqNFHaScRS2gbHC05qW+jS1/nEtrvjasnyQIjd/fOVuoR
+      jCZN271XiiHW+AUyLuWAhJtyRu8utRtlpwzkzzEWd8LDtjxPRGVvOBC6RT+kOcwk
+      lLear9rtXeRxvPKVwCmjboM=
+      -----END PRIVATE KEY-----
+    termination: edge
+  to:
+    kind: Service
+    name: rgv-service
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2024-05-08T14:31:08Z"
+      status: "True"
+      type: Admitted
+    host: rgv-services.produccio.apps.kairos03.santpau.es
+    routerCanonicalHostname: router-default.apps.kairos03.santpau.es
+    routerName: default
+    wildcardPolicy: None
